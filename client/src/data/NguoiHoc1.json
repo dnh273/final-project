@@ -1,0 +1,502 @@
+[
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Công nghệ thông tin",
+        "so_dang_ky": 2134,
+        "so_trung_tuyen": 1024,
+        "so_nhap_hoc": 1000,
+        "diem_trung_tuyen": 28.0,
+        "so_sinh_vien_quoc_te": 6,
+        "id": 1
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Kỹ thuật máy tính",
+        "so_dang_ky": 1085,
+        "so_trung_tuyen": 900,
+        "so_nhap_hoc": 896,
+        "diem_trung_tuyen": 21.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 2
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Vật lý kỹ thuật",
+        "so_dang_ky": 985,
+        "so_trung_tuyen": 682,
+        "so_nhap_hoc": 538,
+        "diem_trung_tuyen": 19.5,
+        "so_sinh_vien_quoc_te": 2,
+        "id": 3
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Cơ kỹ thuật",
+        "so_dang_ky": 525,
+        "so_trung_tuyen": 414,
+        "so_nhap_hoc": 382,
+        "diem_trung_tuyen": 20.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 4
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Công nghệ kỹ thuật xây dựng",
+        "so_dang_ky": 412,
+        "so_trung_tuyen": 212,
+        "so_nhap_hoc": 195,
+        "diem_trung_tuyen": 21.5,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 5
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Công nghệ hàng không vũ trụ",
+        "so_dang_ky": 915,
+        "so_trung_tuyen": 724,
+        "so_nhap_hoc": 700,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 6
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Kỹ thuật điều khiển và tự động hóa",
+        "so_dang_ky": 615,
+        "so_trung_tuyen": 420,
+        "so_nhap_hoc": 410,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 7
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Khoa học máy tính",
+        "so_dang_ky": 992,
+        "so_trung_tuyen": 720,
+        "so_nhap_hoc": 701,
+        "diem_trung_tuyen": 27.0,
+        "so_sinh_vien_quoc_te": 2,
+        "id": 8
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Công nghệ kỹ thuật điện tử viễn thông",
+        "so_dang_ky": 462,
+        "so_trung_tuyen": 219,
+        "so_nhap_hoc": 217,
+        "diem_trung_tuyen": 23.0,
+        "so_sinh_vien_quoc_te": 1,
+        "id": 9
+    },
+    {
+        "ma_nam_hoc": 1,
+        "nganh": "Mạng máy tính và truyền thông dữ liệu",
+        "so_dang_ky": 585,
+        "so_trung_tuyen": 318,
+        "so_nhap_hoc": 302,
+        "diem_trung_tuyen": 21.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 10
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Công nghệ thông tin",
+        "so_dang_ky": 2100,
+        "so_trung_tuyen": 973,
+        "so_nhap_hoc": 901,
+        "diem_trung_tuyen": 29.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 11
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Kỹ thuật máy tính",
+        "so_dang_ky": 915,
+        "so_trung_tuyen": 724,
+        "so_nhap_hoc": 700,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 12
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Vật lý kỹ thuật",
+        "so_dang_ky": 985,
+        "so_trung_tuyen": 682,
+        "so_nhap_hoc": 538,
+        "diem_trung_tuyen": 19.5,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 13
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Cơ kỹ thuật",
+        "so_dang_ky": 412,
+        "so_trung_tuyen": 414,
+        "so_nhap_hoc": 382,
+        "diem_trung_tuyen": 20.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 14
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Công nghệ kỹ thuật xây dựng",
+        "so_dang_ky": 615,
+        "so_trung_tuyen": 420,
+        "so_nhap_hoc": 410,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 15
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Công nghệ hàng không vũ trụ",
+        "so_dang_ky": 462,
+        "so_trung_tuyen": 219,
+        "so_nhap_hoc": 217,
+        "diem_trung_tuyen": 23.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 16
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Kỹ thuật điều khiển và tự động hóa",
+        "so_dang_ky": 525,
+        "so_trung_tuyen": 414,
+        "so_nhap_hoc": 382,
+        "diem_trung_tuyen": 20.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 17
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Khoa học máy tính",
+        "so_dang_ky": 2134,
+        "so_trung_tuyen": 1024,
+        "so_nhap_hoc": 1000,
+        "diem_trung_tuyen": 28.0,
+        "so_sinh_vien_quoc_te": 2,
+        "id": 18
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Công nghệ kỹ thuật điện tử viễn thông",
+        "so_dang_ky": 992,
+        "so_trung_tuyen": 720,
+        "so_nhap_hoc": 701,
+        "diem_trung_tuyen": 27.0,
+        "so_sinh_vien_quoc_te": 2,
+        "id": 19
+    },
+    {
+        "ma_nam_hoc": 2,
+        "nganh": "Mạng máy tính và truyền thông dữ liệu",
+        "so_dang_ky": 1085,
+        "so_trung_tuyen": 900,
+        "so_nhap_hoc": 896,
+        "diem_trung_tuyen": 21.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 20
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Công nghệ thông tin",
+        "so_dang_ky": 985,
+        "so_trung_tuyen": 682,
+        "so_nhap_hoc": 538,
+        "diem_trung_tuyen": 27.0,
+        "so_sinh_vien_quoc_te": 15,
+        "id": 21
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Kỹ thuật máy tính",
+        "so_dang_ky": 412,
+        "so_trung_tuyen": 212,
+        "so_nhap_hoc": 195,
+        "diem_trung_tuyen": 20.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 22
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Vật lý kỹ thuật",
+        "so_dang_ky": 462,
+        "so_trung_tuyen": 219,
+        "so_nhap_hoc": 217,
+        "diem_trung_tuyen": 23.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 23
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Cơ kỹ thuật",
+        "so_dang_ky": 615,
+        "so_trung_tuyen": 420,
+        "so_nhap_hoc": 410,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 2,
+        "id": 24
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Công nghệ kỹ thuật xây dựng",
+        "so_dang_ky": 585,
+        "so_trung_tuyen": 318,
+        "so_nhap_hoc": 302,
+        "diem_trung_tuyen": 21.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 25
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Công nghệ hàng không vũ trụ",
+        "so_dang_ky": 615,
+        "so_trung_tuyen": 420,
+        "so_nhap_hoc": 410,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 26
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Kỹ thuật điều khiển và tự động hóa",
+        "so_dang_ky": 316,
+        "so_trung_tuyen": 200,
+        "so_nhap_hoc": 192,
+        "diem_trung_tuyen": 25.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 27
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Khoa học máy tính",
+        "so_dang_ky": 1182,
+        "so_trung_tuyen": 720,
+        "so_nhap_hoc": 704,
+        "diem_trung_tuyen": 28.0,
+        "so_sinh_vien_quoc_te": 1,
+        "id": 28
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Công nghệ kỹ thuật điện tử viễn thông",
+        "so_dang_ky": 615,
+        "so_trung_tuyen": 420,
+        "so_nhap_hoc": 410,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 3,
+        "id": 29
+    },
+    {
+        "ma_nam_hoc": 3,
+        "nganh": "Mạng máy tính và truyền thông dữ liệu",
+        "so_dang_ky": 413,
+        "so_trung_tuyen": 332,
+        "so_nhap_hoc": 306,
+        "diem_trung_tuyen": 19.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 30
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Công nghệ thông tin",
+        "so_dang_ky": 1820,
+        "so_trung_tuyen": 915,
+        "so_nhap_hoc": 900,
+        "diem_trung_tuyen": 28.5,
+        "so_sinh_vien_quoc_te": 2,
+        "id": 31
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Kỹ thuật máy tính",
+        "so_dang_ky": 1030,
+        "so_trung_tuyen": 625,
+        "so_nhap_hoc": 587,
+        "diem_trung_tuyen": 23.5,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 32
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Vật lý kỹ thuật",
+        "so_dang_ky": 726,
+        "so_trung_tuyen": 520,
+        "so_nhap_hoc": 492,
+        "diem_trung_tuyen": 20.5,
+        "so_sinh_vien_quoc_te": 1,
+        "id": 33
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Cơ kỹ thuật",
+        "so_dang_ky": 934,
+        "so_trung_tuyen": 629,
+        "so_nhap_hoc": 512,
+        "diem_trung_tuyen": 23.5,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 34
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Công nghệ kỹ thuật xây dựng",
+        "so_dang_ky": 1036,
+        "so_trung_tuyen": 683,
+        "so_nhap_hoc": 624,
+        "diem_trung_tuyen": 24.5,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 35
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Công nghệ hàng không vũ trụ",
+        "so_dang_ky": 784,
+        "so_trung_tuyen": 568,
+        "so_nhap_hoc": 559,
+        "diem_trung_tuyen": 24.5,
+        "so_sinh_vien_quoc_te": 1,
+        "id": 36
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Kỹ thuật điều khiển và tự động hóa",
+        "so_dang_ky": 692,
+        "so_trung_tuyen": 599,
+        "so_nhap_hoc": 577,
+        "diem_trung_tuyen": 25.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 37
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Khoa học máy tính",
+        "so_dang_ky": 1893,
+        "so_trung_tuyen": 1529,
+        "so_nhap_hoc": 1510,
+        "diem_trung_tuyen": 28.5,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 38
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Công nghệ kỹ thuật điện tử viễn thông",
+        "so_dang_ky": 826,
+        "so_trung_tuyen": 539,
+        "so_nhap_hoc": 522,
+        "diem_trung_tuyen": 25.5,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 39
+    },
+    {
+        "ma_nam_hoc": 4,
+        "nganh": "Mạng máy tính và truyền thông dữ liệu",
+        "so_dang_ky": 724,
+        "so_trung_tuyen": 552,
+        "so_nhap_hoc": 526,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 2,
+        "id": 40
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Công nghệ thông tin",
+        "so_dang_ky": 1992,
+        "so_trung_tuyen": 1674,
+        "so_nhap_hoc": 1643,
+        "diem_trung_tuyen": 29.0,
+        "so_sinh_vien_quoc_te": 3,
+        "id": 41
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Kỹ thuật máy tính",
+        "so_dang_ky": 1532,
+        "so_trung_tuyen": 1225,
+        "so_nhap_hoc": 1193,
+        "diem_trung_tuyen": 26.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 42
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Vật lý kỹ thuật",
+        "so_dang_ky": 780,
+        "so_trung_tuyen": 620,
+        "so_nhap_hoc": 592,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 43
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Cơ kỹ thuật",
+        "so_dang_ky": 968,
+        "so_trung_tuyen": 872,
+        "so_nhap_hoc": 848,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 44
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Công nghệ kỹ thuật xây dựng",
+        "so_dang_ky": 1024,
+        "so_trung_tuyen": 826,
+        "so_nhap_hoc": 799,
+        "diem_trung_tuyen": 25.5,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 45
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Công nghệ hàng không vũ trụ",
+        "so_dang_ky": 968,
+        "so_trung_tuyen": 726,
+        "so_nhap_hoc": 700,
+        "diem_trung_tuyen": 23.5,
+        "so_sinh_vien_quoc_te": 2,
+        "id": 46
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Kỹ thuật điều khiển và tự động hóa",
+        "so_dang_ky": 793,
+        "so_trung_tuyen": 680,
+        "so_nhap_hoc": 636,
+        "diem_trung_tuyen": 24.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 47
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Khoa học máy tính",
+        "so_dang_ky": 1876,
+        "so_trung_tuyen": 1450,
+        "so_nhap_hoc": 1432,
+        "diem_trung_tuyen": 29.0,
+        "so_sinh_vien_quoc_te": 3,
+        "id": 48
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Công nghệ kỹ thuật điện tử viễn thông",
+        "so_dang_ky": 922,
+        "so_trung_tuyen": 780,
+        "so_nhap_hoc": 747,
+        "diem_trung_tuyen": 26.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 49
+    },
+    {
+        "ma_nam_hoc": 5,
+        "nganh": "Mạng máy tính và truyền thông dữ liệu",
+        "so_dang_ky": 882,
+        "so_trung_tuyen": 746,
+        "so_nhap_hoc": 730,
+        "diem_trung_tuyen": 25.0,
+        "so_sinh_vien_quoc_te": 0,
+        "id": 50
+    }
+]
