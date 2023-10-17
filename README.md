@@ -1,5 +1,7 @@
 # FINAL PROJECT
 
+## Installation
+
 ### Front-end
 
 ```bash
