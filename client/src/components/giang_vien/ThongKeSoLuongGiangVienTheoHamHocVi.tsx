@@ -1,10 +1,10 @@
-import React from "react";
-import data from "../../data/GiangVien.json";
-import HeaderTitle from "../common/HeaderTitle";
+import { useAppSelector } from "../../redux/hook";
 
 const ThongKeSoLuongGiangVienTheoHamHocVi = () => {
+  const { giangviens } = useAppSelector((state) => state.giangvien);
+
   const filterByHocVi = (hoc_vi: string) => {
-    return data.filter((item) => item.hoc_vi == hoc_vi);
+    return giangviens?.filter((item) => item.hoc_vi == hoc_vi);
   };
 
   const GIAOSU = filterByHocVi("Giáo sư");
@@ -17,7 +17,6 @@ const ThongKeSoLuongGiangVienTheoHamHocVi = () => {
 
   return (
     <>
-      <HeaderTitle title="Bảng 34" />
       <div className="relative overflow-y-auto rounded-lg">
         <table className="w-full text-sm text-left text-black">
           <thead className="text-xs text-black uppercase bg-gray-50">
@@ -55,14 +54,14 @@ const ThongKeSoLuongGiangVienTheoHamHocVi = () => {
             </tr>
           </thead>
           <tbody>
-            {arrGiangVien.map((item, index) => {
+            {arrGiangVien?.map((item, index) => {
               return (
                 <tr className=" border-b" key={index}>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
                     {index + 1}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {item[index].hoc_vi}
+                    {item[index]?.hoc_vi}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
                     {item.length}
@@ -97,30 +96,31 @@ const ThongKeSoLuongGiangVienTheoHamHocVi = () => {
                 </tr>
               );
             })}
-            <tr className="border-b">
+            <tr className="border-b bg-gray-200">
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-bold">
                 Tổng số
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black">
-                {data.length}
+                {giangviens.length}
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black">
                 {
-                  data.filter((item) => item.loai_hop_dong == "Trong biên chế")
-                    .length
+                  giangviens.filter(
+                    (item) => item.loai_hop_dong == "Trong biên chế"
+                  ).length
                 }
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black">
                 {
-                  data.filter(
+                  giangviens.filter(
                     (item) => item.loai_hop_dong == "Hợp đồng dài hạn"
                   ).length
                 }
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black">
                 {
-                  data.filter(
+                  giangviens.filter(
                     (item) => item.loai_hop_dong == "Hợp đồng ngắn hạn"
                   ).length
                 }

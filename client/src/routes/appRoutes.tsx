@@ -73,13 +73,38 @@ const appRoutes: RouteType[] = [
       icon: <i className="ri-parent-line"></i>,
     },
     child: [
-      { path: "", element: <ThongKeSoNguoiNhapHoc /> },
-      { path: "bang2", element: <ThongKeTheoChuongTrinhHoc /> },
       {
-        path: "bang3",
-        element: <ThongKeTiLeSinhVienQuocTe />,
+        path: "",
+        element: <ThongKeSoNguoiNhapHoc />,
+        sidebarProps: {
+          displayText: "Bảng 38",
+          icon: <i className="ri-parent-line"></i>,
+        },
       },
-      { path: "bang4", element: <ThongKeTotNghiep /> },
+      {
+        path: "bang39",
+        element: <ThongKeTheoChuongTrinhHoc />,
+        sidebarProps: {
+          displayText: "Bảng 39",
+          icon: <i className="ri-parent-line"></i>,
+        },
+      },
+      {
+        path: "bang40",
+        element: <ThongKeTiLeSinhVienQuocTe />,
+        sidebarProps: {
+          displayText: "Bảng 40",
+          icon: <i className="ri-parent-line"></i>,
+        },
+      },
+      {
+        path: "bang43",
+        element: <ThongKeTotNghiep />,
+        sidebarProps: {
+          displayText: "Bảng 43",
+          icon: <i className="ri-parent-line"></i>,
+        },
+      },
     ],
   },
   {

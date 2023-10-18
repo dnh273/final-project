@@ -1,5 +1,4 @@
 import { IGiangVien } from "../../interface";
-import HeaderTitle from "../common/HeaderTitle";
 import { useAppSelector } from "../../redux/hook";
 
 const QuyDoiSoLuongGiangVien = () => {
@@ -30,7 +29,6 @@ const QuyDoiSoLuongGiangVien = () => {
 
   return (
     <>
-      <HeaderTitle title="Bảng 35" />
       <div className="relative overflow-y-auto rounded-lg">
         <table className="w-full text-sm text-left text-black">
           <thead className="text-xs text-black uppercase bg-gray-50">
@@ -101,22 +99,22 @@ const QuyDoiSoLuongGiangVien = () => {
                 <tr className=" border-b" key={index}>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {arr.length - index}
+                    {arr?.length - index}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {item[index].hoc_vi}
+                    {item[index]?.hoc_vi}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {item.length}
+                    {item?.length}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {filterByLoaiHopDong(item, "Trong biên chế").length}
+                    {filterByLoaiHopDong(item, "Trong biên chế")?.length}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {filterByLoaiHopDong(item, "Hợp đồng dài hạn").length}
+                    {filterByLoaiHopDong(item, "Hợp đồng dài hạn")?.length}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {filterByLoaiHopDong(item, "Hợp đồng ngắn hạn").length}
+                    {filterByLoaiHopDong(item, "Hợp đồng ngắn hạn")?.length}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
                     0
@@ -126,16 +124,16 @@ const QuyDoiSoLuongGiangVien = () => {
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
                     {total(
-                      filterByLoaiHopDong(item, "Trong biên chế").length,
-                      filterByLoaiHopDong(item, "Hợp đồng dài hạn").length,
-                      filterByLoaiHopDong(item, "Hợp đồng ngắn hạn").length *
+                      filterByLoaiHopDong(item, "Trong biên chế")?.length,
+                      filterByLoaiHopDong(item, "Hợp đồng dài hạn")?.length,
+                      filterByLoaiHopDong(item, "Hợp đồng ngắn hạn")?.length *
                         0.3
                     )}
                   </td>
                 </tr>
               );
             })}
-            <tr className="border-b">
+            <tr className="border-b bg-gray-200">
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
                 Tổng số

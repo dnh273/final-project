@@ -6,6 +6,7 @@
         "so_trung_tuyen": 1024,
         "so_nhap_hoc": 1000,
         "diem_trung_tuyen": 28.0,
+        "diem_trung_binh": 29.0,
         "so_sinh_vien_quoc_te": 6,
         "id": 1
     },
@@ -16,6 +17,7 @@
         "so_trung_tuyen": 900,
         "so_nhap_hoc": 896,
         "diem_trung_tuyen": 21.0,
+        "diem_trung_binh": 23.5,
         "so_sinh_vien_quoc_te": 0,
         "id": 2
     },
@@ -26,6 +28,7 @@
         "so_trung_tuyen": 682,
         "so_nhap_hoc": 538,
         "diem_trung_tuyen": 19.5,
+        "diem_trung_binh": 21.0,
         "so_sinh_vien_quoc_te": 2,
         "id": 3
     },
@@ -36,6 +39,7 @@
         "so_trung_tuyen": 414,
         "so_nhap_hoc": 382,
         "diem_trung_tuyen": 20.0,
+        "diem_trung_binh": 23.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 4
     },
@@ -46,6 +50,7 @@
         "so_trung_tuyen": 212,
         "so_nhap_hoc": 195,
         "diem_trung_tuyen": 21.5,
+        "diem_trung_binh": 22.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 5
     },
@@ -56,6 +61,7 @@
         "so_trung_tuyen": 724,
         "so_nhap_hoc": 700,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 26.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 6
     },
@@ -66,6 +72,7 @@
         "so_trung_tuyen": 420,
         "so_nhap_hoc": 410,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 25.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 7
     },
@@ -76,6 +83,7 @@
         "so_trung_tuyen": 720,
         "so_nhap_hoc": 701,
         "diem_trung_tuyen": 27.0,
+        "diem_trung_binh": 27.5,
         "so_sinh_vien_quoc_te": 2,
         "id": 8
     },
@@ -86,6 +94,7 @@
         "so_trung_tuyen": 219,
         "so_nhap_hoc": 217,
         "diem_trung_tuyen": 23.0,
+        "diem_trung_binh": 24.0,
         "so_sinh_vien_quoc_te": 1,
         "id": 9
     },
@@ -96,6 +105,7 @@
         "so_trung_tuyen": 318,
         "so_nhap_hoc": 302,
         "diem_trung_tuyen": 21.0,
+        "diem_trung_binh": 24.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 10
     },
@@ -106,6 +116,7 @@
         "so_trung_tuyen": 973,
         "so_nhap_hoc": 901,
         "diem_trung_tuyen": 29.0,
+        "diem_trung_binh": 30.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 11
     },
@@ -116,6 +127,7 @@
         "so_trung_tuyen": 724,
         "so_nhap_hoc": 700,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 27.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 12
     },
@@ -126,6 +138,7 @@
         "so_trung_tuyen": 682,
         "so_nhap_hoc": 538,
         "diem_trung_tuyen": 19.5,
+        "diem_trung_binh": 21.5,
         "so_sinh_vien_quoc_te": 0,
         "id": 13
     },
@@ -136,6 +149,7 @@
         "so_trung_tuyen": 414,
         "so_nhap_hoc": 382,
         "diem_trung_tuyen": 20.0,
+        "diem_trung_binh": 22.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 14
     },
@@ -146,6 +160,7 @@
         "so_trung_tuyen": 420,
         "so_nhap_hoc": 410,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 26.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 15
     },
@@ -156,6 +171,7 @@
         "so_trung_tuyen": 219,
         "so_nhap_hoc": 217,
         "diem_trung_tuyen": 23.0,
+        "diem_trung_binh": 25.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 16
     },
@@ -166,6 +182,7 @@
         "so_trung_tuyen": 414,
         "so_nhap_hoc": 382,
         "diem_trung_tuyen": 20.0,
+        "diem_trung_binh": 22.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 17
     },
@@ -176,6 +193,7 @@
         "so_trung_tuyen": 1024,
         "so_nhap_hoc": 1000,
         "diem_trung_tuyen": 28.0,
+        "diem_trung_binh": 29.0,
         "so_sinh_vien_quoc_te": 2,
         "id": 18
     },
@@ -186,6 +204,7 @@
         "so_trung_tuyen": 720,
         "so_nhap_hoc": 701,
         "diem_trung_tuyen": 27.0,
+        "diem_trung_binh": 29.0,
         "so_sinh_vien_quoc_te": 2,
         "id": 19
     },
@@ -196,6 +215,7 @@
         "so_trung_tuyen": 900,
         "so_nhap_hoc": 896,
         "diem_trung_tuyen": 21.0,
+        "diem_trung_binh": 23.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 20
     },
@@ -206,6 +226,7 @@
         "so_trung_tuyen": 682,
         "so_nhap_hoc": 538,
         "diem_trung_tuyen": 27.0,
+        "diem_trung_binh": 29.0,
         "so_sinh_vien_quoc_te": 15,
         "id": 21
     },
@@ -216,6 +237,7 @@
         "so_trung_tuyen": 212,
         "so_nhap_hoc": 195,
         "diem_trung_tuyen": 20.0,
+        "diem_trung_binh": 22.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 22
     },
@@ -226,6 +248,7 @@
         "so_trung_tuyen": 219,
         "so_nhap_hoc": 217,
         "diem_trung_tuyen": 23.0,
+        "diem_trung_binh": 25.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 23
     },
@@ -236,6 +259,7 @@
         "so_trung_tuyen": 420,
         "so_nhap_hoc": 410,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 25.0,
         "so_sinh_vien_quoc_te": 2,
         "id": 24
     },
@@ -246,6 +270,7 @@
         "so_trung_tuyen": 318,
         "so_nhap_hoc": 302,
         "diem_trung_tuyen": 21.0,
+        "diem_trung_binh": 23.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 25
     },
@@ -256,6 +281,7 @@
         "so_trung_tuyen": 420,
         "so_nhap_hoc": 410,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 26.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 26
     },
@@ -266,6 +292,7 @@
         "so_trung_tuyen": 200,
         "so_nhap_hoc": 192,
         "diem_trung_tuyen": 25.0,
+        "diem_trung_binh": 27.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 27
     },
@@ -276,6 +303,7 @@
         "so_trung_tuyen": 720,
         "so_nhap_hoc": 704,
         "diem_trung_tuyen": 28.0,
+        "diem_trung_binh": 29.0,
         "so_sinh_vien_quoc_te": 1,
         "id": 28
     },
@@ -286,6 +314,7 @@
         "so_trung_tuyen": 420,
         "so_nhap_hoc": 410,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 25.5,
         "so_sinh_vien_quoc_te": 3,
         "id": 29
     },
@@ -296,6 +325,7 @@
         "so_trung_tuyen": 332,
         "so_nhap_hoc": 306,
         "diem_trung_tuyen": 19.0,
+        "diem_trung_binh": 22.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 30
     },
@@ -306,6 +336,7 @@
         "so_trung_tuyen": 915,
         "so_nhap_hoc": 900,
         "diem_trung_tuyen": 28.5,
+        "diem_trung_binh": 29.0,
         "so_sinh_vien_quoc_te": 2,
         "id": 31
     },
@@ -316,6 +347,7 @@
         "so_trung_tuyen": 625,
         "so_nhap_hoc": 587,
         "diem_trung_tuyen": 23.5,
+        "diem_trung_binh": 25.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 32
     },
@@ -326,6 +358,7 @@
         "so_trung_tuyen": 520,
         "so_nhap_hoc": 492,
         "diem_trung_tuyen": 20.5,
+        "diem_trung_binh": 22.0,
         "so_sinh_vien_quoc_te": 1,
         "id": 33
     },
@@ -336,6 +369,7 @@
         "so_trung_tuyen": 629,
         "so_nhap_hoc": 512,
         "diem_trung_tuyen": 23.5,
+        "diem_trung_binh": 24.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 34
     },
@@ -346,6 +380,7 @@
         "so_trung_tuyen": 683,
         "so_nhap_hoc": 624,
         "diem_trung_tuyen": 24.5,
+        "diem_trung_binh": 27.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 35
     },
@@ -356,6 +391,7 @@
         "so_trung_tuyen": 568,
         "so_nhap_hoc": 559,
         "diem_trung_tuyen": 24.5,
+        "diem_trung_binh": 26.0,
         "so_sinh_vien_quoc_te": 1,
         "id": 36
     },
@@ -366,6 +402,7 @@
         "so_trung_tuyen": 599,
         "so_nhap_hoc": 577,
         "diem_trung_tuyen": 25.0,
+        "diem_trung_binh": 26.5,
         "so_sinh_vien_quoc_te": 0,
         "id": 37
     },
@@ -376,6 +413,7 @@
         "so_trung_tuyen": 1529,
         "so_nhap_hoc": 1510,
         "diem_trung_tuyen": 28.5,
+        "diem_trung_binh": 29.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 38
     },
@@ -386,6 +424,7 @@
         "so_trung_tuyen": 539,
         "so_nhap_hoc": 522,
         "diem_trung_tuyen": 25.5,
+        "diem_trung_binh": 27.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 39
     },
@@ -396,6 +435,7 @@
         "so_trung_tuyen": 552,
         "so_nhap_hoc": 526,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 27.0,
         "so_sinh_vien_quoc_te": 2,
         "id": 40
     },
@@ -406,6 +446,7 @@
         "so_trung_tuyen": 1674,
         "so_nhap_hoc": 1643,
         "diem_trung_tuyen": 29.0,
+        "diem_trung_binh": 30.0,
         "so_sinh_vien_quoc_te": 3,
         "id": 41
     },
@@ -416,6 +457,7 @@
         "so_trung_tuyen": 1225,
         "so_nhap_hoc": 1193,
         "diem_trung_tuyen": 26.0,
+        "diem_trung_binh": 26.5,
         "so_sinh_vien_quoc_te": 0,
         "id": 42
     },
@@ -426,6 +468,7 @@
         "so_trung_tuyen": 620,
         "so_nhap_hoc": 592,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 26.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 43
     },
@@ -436,6 +479,7 @@
         "so_trung_tuyen": 872,
         "so_nhap_hoc": 848,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 26.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 44
     },
@@ -446,6 +490,7 @@
         "so_trung_tuyen": 826,
         "so_nhap_hoc": 799,
         "diem_trung_tuyen": 25.5,
+        "diem_trung_binh": 27.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 45
     },
@@ -456,6 +501,7 @@
         "so_trung_tuyen": 726,
         "so_nhap_hoc": 700,
         "diem_trung_tuyen": 23.5,
+        "diem_trung_binh": 25.0,
         "so_sinh_vien_quoc_te": 2,
         "id": 46
     },
@@ -466,6 +512,7 @@
         "so_trung_tuyen": 680,
         "so_nhap_hoc": 636,
         "diem_trung_tuyen": 24.0,
+        "diem_trung_binh": 26.5,
         "so_sinh_vien_quoc_te": 0,
         "id": 47
     },
@@ -476,6 +523,7 @@
         "so_trung_tuyen": 1450,
         "so_nhap_hoc": 1432,
         "diem_trung_tuyen": 29.0,
+        "diem_trung_binh": 30.0,
         "so_sinh_vien_quoc_te": 3,
         "id": 48
     },
@@ -486,6 +534,7 @@
         "so_trung_tuyen": 780,
         "so_nhap_hoc": 747,
         "diem_trung_tuyen": 26.0,
+        "diem_trung_binh": 27.0,
         "so_sinh_vien_quoc_te": 0,
         "id": 49
     },
@@ -496,6 +545,7 @@
         "so_trung_tuyen": 746,
         "so_nhap_hoc": 730,
         "diem_trung_tuyen": 25.0,
+        "diem_trung_binh": 26.5,
         "so_sinh_vien_quoc_te": 0,
         "id": 50
     }

@@ -30,7 +30,7 @@ interface ListGiangVien {
   data: GiangVien[];
 }
 
-interface NguoiHoc {
+interface INguoiHoc {
   ma_nam_hoc: number;
   nganh: string;
   so_dang_ky: number;
@@ -41,7 +41,7 @@ interface NguoiHoc {
   id: number;
 }
 
-interface SoLuongNguoiHoc {
+interface ISoLuongNguoiHoc {
   ma_nam_hoc: number;
   nganh: string;
   nghien_cuu_sinh: number;
@@ -53,6 +53,13 @@ interface SoLuongNguoiHoc {
   cd_chinh_quy: number;
   cd_khong_chinh_quy: number;
   id: number;
+  khac: number;
 }
 
-export type { GiangVien, ListGiangVien, NguoiHoc, SoLuongNguoiHoc, IGiangVien };
+export type {
+  GiangVien,
+  ListGiangVien,
+  INguoiHoc,
+  ISoLuongNguoiHoc,
+  IGiangVien,
+};

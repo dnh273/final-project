@@ -1,7 +1,7 @@
 import React from "react";
 
 interface HeaderTitleProps {
-  title: string;
+  title?: string;
 }
 
 const HeaderTitle = ({ title }: HeaderTitleProps) => {

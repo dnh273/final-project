@@ -1,63 +1,53 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SearchTable from "../common/SearchTable";
 import DropdownFilter from "../common/DropdownFilter";
-import HeaderTitle from "../common/HeaderTitle";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import {
   filterByHocViAction,
   filterByKhoaAction,
-  getAllGiangVienAction,
+  searchQueryAction,
 } from "../../features/slice/giangVienSlice";
-
-const arrHocVi = ["Giáo sư", "Đại học", "Thạc sĩ", "Phó giáo sư", "Tiến sĩ"];
-
-const arrKhoa = [
-  "Hội đồng Khoa học & Đào tạo",
-  "Khoa công nghệ xây dựng - giao thông",
-  "Khoa công nghệ nông nghiệp",
-  "Khoa vật lý kỹ thuật và công nghệ nano	",
-  "Khoa công nghệ thông tin",
-  "Khoa điện tử viễn thông",
-  "Khoa cơ học kỹ thuật và tự động hóa",
-  "Viện tiên tiến về kỹ thuật và công nghệ",
-  "Trung tâm nghiên cứu điện tử viễn thông",
-];
 
 const DanhSachBanLanhDao = () => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getAllGiangVienAction());
-  }, []);
-
-  const { filterGiangViens } = useAppSelector((state) => state.giangvien);
+  const { filterGiangViens, giangviens } = useAppSelector(
+    (state) => state.giangvien
+  );
   const [q, setQ] = useState("");
   const [listKhoaFilter, setListKhoaFilter] = useState<string[]>([]);
   const [listHocViFilter, setListHocViFilter] = useState<string[]>([]);
 
+  const uniqueKhoas = [...new Set(giangviens.map((item) => item.khoa))];
+  const uniqueHocVis = [...new Set(giangviens.map((item) => item.hoc_vi))];
+
   useEffect(() => {
     dispatch(filterByHocViAction(listHocViFilter));
   }, [listHocViFilter]);
+
   useEffect(() => {
     dispatch(filterByKhoaAction(listKhoaFilter));
   }, [listKhoaFilter]);
 
+  useEffect(() => {
+    dispatch(searchQueryAction(q));
+  }, [q]);
+
   return (
     <>
-      <HeaderTitle title="Danh sách giảng viên" />.
       <div className="flex">
         <SearchTable setQ={setQ} />
         <DropdownFilter
           tagName="Khoa"
           setListValue={setListKhoaFilter}
           key={"Khoa"}
-          LIST={arrKhoa}
+          LIST={uniqueKhoas}
         />
         <DropdownFilter
           tagName="Học vị"
           key={"Hoc Vi"}
           setListValue={setListHocViFilter}
-          LIST={arrHocVi}
+          LIST={uniqueHocVis}
         />
       </div>
       <div className="relative overflow-y-auto rounded-lg">

@@ -1,6 +1,5 @@
 import React from "react";
 import { IGiangVien } from "../../interface";
-import HeaderTitle from "../common/HeaderTitle";
 import { useAppSelector } from "../../redux/hook";
 
 const ThongKeNhanSu = () => {
@@ -64,7 +63,6 @@ const ThongKeNhanSu = () => {
 
   return (
     <>
-      <HeaderTitle title="Bảng 33" />
       <div className="relative overflow-x-auto shadow-md rounded-lg">
         <table className="w-full text-sm text-left ">
           <thead className="text-xs text-black uppercase bg-gray-50">

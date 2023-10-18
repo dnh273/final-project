@@ -6,6 +6,7 @@ interface GiangVienState {
   filterGiangViens: IGiangVien[];
   isLoading: boolean;
   isError: boolean;
+
 }
 
 const initialState: GiangVienState = {
@@ -13,6 +14,7 @@ const initialState: GiangVienState = {
   filterGiangViens: [],
   isError: false,
   isLoading: false,
+
 };
 
 const GiangVienSlice = createSlice({
@@ -43,6 +45,24 @@ const GiangVienSlice = createSlice({
         action.payload.length > 0 ? action.payload.includes(item.hoc_vi) : true
       );
     },
+    searchQueryAction: (state, action) => {
+      if (action.payload) {
+        const cloneGiangViens = [...state.filterGiangViens];
+        state.filterGiangViens = cloneGiangViens.filter(
+          (item) =>
+            item.ho_ten
+              .normalize()
+              .toUpperCase()
+              .includes(action.payload.normalize().toUpperCase()) ||
+            item.email
+              .normalize()
+              .toUpperCase()
+              .includes(action.payload.normalize().toUpperCase())
+        );
+      } else {
+        state.filterGiangViens = [...state.giangviens];
+      }
+    },
   },
 });
 
@@ -52,6 +72,7 @@ export const {
   getAllGiangVienSuccessAction,
   filterByHocViAction,
   filterByKhoaAction,
+  searchQueryAction,
 } = GiangVienSlice.actions;
 
 const giangVienReducer = GiangVienSlice.reducer;

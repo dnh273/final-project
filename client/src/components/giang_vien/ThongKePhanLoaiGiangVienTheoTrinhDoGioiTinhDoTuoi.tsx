@@ -1,7 +1,6 @@
 import React from "react";
 import data from "../../data/GiangVien.json";
 import { IGiangVien } from "../../interface";
-import HeaderTitle from "../common/HeaderTitle";
 import { useAppSelector } from "../../redux/hook";
 
 const ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi = () => {
@@ -60,7 +59,6 @@ const ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi = () => {
 
   return (
     <>
-      <HeaderTitle title="Bảng 36" />
       <div className="relative overflow-x-auto shadow-md rounded-lg">
         <table className="w-full text-sm text-left text-black">
           <thead className="text-xs text-black uppercase bg-gray-50">
@@ -95,20 +93,20 @@ const ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi = () => {
             </tr>
           </thead>
           <tbody>
-            {arrGiangVien.map((item, index) => {
+            {arrGiangVien?.map((item, index) => {
               return (
                 <tr key={index}>
                   <td className="px-6 py-3">{index + 1}</td>
-                  <td className="px-6 py-3">{item[0].hoc_vi}</td>
-                  <td className="px-6 py-3">{`${item.length}`}</td>
+                  <td className="px-6 py-3">{item[0]?.hoc_vi}</td>
+                  <td className="px-6 py-3">{`${item?.length}`}</td>
                   <td className="px-6 py-3">{`${Math.floor(
                     (item.length / data.length) * 100
                   )}%`}</td>
                   <td className="px-6 py-3">
-                    {filterByGioiTinh("Nam", item).length}
+                    {filterByGioiTinh("Nam", item)?.length}
                   </td>
                   <td className="px-6 py-3">
-                    {filterByGioiTinh("Nữ", item).length}
+                    {filterByGioiTinh("Nữ", item)?.length}
                   </td>
                   <td className="px-6 py-3">{filterByAge(30, item)?.length}</td>
                   <td className="px-6 py-3">{filterByAge(40, item)?.length}</td>
@@ -118,7 +116,7 @@ const ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi = () => {
                 </tr>
               );
             })}
-            <tr>
+            <tr className="bg-gray-200">
               <td className="px-6 py-3 font-bold">{arrGiangVien.length + 1}</td>
               <td className="px-6 py-3 font-bold">Tổng số</td>
               <td className="px-6 py-3 font-bold">{`${giangviens.length}`}</td>
