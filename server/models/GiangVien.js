@@ -20,6 +20,10 @@ const GiangVienSchema = new mongoose_1.default.Schema({
         type: Number,
         required: [true, "Hãy nhập trường năm sinh"],
     },
+    email: {
+        type: String,
+        required: [true, "Hãy nhập trường email"],
+    },
     hoc_vi: {
         type: String,
         required: [true, "Hãy nhập trường năm sinh"],

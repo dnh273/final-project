@@ -6,7 +6,6 @@ import "express-async-errors";
 import notFound from "./middleware/not-found";
 import errorHandlerMiddleware from "./middleware/error-handler";
 import GiangVienRoute from "./routes/GiangVienRoute";
-import GiangVien from "./models/GiangVien";
 
 dotenv.config();
 
@@ -33,7 +32,5 @@ const start = async () => {
     console.log(error);
   }
 };
-
-
 
 start();
