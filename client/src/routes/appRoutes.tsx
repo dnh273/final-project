@@ -33,13 +33,18 @@ const appRoutes: RouteType[] = [
       {
         path: "",
         element: <DanhSachBanLanhDao />,
-        sidebarProps: { displayText: "Danh sách giảng viên" },
+        sidebarProps: {
+          displayText: "Danh sách giảng viên",
+          showText: "Thống kê phân loại giảng viên",
+        },
       },
       {
         path: "bang33",
         element: <ThongKeNhanSu />,
         sidebarProps: {
           displayText: "Bảng 33",
+          showText:
+            "Thống kê số lượng quản lý, giảng viên và nhân viên đơn vị thực hiện CTĐT ",
         },
       },
       {
@@ -47,6 +52,7 @@ const appRoutes: RouteType[] = [
         element: <ThongKeSoLuongGiangVienTheoHamHocVi />,
         sidebarProps: {
           displayText: "Bảng 34",
+          showText: "Thống kê phân loại giảng viên",
         },
       },
       {
@@ -54,6 +60,8 @@ const appRoutes: RouteType[] = [
         element: <QuyDoiSoLuongGiangVien />,
         sidebarProps: {
           displayText: "Bảng 35",
+          showText:
+            "Quy đổi số lượng giảng viên của đơn vị thực hiện CTĐT theo quy định hiện hành của Bộ GDĐT ",
         },
       },
       {
@@ -61,6 +69,8 @@ const appRoutes: RouteType[] = [
         element: <ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi />,
         sidebarProps: {
           displayText: "Bảng 36",
+          showText:
+            "Thống kê, phân loại giảng viên cơ hữu theo trình độ, giới tính và độ tuổi ",
         },
       },
     ],
@@ -78,7 +88,8 @@ const appRoutes: RouteType[] = [
         element: <ThongKeSoNguoiNhapHoc />,
         sidebarProps: {
           displayText: "Bảng 38",
-          icon: <i className="ri-parent-line"></i>,
+          showText:
+            "Thống kê người đăng ký dự tuyển vào CTĐT, số người học trúng tuyển và nhập học trong 5 năm gần đây (hệ chính quy)",
         },
       },
       {
@@ -86,7 +97,8 @@ const appRoutes: RouteType[] = [
         element: <ThongKeTheoChuongTrinhHoc />,
         sidebarProps: {
           displayText: "Bảng 39",
-          icon: <i className="ri-parent-line"></i>,
+          showText:
+            "Thống kê người đăng ký dự tuyển vào CTĐT, số người học trúng tuyển và nhập học trong 5 năm gần đây (hệ chính quy)",
         },
       },
       {
@@ -94,7 +106,7 @@ const appRoutes: RouteType[] = [
         element: <ThongKeTiLeSinhVienQuocTe />,
         sidebarProps: {
           displayText: "Bảng 40",
-          icon: <i className="ri-parent-line"></i>,
+          showText: "Thống kê số lượng sinh viên quốc tế 5 năm gần nhất ",
         },
       },
       {
@@ -102,7 +114,8 @@ const appRoutes: RouteType[] = [
         element: <ThongKeTotNghiep />,
         sidebarProps: {
           displayText: "Bảng 43",
-          icon: <i className="ri-parent-line"></i>,
+          showText:
+            "Thống kê số lượng người học của CTĐT tốt nghiệp trong 5 năm gần đây",
         },
       },
     ],

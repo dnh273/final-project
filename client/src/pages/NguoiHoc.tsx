@@ -16,7 +16,7 @@ const NguoiHoc = () => {
   });
   return (
     <>
-      <HeaderTitle title={title?.sidebarProps?.displayText} />
+      <HeaderTitle title={title?.sidebarProps?.showText} />
       <div className="mb-4 flex">
         {appRoutes[2].child?.map((item, index) => (
           <NavLink
