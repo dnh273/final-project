@@ -5,7 +5,11 @@ import connectDB from "./db/connect";
 import "express-async-errors";
 import notFound from "./middleware/not-found";
 import errorHandlerMiddleware from "./middleware/error-handler";
-import GiangVienRoute from "./routes/GiangVienRoute";
+import GiangVienRoute from "./routes/giangVienRoutes";
+import NganhHocRoute from "./routes/nganhHocRoutes";
+import NguoiHocRoute from "./routes/nguoiHocRoutes";
+import KhoaRoute from "./routes/khoaRoutes";
+
 
 dotenv.config();
 
@@ -15,6 +19,9 @@ app.use(express.json());
 
 // Route
 app.use("/api/v1/giangvien", GiangVienRoute);
+app.use("/api/v1/nganhhoc", NganhHocRoute);
+app.use("/api/v1/khoa", KhoaRoute);
+app.use("/api/v1/nguoihoc", NguoiHocRoute);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
@@ -26,8 +33,6 @@ const start = async () => {
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );
-
-   
   } catch (error) {
     console.log(error);
   }

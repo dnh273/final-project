@@ -8,6 +8,7 @@ const errorHandlerMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
+
   if (err instanceof CustomAPIError) {
     return res.status(err.statusCode).json({ msg: err.message });
   }

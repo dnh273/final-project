@@ -2,7 +2,7 @@ import express from "express";
 import {
   createGiangVien,
   getAllGiangVien,
-} from "../controller/GiangVienController";
+} from "../controller/giangVienController";
 
 const router = express.Router();
 
