@@ -12,6 +12,11 @@ import ThongKeTheoChuongTrinhHoc from "../components/nguoi_hoc/ThongKeTheoChuong
 import ThongKeTiLeSinhVienQuocTe from "../components/nguoi_hoc/ThongKeTiLeSinhVienQuocTe";
 import ThongKeTotNghiep from "../components/nguoi_hoc/ThongKeTotNghiep";
 import QuyDoiSoLuongGiangVien from "../components/giang_vien/QuyDoiSoLuongGiangVien";
+import Bang41 from "../components/nguoi_hoc/Bang41";
+import Bang42 from "../components/nguoi_hoc/Bang42";
+import Bang45 from "../components/thanh_tich/Bang45";
+import Bang46 from "../components/thanh_tich/Bang46";
+import Bang47 from "../components/thanh_tich/Bang47";
 
 const appRoutes: RouteType[] = [
   {
@@ -110,6 +115,24 @@ const appRoutes: RouteType[] = [
         },
       },
       {
+        path: "bang41",
+        element: <Bang41 />,
+        sidebarProps: {
+          displayText: "Bảng 41",
+          showText:
+            "Thống kê số lượng người học các CTĐT có nhu cầu ở ký túc xá",
+        },
+      },
+      {
+        path: "bang42",
+        element: <Bang42 />,
+        sidebarProps: {
+          displayText: "Bảng 42",
+          showText:
+            "Thống kê số lượng (người ) và tỷ lệ (%) người học của CTĐT tham gia nghiên cứu khoa học ",
+        },
+      },
+      {
         path: "bang43",
         element: <ThongKeTotNghiep />,
         sidebarProps: {
@@ -127,6 +150,35 @@ const appRoutes: RouteType[] = [
       displayText: "Thành tích",
       icon: <i className="ri-award-fill"></i>,
     },
+    child: [
+      {
+        path: "",
+        element: <Bang45 />,
+        sidebarProps: {
+          displayText: "Bảng 45",
+          showText:
+            "Số lượng đề tài nghiên cứu khoa học và chuyển giao khoa học công nghệ của đơn vị thực hiện CTĐT được nghiệm thu trong 5 năm gần đây",
+        },
+      },
+      {
+        path: "bang46",
+        element: <Bang46 />,
+        sidebarProps: {
+          displayText: "Bảng 46",
+          showText:
+            "Doanh thu từ nghiên cứu khoa học và chuyển giao công nghệ của đơn vị thực hiện CTĐT trong 5 năm gần đây",
+        },
+      },
+      {
+        path: "bang47",
+        element: <Bang47 />,
+        sidebarProps: {
+          displayText: "Bảng 47",
+          showText:
+            "Số lượng đội ngũ cơ hữu của đơn vị thực hiện CTĐT tham gia thực hiện đề tài khoa học trong 05 năm gần đây",
+        },
+      },
+    ],
   },
 ];
 

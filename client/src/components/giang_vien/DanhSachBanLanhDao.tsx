@@ -35,7 +35,7 @@ const DanhSachBanLanhDao = () => {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex flex-wrap items-center pb-4">
         <SearchTable setQ={setQ} />
         <DropdownFilter
           tagName="Khoa"

@@ -27,11 +27,11 @@ const GiangVien = () => {
   return (
     <>
       <HeaderTitle title={title?.sidebarProps?.showText} />
-      <div className="mb-4 flex">
+      <div className="mb-4 flex flex-wrap gap-2">
         {appRoutes[1].child?.map((item, index) => (
           <NavLink
             key={index}
-            className="bg-orange-400 font-bold text-white mr-2 px-4 py-2 rounded-lg whitespace-nowrap"
+            className="bg-orange-400 font-bold text-white px-4 py-2 rounded-lg whitespace-nowrap"
             to={`${item.path}`}
           >
             {item.sidebarProps?.displayText}

@@ -14,10 +14,11 @@ const NguoiHoc = () => {
       return item.path == "";
     }
   });
+
   return (
     <>
       <HeaderTitle title={title?.sidebarProps?.showText} />
-      <div className="mb-4 flex">
+      <div className="mb-4 flex flex-wrap">
         {appRoutes[2].child?.map((item, index) => (
           <NavLink
             key={index}
