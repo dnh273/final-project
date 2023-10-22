@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "@redux-saga/core";
 import giangVienReducer from "../features/slice/giangVienSlice";
 import rootSaga from "./rootSage";
+import NguoiHocReducer from "../features/slice/nguoiHocSlice";
 // ...
 
 const sagaMiddleware = createSagaMiddleware();
@@ -9,6 +10,7 @@ const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
   reducer: {
     giangvien: giangVienReducer,
+    nguoihoc: NguoiHocReducer,
   },
   middleware: [sagaMiddleware],
 });

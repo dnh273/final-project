@@ -56,6 +56,23 @@ interface ISoLuongNguoiHoc {
   khac: number;
 }
 
+interface INganhHoc {
+  _id: string;
+  ten_nganh: string;
+}
+
+interface INguoiHoc {
+  _id: string;
+  ho_ten: string;
+  gioi_tinh: string;
+  quoc_tich: string;
+  loai_nguoi_hoc: string;
+  nganh_hoc: INganhHoc;
+  diem_thi: number;
+  nam_nhap_hoc: string;
+  nam_tot_nghiep: string;
+}
+
 export type {
   GiangVien,
   ListGiangVien,

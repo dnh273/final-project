@@ -1,8 +1,17 @@
+import { useEffect } from "react";
 import HeaderTitle from "../components/common/HeaderTitle";
+import { useAppDispatch } from "../redux/hook";
 import appRoutes from "../routes/appRoutes";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { getAllNguoiHocAction } from "../features/slice/nguoiHocSlice";
 
 const NguoiHoc = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getAllNguoiHocAction());
+  }, []);
+
   const location = useLocation();
 
   const pathname = location.pathname.split("/")[2];
@@ -18,7 +27,7 @@ const NguoiHoc = () => {
   return (
     <>
       <HeaderTitle title={title?.sidebarProps?.showText} />
-      <div className="mb-4 flex flex-wrap">
+      <div className="mb-4 flex flex-wrap gap-2">
         {appRoutes[2].child?.map((item, index) => (
           <NavLink
             key={index}

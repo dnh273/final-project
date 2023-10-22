@@ -1,7 +1,18 @@
 import React from "react";
-import data from "../../data/NguoiHoc1.json";
+import { useAppSelector } from "../../redux/hook";
+import { randomNumber } from "../../utils";
+import { ListNamHoc, ListNganh } from "../../constants/config";
 
 const ThongKeSoNguoiNhapHoc = () => {
+  const { nguoihocs } = useAppSelector((state) => state.nguoihoc);
+
+  const filterByNganhHocVaNamHoc = (ten_nganh: string, nam_hoc: string) => {
+    return nguoihocs?.filter(
+      (item) =>
+        item.nganh_hoc.ten_nganh == ten_nganh && item.nam_nhap_hoc == nam_hoc 
+    );
+  };
+
   return (
     <div className="relative overflow-y-auto rounded-lg">
       <table className="w-full text-sm text-left text-gray-400">
@@ -18,32 +29,47 @@ const ThongKeSoNguoiNhapHoc = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
-            <tr>
-              <td className="px-6 py-3 text-black border-b">{index}</td>
-              <td className="px-6 py-3 text-black border-b font-semibold">
-                {item.nganh}
-              </td>
-              <td className="px-6 py-3 text-black border-b">
-                {item.ma_nam_hoc + 2016}
-              </td>
-              <td className="px-6 py-3 text-black border-b">
-                {item.so_dang_ky}
-              </td>
-              <td className="px-6 py-3 text-black border-b">
-                {item.so_trung_tuyen}
-              </td>
-              <td className="px-6 py-3 text-black border-b">
-                {item.so_nhap_hoc}
-              </td>
-              <td className="px-6 py-3 text-black border-b">
-                {item.diem_trung_tuyen}
-              </td>
-              <td className="px-6 py-3 text-black border-b">
-                {item.so_sinh_vien_quoc_te}
-              </td>
-            </tr>
-          ))}
+          {ListNamHoc.map((nam_hoc, i) => {
+            return ListNganh.map((nganh, index) => {
+              return (
+                <tr key={index}>
+                  <td className="px-6 py-3 text-black border-b">
+                    {index + i * 10 + 1}
+                  </td>
+                  <td className="px-6 py-3 text-black border-b font-semibold">
+                    {nganh}
+                  </td>
+                  <td className="px-6 py-3 text-black border-b">{nam_hoc}</td>
+                  <td className="px-6 py-3 text-black border-b">
+                    {filterByNganhHocVaNamHoc(nganh, nam_hoc).length *
+                      randomNumber(2, 4)}
+                  </td>
+                  <td className="px-6 py-3 text-black border-b">
+                    {filterByNganhHocVaNamHoc(nganh, nam_hoc).length +
+                      randomNumber(5, 10)}
+                  </td>
+                  <td className="px-6 py-3 text-black border-b">
+                    {filterByNganhHocVaNamHoc(nganh, nam_hoc).length}
+                  </td>
+                  <td className="px-6 py-3 text-black border-b">
+                    {Math.min(
+                      ...filterByNganhHocVaNamHoc(nganh, nam_hoc).map(
+                        (item) => item.diem_thi
+                      )
+                    )}
+                  </td>
+                  <td className="px-6 py-3 text-black border-b">
+                    {
+                      filterByNganhHocVaNamHoc(nganh, nam_hoc).filter(
+                        (item) => item.quoc_tich != "Việt Nam"
+                      ).length
+                    }
+                  </td>
+                </tr>
+              );
+            });
+          })}
+
           <tr className=" ">
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>

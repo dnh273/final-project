@@ -1,13 +1,20 @@
 import React from "react";
-import data from "../../data/NguoiHoc2.json";
-import { ISoLuongNguoiHoc } from "../../interface";
+
+import { ListLoaiNguoiHoc, ListNamHoc } from "../../constants/config";
+import { useAppSelector } from "../../redux/hook";
 
 const ThongKeTheoChuongTrinhHoc = () => {
-  function filterByNamHoc(arr: ISoLuongNguoiHoc[], ma_nam_hoc: number) {
-    return arr.filter((item) => item.ma_nam_hoc == ma_nam_hoc);
+  const { nguoihocs } = useAppSelector((state) => state.nguoihoc);
+
+  function filterByNamHocAndLoaiNguoiHoc(
+    nam_hoc: string,
+    loai_nguoi_hoc: string
+  ) {
+    return nguoihocs.filter(
+      (item) =>
+        item.nam_nhap_hoc == nam_hoc && item.loai_nguoi_hoc == loai_nguoi_hoc
+    );
   }
-
-
   return (
     <div className="relative overflow-x-auto shadow-md rounded-lg">
       <table className="w-full text-sm text-left ">
@@ -22,113 +29,48 @@ const ThongKeTheoChuongTrinhHoc = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">1. Nghiên cứu sinh</td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.nghien_cuu_sinh,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">2. Học viên cao học</td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.hoc_vien_cao_hoc,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">3. Sinh viên đại học</td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.sinh_vien_dai_hoc,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">
-              Sinh viên đại học chính quy
-            </td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.dh_chinh_quy,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">
-              Sinh viên đại học không chính quy
-            </td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.dh_khong_chinh_quy,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">4. Sinh viên cao đẳng</td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.sinh_vien_cao_dang,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">
-              Sinh viên cao đẳng chính quy
-            </td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.cd_chinh_quy,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">
-              Sinh viên cao đẳng không chính quy
-            </td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.cd_khong_chinh_quy,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">Khác</td>
-            {[5, 4, 3, 2, 1].map((item, index) => (
-              <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(data, item).reduce(
-                  (total, item) => total + item.khac,
-                  0
-                )}
-              </td>
-            ))}
-          </tr>
+          {ListLoaiNguoiHoc.map((loai_nguoi_hoc, index) => {
+            return (
+              <tr>
+                <td className="px-6 py-3 font-semibold">
+                  {`${index + 1}. ${
+                    loai_nguoi_hoc.slice(0, 1).toLocaleUpperCase() +
+                    loai_nguoi_hoc.slice(1)
+                  }`}
+                </td>
+                <td className="px-6 py-3" key={index}>
+                  {
+                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[4], loai_nguoi_hoc)
+                      .length
+                  }
+                </td>
+                <td className="px-6 py-3" key={index}>
+                  {
+                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[3], loai_nguoi_hoc)
+                      .length
+                  }
+                </td>
+                <td className="px-6 py-3" key={index}>
+                  {
+                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[2], loai_nguoi_hoc)
+                      .length
+                  }
+                </td>
+                <td className="px-6 py-3" key={index}>
+                  {
+                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[1], loai_nguoi_hoc)
+                      .length
+                  }
+                </td>
+                <td className="px-6 py-3" key={index}>
+                  {
+                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[0], loai_nguoi_hoc)
+                      .length
+                  }
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

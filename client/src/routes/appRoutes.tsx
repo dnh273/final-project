@@ -103,7 +103,7 @@ const appRoutes: RouteType[] = [
         sidebarProps: {
           displayText: "Bảng 39",
           showText:
-            "Thống kê người đăng ký dự tuyển vào CTĐT, số người học trúng tuyển và nhập học trong 5 năm gần đây (hệ chính quy)",
+            "Thống kê, phân loại số lượng người học theo học CTĐT trong 5 năm gần đây các hệ chính quy và không chính quy",
         },
       },
       {

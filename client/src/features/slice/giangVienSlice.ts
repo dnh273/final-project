@@ -14,7 +14,6 @@ const initialState: GiangVienState = {
   filterGiangViens: [],
   isError: false,
   isLoading: false,
-
 };
 
 const GiangVienSlice = createSlice({
