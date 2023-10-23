@@ -40,6 +40,12 @@ const GiangVienSchema = new mongoose.Schema({
     type: String,
     required: [true, "Hãy nhập loại hợp đồng"],
   },
+  nghien_cuu_khoa_hoc: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "NghienCuuKhoaHoc",
+    },
+  ],
   phong_ban: {
     type: String,
     default: null,

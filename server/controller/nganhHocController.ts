@@ -10,7 +10,7 @@ const createNganhHoc = async (req: Request, res: Response) => {
   const isValidNganh = await NganhHoc.findOne({ ten_nganh: ten_nganh });
   const khoa = await Khoa.findOne({ ten_khoa: ten_khoa });
 
-  console.log(isValidNganh);
+
   if (isValidNganh) {
     throw createCustomError("Ngành học đã tồn tại", StatusCodes.BAD_REQUEST);
   }

@@ -30,6 +30,10 @@ const NguoiHocSchema = new mongoose.Schema({
     ref: "NganhHoc",
     required: [true, "Hãy nhập ngành học"],
   },
+  phong_ky_tuc: {
+    type: mongoose.Types.ObjectId,
+    ref: "PhongKyTuc",
+  },
   diem_thi: {
     type: Number,
     trim: true,

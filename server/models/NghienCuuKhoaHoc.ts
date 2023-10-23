@@ -6,6 +6,7 @@ const NghienCuuKhoaHocSchema = new mongoose.Schema({
     type: String,
     required: [true, "Hãy nhập năm họcc"],
   },
+  
 });
 
 export default mongoose.model("NghienCuuKhoaHoc", NghienCuuKhoaHocSchema);
