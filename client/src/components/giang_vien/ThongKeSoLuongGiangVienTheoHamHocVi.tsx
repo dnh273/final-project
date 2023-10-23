@@ -88,10 +88,19 @@ const ThongKeSoLuongGiangVienTheoHamHocVi = () => {
                     }
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    0
+                    {
+                      item.filter(
+                        (value) =>
+                          value.loai_hop_dong == "Giảng viên thỉnh giảng"
+                      ).length
+                    }
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    0
+                    {
+                      item.filter(
+                        (value) => value.loai_hop_dong == "Giảng viên quốc tế"
+                      ).length
+                    }
                   </td>
                 </tr>
               );
@@ -126,10 +135,18 @@ const ThongKeSoLuongGiangVienTheoHamHocVi = () => {
                 }
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black">
-                0
+                {
+                  giangviens.filter(
+                    (item) => item.loai_hop_dong == "Giảng viên thỉnh giảng"
+                  ).length
+                }
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black">
-                0
+                {
+                  giangviens.filter(
+                    (item) => item.loai_hop_dong == "Giảng viên quốc tế"
+                  ).length
+                }
               </td>
             </tr>
           </tbody>

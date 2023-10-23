@@ -20,12 +20,12 @@ export const ListNamHoc = [
 ];
 
 export const ListLoaiNguoiHoc = [
-  "nghiên cứu sinh",
-  "học viên cao học",
-  "sinh viên chính quy",
-  "sinh viên không chính quy",
-  "sinh viên cao đẳng",
-  "sinh viên cao đẳng chính quy",
-  "sinh viên cao đẳng không chính quy",
-  "khác",
+  { stt: "1",text: "nghiên cứu sinh" },
+  { stt: "2",text: "học viên cao học" },
+  { stt: "3",text: "sinh viên chính quy" },
+  { stt: "4",text: "sinh viên không chính quy" },
+  { stt: "5",text: "sinh viên cao đẳng" },
+  { stt: "",text: "sinh viên cao đẳng chính quy" },
+  { stt: "",text: "sinh viên cao đẳng không chính quy" },
+  { stt: "",text: "khác" },
 ];

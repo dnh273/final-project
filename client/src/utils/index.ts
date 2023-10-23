@@ -1,3 +1,4 @@
-import randomNumber from "./RandomNumber";
+import randomNumber from "./randomNumber";
+import total from './totalNumber'
 
-export { randomNumber };
+export { randomNumber , total};

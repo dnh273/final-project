@@ -31,41 +31,51 @@ const ThongKeTheoChuongTrinhHoc = () => {
         <tbody>
           {ListLoaiNguoiHoc.map((loai_nguoi_hoc, index) => {
             return (
-              <tr>
+              <tr key={index}>
                 <td className="px-6 py-3 font-semibold">
-                  {`${index + 1}. ${
-                    loai_nguoi_hoc.slice(0, 1).toLocaleUpperCase() +
-                    loai_nguoi_hoc.slice(1)
+                  {`${loai_nguoi_hoc.stt ? loai_nguoi_hoc + "." : ""} ${
+                    loai_nguoi_hoc.text.slice(0, 1).toLocaleUpperCase() +
+                    loai_nguoi_hoc.text.slice(1)
                   }`}
                 </td>
-                <td className="px-6 py-3" key={index}>
+                <td className="px-6 py-3">
                   {
-                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[4], loai_nguoi_hoc)
-                      .length
+                    filterByNamHocAndLoaiNguoiHoc(
+                      ListNamHoc[4],
+                      loai_nguoi_hoc.text
+                    ).length
                   }
                 </td>
-                <td className="px-6 py-3" key={index}>
+                <td className="px-6 py-3">
                   {
-                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[3], loai_nguoi_hoc)
-                      .length
+                    filterByNamHocAndLoaiNguoiHoc(
+                      ListNamHoc[3],
+                      loai_nguoi_hoc.text
+                    ).length
                   }
                 </td>
-                <td className="px-6 py-3" key={index}>
+                <td className="px-6 py-3">
                   {
-                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[2], loai_nguoi_hoc)
-                      .length
+                    filterByNamHocAndLoaiNguoiHoc(
+                      ListNamHoc[2],
+                      loai_nguoi_hoc.text
+                    ).length
                   }
                 </td>
-                <td className="px-6 py-3" key={index}>
+                <td className="px-6 py-3">
                   {
-                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[1], loai_nguoi_hoc)
-                      .length
+                    filterByNamHocAndLoaiNguoiHoc(
+                      ListNamHoc[1],
+                      loai_nguoi_hoc.text
+                    ).length
                   }
                 </td>
-                <td className="px-6 py-3" key={index}>
+                <td className="px-6 py-3">
                   {
-                    filterByNamHocAndLoaiNguoiHoc(ListNamHoc[0], loai_nguoi_hoc)
-                      .length
+                    filterByNamHocAndLoaiNguoiHoc(
+                      ListNamHoc[0],
+                      loai_nguoi_hoc.text
+                    ).length
                   }
                 </td>
               </tr>

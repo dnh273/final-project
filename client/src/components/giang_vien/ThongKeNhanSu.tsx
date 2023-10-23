@@ -15,9 +15,15 @@ const ThongKeNhanSu = () => {
     DaiHaiNu: (ele: IGiangVien) =>
       ele.gioi_tinh == "Nữ" && ele.loai_hop_dong == "Hợp đồng dài hạn",
     NganHanNam: (ele: IGiangVien) =>
-      ele.gioi_tinh == "Nam" && ele.loai_hop_dong == "Hợp đồng ngắn hạn",
+      ele.gioi_tinh == "Nam" &&
+      (ele.loai_hop_dong == "Hợp đồng ngắn hạn" ||
+        ele.loai_hop_dong == "Giảng viên thỉnh giảng" ||
+        ele.loai_hop_dong == "Giảng viên quốc tế"),
     NganHanNu: (ele: IGiangVien) =>
-      ele.gioi_tinh == "Nữ" && ele.loai_hop_dong == "Hợp đồng ngắn hạn",
+      ele.gioi_tinh == "Nữ" &&
+      (ele.loai_hop_dong == "Hợp đồng ngắn hạn" ||
+        ele.loai_hop_dong == "Giảng viên thỉnh giảng" ||
+        ele.loai_hop_dong == "Giảng viên quốc tế"),
   };
 
   function total(...args: number[]): number {

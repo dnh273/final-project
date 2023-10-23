@@ -1,5 +1,6 @@
 import { IGiangVien } from "../../interface";
 import { useAppSelector } from "../../redux/hook";
+import { total } from "../../utils";
 
 const QuyDoiSoLuongGiangVien = () => {
   const { giangviens } = useAppSelector((state) => state.giangvien);
@@ -7,10 +8,6 @@ const QuyDoiSoLuongGiangVien = () => {
   const filterByHocVi = (hoc_vi: string) => {
     return giangviens.filter((item) => item.hoc_vi == hoc_vi);
   };
-
-  function total(...args: number[]): number {
-    return args.reduce((acc, num) => acc + num, 0);
-  }
 
   const filterByLoaiHopDong = (
     giangviens: IGiangVien[],
@@ -117,18 +114,25 @@ const QuyDoiSoLuongGiangVien = () => {
                     {filterByLoaiHopDong(item, "Hợp đồng ngắn hạn")?.length}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    0
+                    {
+                      filterByLoaiHopDong(item, "Giảng viên thỉnh giảng")
+                        ?.length
+                    }
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    0
+                    {filterByLoaiHopDong(item, "Giảng viên quốc tế")?.length}
                   </td>
                   <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
                     {total(
-                      filterByLoaiHopDong(item, "Trong biên chế")?.length,
-                      filterByLoaiHopDong(item, "Hợp đồng dài hạn")?.length,
-                      filterByLoaiHopDong(item, "Hợp đồng ngắn hạn")?.length *
-                        0.3
-                    )}
+                      filterByLoaiHopDong(item, "Trong biên chế").length,
+                      filterByLoaiHopDong(item, "Hợp đồng dài hạn").length,
+                      filterByLoaiHopDong(item, "Hợp đồng ngắn hạn").length *
+                        0.3,
+                      filterByLoaiHopDong(item, "Giảng viên thỉnh giảng")
+                        .length * 0.3,
+                      filterByLoaiHopDong(item, "Giảng viên quốc tế").length *
+                        0.2
+                    ).toLocaleString()}
                   </td>
                 </tr>
               );
@@ -164,18 +168,30 @@ const QuyDoiSoLuongGiangVien = () => {
                 }
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                0
+                {
+                  giangviens.filter(
+                    (item) => item.loai_hop_dong == "Giảng viên thỉnh giảng"
+                  ).length
+                }
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                0
+                {
+                  giangviens.filter(
+                    (item) => item.loai_hop_dong == "Giảng viên quốc tế"
+                  ).length
+                }
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
                 {total(
                   filterByLoaiHopDong(giangviens, "Trong biên chế").length,
                   filterByLoaiHopDong(giangviens, "Hợp đồng dài hạn").length,
                   filterByLoaiHopDong(giangviens, "Hợp đồng ngắn hạn").length *
-                    0.3
-                )}
+                    0.3,
+                  filterByLoaiHopDong(giangviens, "Giảng viên thỉnh giảng")
+                    .length * 0.3,
+                  filterByLoaiHopDong(giangviens, "Giảng viên quốc tế").length *
+                    0.2
+                ).toLocaleString()}
               </td>
             </tr>
           </tbody>
