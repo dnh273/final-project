@@ -1,6 +1,65 @@
 import React from "react";
+import { useAppSelector } from "../../redux/hook";
+import SkeletonTable from "../common/SkeletonTable";
+import NotFoundTable from "../common/NotFoundTable";
 
 const Bang41 = () => {
+  const { nguoihocs, isLoading } = useAppSelector((state) => state.nguoihoc);
+
+  const renderTable = () => {
+    if (isLoading) {
+      return <SkeletonTable />;
+    }
+    if (nguoihocs.length == 0) {
+      return <NotFoundTable />;
+    }
+
+    return (
+      <>
+        <tr className=" ">
+          <td className="px-6 py-3 font-semibold">
+            1. Tổng diện tích phòng ở (m2)
+          </td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+        </tr>
+        <tr className=" ">
+          <td className="px-6 py-3 font-semibold">
+            2. Người học có nhu cầu về phòng ở (Trong và ngoài ký túc xá)
+          </td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+        </tr>
+        <tr className=" ">
+          <td className="px-6 py-3 font-semibold">
+            3. Người học được ở trong ký túc xá
+          </td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+        </tr>
+        <tr className=" ">
+          <td className="px-6 py-3 font-semibold">
+            4. Tỷ số diện tích trên đầu người học ở trong ký túc xá (m2/người)
+          </td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">a</td>
+        </tr>
+      </>
+    );
+  };
+
   return (
     <div className="relative overflow-x-auto shadow-md rounded-lg">
       <table className="w-full text-sm text-left ">
@@ -14,48 +73,7 @@ const Bang41 = () => {
             <th className="px-6 py-3">2017-2018</th>
           </tr>
         </thead>
-        <tbody>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">
-              1. Tổng diện tích phòng ở (m2)
-            </td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">
-              2. Người học có nhu cầu về phòng ở (Trong và ngoài ký túc xá)
-            </td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">
-              3. Người học được ở trong ký túc xá
-            </td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">
-              4. Tỷ số diện tích trên đầu người học ở trong ký túc xá (m2/người)
-            </td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-            <td className="px-6 py-3">a</td>
-          </tr>
-        </tbody>
+        <tbody>{renderTable()}</tbody>
       </table>
     </div>
   );

@@ -1,9 +1,11 @@
 import React from "react";
 import { useAppSelector } from "../../redux/hook";
 import { ListLoaiNguoiHoc, ListNamHoc } from "../../constants/config";
+import SkeletonTable from "../common/SkeletonTable";
+import NotFoundTable from "../common/NotFoundTable";
 
 const ThongKeTotNghiep = () => {
-  const { nguoihocs } = useAppSelector((state) => state.nguoihoc);
+  const { nguoihocs, isLoading } = useAppSelector((state) => state.nguoihoc);
 
   const filterByNganhHocVaNamHoc = (
     nam_hoc: string,
@@ -13,6 +15,59 @@ const ThongKeTotNghiep = () => {
       (item) =>
         item.loai_nguoi_hoc == loai_nguoi_hoc && item.nam_tot_nghiep == nam_hoc
     );
+  };
+
+  const renderTable = () => {
+    if (isLoading) {
+      return <SkeletonTable />;
+    }
+
+    if (nguoihocs.length === 0) {
+      return <NotFoundTable />;
+    }
+
+    return ListLoaiNguoiHoc.map((loai_nguoi_hoc, index) => {
+      return (
+        <tr>
+          <td className="px-6 py-3 font-semibold">
+            {`${loai_nguoi_hoc.stt ? loai_nguoi_hoc.stt + "." : ""} ${
+              loai_nguoi_hoc.text.slice(0, 1).toLocaleUpperCase() +
+              loai_nguoi_hoc.text.slice(1)
+            }`}
+          </td>
+          <td className="px-6 py-3" key={index}>
+            {
+              filterByNganhHocVaNamHoc(ListNamHoc[4], loai_nguoi_hoc.text)
+                .length
+            }
+          </td>
+          <td className="px-6 py-3" key={index}>
+            {
+              filterByNganhHocVaNamHoc(ListNamHoc[3], loai_nguoi_hoc.text)
+                .length
+            }
+          </td>
+          <td className="px-6 py-3" key={index}>
+            {
+              filterByNganhHocVaNamHoc(ListNamHoc[2], loai_nguoi_hoc.text)
+                .length
+            }
+          </td>
+          <td className="px-6 py-3" key={index}>
+            {
+              filterByNganhHocVaNamHoc(ListNamHoc[1], loai_nguoi_hoc.text)
+                .length
+            }
+          </td>
+          <td className="px-6 py-3" key={index}>
+            {
+              filterByNganhHocVaNamHoc(ListNamHoc[0], loai_nguoi_hoc.text)
+                .length
+            }
+          </td>
+        </tr>
+      );
+    });
   };
 
   return (
@@ -28,50 +83,7 @@ const ThongKeTotNghiep = () => {
             <th className="px-6 py-3">2017-2018</th>
           </tr>
         </thead>
-        <tbody>
-          {ListLoaiNguoiHoc.map((loai_nguoi_hoc, index) => {
-            return (
-              <tr>
-                <td className="px-6 py-3 font-semibold">
-                  {`${loai_nguoi_hoc.stt ? loai_nguoi_hoc.stt + "." : ""} ${
-                    loai_nguoi_hoc.text.slice(0, 1).toLocaleUpperCase() +
-                    loai_nguoi_hoc.text.slice(1)
-                  }`}
-                </td>
-                <td className="px-6 py-3" key={index}>
-                  {
-                    filterByNganhHocVaNamHoc(ListNamHoc[4], loai_nguoi_hoc.text)
-                      .length
-                  }
-                </td>
-                <td className="px-6 py-3" key={index}>
-                  {
-                    filterByNganhHocVaNamHoc(ListNamHoc[3], loai_nguoi_hoc.text)
-                      .length
-                  }
-                </td>
-                <td className="px-6 py-3" key={index}>
-                  {
-                    filterByNganhHocVaNamHoc(ListNamHoc[2], loai_nguoi_hoc.text)
-                      .length
-                  }
-                </td>
-                <td className="px-6 py-3" key={index}>
-                  {
-                    filterByNganhHocVaNamHoc(ListNamHoc[1], loai_nguoi_hoc.text)
-                      .length
-                  }
-                </td>
-                <td className="px-6 py-3" key={index}>
-                  {
-                    filterByNganhHocVaNamHoc(ListNamHoc[0], loai_nguoi_hoc.text)
-                      .length
-                  }
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
+        <tbody>{renderTable()}</tbody>
       </table>
     </div>
   );

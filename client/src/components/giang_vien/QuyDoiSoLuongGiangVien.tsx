@@ -1,9 +1,11 @@
 import { IGiangVien } from "../../interface";
 import { useAppSelector } from "../../redux/hook";
 import { total } from "../../utils";
+import NotFoundTable from "../common/NotFoundTable";
+import SkeletonTable from "../common/SkeletonTable";
 
 const QuyDoiSoLuongGiangVien = () => {
-  const { giangviens } = useAppSelector((state) => state.giangvien);
+  const { giangviens, isLoading } = useAppSelector((state) => state.giangvien);
 
   const filterByHocVi = (hoc_vi: string) => {
     return giangviens.filter((item) => item.hoc_vi == hoc_vi);
@@ -24,6 +26,140 @@ const QuyDoiSoLuongGiangVien = () => {
 
   const arrGiangVien = [GIAOSU, PHOGIAOSU, TIENSU, THACSI, DAIHOC];
 
+  const renderTable = () => {
+    if (isLoading) {
+      return <SkeletonTable />;
+    }
+
+    if (giangviens.length === 0) {
+      return <NotFoundTable />;
+    }
+
+    return (
+      <>
+        <tr className="border-b">
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold"></td>
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+            Hệ số quy đổi
+          </td>
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold"></td>
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold"></td>
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+            1.0
+          </td>
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+            1.0
+          </td>
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+            0.3
+          </td>
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+            0.3
+          </td>
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+            0.2
+          </td>
+        </tr>
+        {arrGiangVien.map((item, index) => {
+          return (
+            <tr className=" border-b" key={index}>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {index + 1}
+              </td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {item[index]?.hoc_vi}
+              </td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {item?.length}
+              </td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {filterByLoaiHopDong(item, "Trong biên chế")?.length}
+              </td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {filterByLoaiHopDong(item, "Hợp đồng dài hạn")?.length}
+              </td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {filterByLoaiHopDong(item, "Hợp đồng ngắn hạn")?.length}
+              </td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {filterByLoaiHopDong(item, "Giảng viên thỉnh giảng")?.length}
+              </td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {filterByLoaiHopDong(item, "Giảng viên quốc tế")?.length}
+              </td>
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+                {total(
+                  filterByLoaiHopDong(item, "Trong biên chế").length,
+                  filterByLoaiHopDong(item, "Hợp đồng dài hạn").length,
+                  filterByLoaiHopDong(item, "Hợp đồng ngắn hạn").length * 0.3,
+                  filterByLoaiHopDong(item, "Giảng viên thỉnh giảng").length *
+                    0.3,
+                  filterByLoaiHopDong(item, "Giảng viên quốc tế").length * 0.2
+                ).toLocaleString()}
+              </td>
+            </tr>
+          );
+        })}
+
+        <tr className="border-b bg-gray-200">
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+            Tổng số
+          </td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+            {giangviens.length}
+          </td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+            {
+              giangviens.filter(
+                (item) => item.loai_hop_dong == "Trong biên chế"
+              ).length
+            }
+          </td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+            {
+              giangviens.filter(
+                (item) => item.loai_hop_dong == "Hợp đồng dài hạn"
+              ).length
+            }
+          </td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+            {
+              giangviens.filter(
+                (item) => item.loai_hop_dong == "Hợp đồng ngắn hạn"
+              ).length
+            }
+          </td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+            {
+              giangviens.filter(
+                (item) => item.loai_hop_dong == "Giảng viên thỉnh giảng"
+              ).length
+            }
+          </td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+            {
+              giangviens.filter(
+                (item) => item.loai_hop_dong == "Giảng viên quốc tế"
+              ).length
+            }
+          </td>
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+            {total(
+              filterByLoaiHopDong(giangviens, "Trong biên chế").length,
+              filterByLoaiHopDong(giangviens, "Hợp đồng dài hạn").length,
+              filterByLoaiHopDong(giangviens, "Hợp đồng ngắn hạn").length * 0.3,
+              filterByLoaiHopDong(giangviens, "Giảng viên thỉnh giảng").length *
+                0.3,
+              filterByLoaiHopDong(giangviens, "Giảng viên quốc tế").length * 0.2
+            ).toLocaleString()}
+          </td>
+        </tr>
+      </>
+    );
+  };
   return (
     <>
       <div className="relative overflow-y-auto rounded-lg">
@@ -66,135 +202,7 @@ const QuyDoiSoLuongGiangVien = () => {
               <th className="px-6 py-3"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr className="border-b">
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold"></td>
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
-                Hệ số quy đổi
-              </td>
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold"></td>
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold"></td>
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
-                1.0
-              </td>
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
-                1.0
-              </td>
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
-                0.3
-              </td>
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
-                0.3
-              </td>
-              <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
-                0.2
-              </td>
-            </tr>
-
-            {arrGiangVien.map((item, index, arr) => {
-              return (
-                <tr className=" border-b" key={index}>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {arr?.length - index}
-                  </td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {item[index]?.hoc_vi}
-                  </td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {item?.length}
-                  </td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {filterByLoaiHopDong(item, "Trong biên chế")?.length}
-                  </td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {filterByLoaiHopDong(item, "Hợp đồng dài hạn")?.length}
-                  </td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {filterByLoaiHopDong(item, "Hợp đồng ngắn hạn")?.length}
-                  </td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {
-                      filterByLoaiHopDong(item, "Giảng viên thỉnh giảng")
-                        ?.length
-                    }
-                  </td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {filterByLoaiHopDong(item, "Giảng viên quốc tế")?.length}
-                  </td>
-                  <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                    {total(
-                      filterByLoaiHopDong(item, "Trong biên chế").length,
-                      filterByLoaiHopDong(item, "Hợp đồng dài hạn").length,
-                      filterByLoaiHopDong(item, "Hợp đồng ngắn hạn").length *
-                        0.3,
-                      filterByLoaiHopDong(item, "Giảng viên thỉnh giảng")
-                        .length * 0.3,
-                      filterByLoaiHopDong(item, "Giảng viên quốc tế").length *
-                        0.2
-                    ).toLocaleString()}
-                  </td>
-                </tr>
-              );
-            })}
-            <tr className="border-b bg-gray-200">
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                Tổng số
-              </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {giangviens.length}
-              </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {
-                  giangviens.filter(
-                    (item) => item.loai_hop_dong == "Trong biên chế"
-                  ).length
-                }
-              </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {
-                  giangviens.filter(
-                    (item) => item.loai_hop_dong == "Hợp đồng dài hạn"
-                  ).length
-                }
-              </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {
-                  giangviens.filter(
-                    (item) => item.loai_hop_dong == "Hợp đồng ngắn hạn"
-                  ).length
-                }
-              </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {
-                  giangviens.filter(
-                    (item) => item.loai_hop_dong == "Giảng viên thỉnh giảng"
-                  ).length
-                }
-              </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {
-                  giangviens.filter(
-                    (item) => item.loai_hop_dong == "Giảng viên quốc tế"
-                  ).length
-                }
-              </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {total(
-                  filterByLoaiHopDong(giangviens, "Trong biên chế").length,
-                  filterByLoaiHopDong(giangviens, "Hợp đồng dài hạn").length,
-                  filterByLoaiHopDong(giangviens, "Hợp đồng ngắn hạn").length *
-                    0.3,
-                  filterByLoaiHopDong(giangviens, "Giảng viên thỉnh giảng")
-                    .length * 0.3,
-                  filterByLoaiHopDong(giangviens, "Giảng viên quốc tế").length *
-                    0.2
-                ).toLocaleString()}
-              </td>
-            </tr>
-          </tbody>
+          <tbody>{renderTable()}</tbody>
         </table>
       </div>
     </>

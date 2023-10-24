@@ -20,7 +20,7 @@ const MenuProps = {
 
 interface DropdownFilterProps {
   tagName: string;
-  setListValue: React.Dispatch<React.SetStateAction<string[]>>;
+  setListValue?: React.Dispatch<React.SetStateAction<string[]>>;
   LIST: string[];
 }
 
@@ -42,7 +42,9 @@ const DropdownFilter = ({
   };
 
   React.useEffect(() => {
-    setListValue(personName);
+    if (setListValue) {
+      setListValue(personName);
+    }
   }, [personName]);
 
   return (

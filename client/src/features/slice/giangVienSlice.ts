@@ -6,7 +6,7 @@ interface GiangVienState {
   filterGiangViens: IGiangVien[];
   isLoading: boolean;
   isError: boolean;
-
+  
 }
 
 const initialState: GiangVienState = {

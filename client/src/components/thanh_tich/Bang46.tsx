@@ -26,6 +26,34 @@ const Bang46 = () => {
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
           </tr>
+          <tr>
+            <td className="px-6 py-3 font-semibold">1</td>
+            <td className="px-6 py-3 ">2018</td>
+            <td className="px-6 py-3"></td>
+            <td className="px-6 py-3"></td>
+            <td className="px-6 py-3"></td>
+          </tr>
+          <tr>
+            <td className="px-6 py-3 font-semibold">1</td>
+            <td className="px-6 py-3 ">2019</td>
+            <td className="px-6 py-3"></td>
+            <td className="px-6 py-3"></td>
+            <td className="px-6 py-3"></td>
+          </tr>
+          <tr>
+            <td className="px-6 py-3 font-semibold">1</td>
+            <td className="px-6 py-3 ">2020</td>
+            <td className="px-6 py-3"></td>
+            <td className="px-6 py-3"></td>
+            <td className="px-6 py-3"></td>
+          </tr>
+          <tr>
+            <td className="px-6 py-3 font-semibold">1</td>
+            <td className="px-6 py-3 ">2021</td>
+            <td className="px-6 py-3"></td>
+            <td className="px-6 py-3"></td>
+            <td className="px-6 py-3"></td>
+          </tr>
         </tbody>
       </table>
     </div>

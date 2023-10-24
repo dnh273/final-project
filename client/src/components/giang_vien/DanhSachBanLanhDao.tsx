@@ -7,11 +7,13 @@ import {
   filterByKhoaAction,
   searchQueryAction,
 } from "../../features/slice/giangVienSlice";
+import SkeletonTable from "../common/SkeletonTable";
+import NotFoundTable from "../common/NotFoundTable";
 
 const DanhSachBanLanhDao = () => {
   const dispatch = useAppDispatch();
 
-  const { filterGiangViens, giangviens } = useAppSelector(
+  const { filterGiangViens, giangviens, isLoading } = useAppSelector(
     (state) => state.giangvien
   );
   const [q, setQ] = useState("");
@@ -20,6 +22,45 @@ const DanhSachBanLanhDao = () => {
 
   const uniqueKhoas = [...new Set(giangviens.map((item) => item.khoa))];
   const uniqueHocVis = [...new Set(giangviens.map((item) => item.hoc_vi))];
+
+  const renderTable = () => {
+    if (isLoading) {
+      return <SkeletonTable />;
+    }
+
+    if (giangviens.length === 0) {
+      return <NotFoundTable />;
+    }
+
+    return filterGiangViens.map((item, index) => (
+      <tr className="bg-white border-b" key={index}>
+        <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800 text-center">
+          {index + 1}
+        </td>
+        <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
+          {item.ho_ten}
+        </td>
+        <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
+          {item.nam_sinh}
+        </td>
+        <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
+          {item.chuc_vu}
+        </td>
+        <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
+          {item.hoc_vi}
+        </td>
+        <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
+          {item.khoa}
+        </td>
+        <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
+          {item.dien_thoai}
+        </td>
+        <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
+          {item.email}
+        </td>
+      </tr>
+    ));
+  };
 
   useEffect(() => {
     dispatch(filterByHocViAction(listHocViFilter));
@@ -64,36 +105,7 @@ const DanhSachBanLanhDao = () => {
               <th className="px-6 py-3 text-black">Email</th>
             </tr>
           </thead>
-          <tbody>
-            {filterGiangViens.map((item, index) => (
-              <tr className="bg-white border-b" key={index}>
-                <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800 text-center">
-                  {index + 1}
-                </td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
-                  {item.ho_ten}
-                </td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
-                  {item.nam_sinh}
-                </td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
-                  {item.chuc_vu}
-                </td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
-                  {item.hoc_vi}
-                </td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
-                  {item.khoa}
-                </td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
-                  {item.dien_thoai}
-                </td>
-                <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800">
-                  {item.email}
-                </td>
-              </tr>
-            ))}
-          </tbody>
+          <tbody>{renderTable()}</tbody>
         </table>
       </div>
     </>

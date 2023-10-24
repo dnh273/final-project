@@ -1,51 +1,50 @@
 import React from "react";
 
-const Bang47 = () => {
+const Bang49 = () => {
   return (
     <div className="relative overflow-x-auto shadow-md rounded-lg">
-      <table className="w-full text-sm text-left">
+      <table className="w-full text-sm text-left ">
         <thead className="text-xs text-black uppercase bg-gray-50">
           <tr>
             <th className="px-6 py-3" rowSpan={2}>
-              Số lượng đề tài
+              Số lượng sách
             </th>
-            <th className="px-6 py-3 text-center" colSpan={3}>
-              Số lượng cán bộ tham gia
-            </th>
-            <th className="px-6 py-3" rowSpan={2}>
-              Ghi chú
+            <th className="px-6 py-3 text-center" colSpan={4}>
+              Số lượng cán bộ cơ hữu tham gia viết sách
             </th>
           </tr>
           <tr>
-            <th className="px-6 py-3">Đề tài cấp NN</th>
-            <th className="px-6 py-3">Đề tài cấp Bộ</th>
-            <th className="px-6 py-3">Đề tài cấp trường</th>
+            <th className="px-6 py-3">Sách chuyên khảo</th>
+            <th className="px-6 py-3">Sách giáo trình</th>
+            <th className="px-6 py-3">Sách tham khảo</th>
+            <th className="px-6 py-3">Sách hướng dẫn</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="px-6 py-3">Từ 1 đến 3 đề tài</td>
+          <tr className=" ">
+            <td className="px-6 py-3 font-semibold">Từ 1-3 cuốn sách</td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
           </tr>
-          <tr>
-            <td className="px-6 py-3">Từ 4 đến 6 đề tài</td>
+
+          <tr className=" ">
+            <td className="px-6 py-3 font-semibold">Từ 4-6 cuốn sách</td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
           </tr>
-          <tr>
-            <td className="px-6 py-3">Trên 6 đề tài</td>
+          <tr className=" ">
+            <td className="px-6 py-3 font-semibold">Trên 6 cuốn sách</td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
           </tr>
-          <tr>
-            <td className="px-6 py-3">Tổng số cán bộ tham gia</td>
+          <tr className=" ">
+            <td className="px-6 py-3 font-semibold">Tổng số cán bộ tham gia</td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
@@ -57,4 +56,4 @@ const Bang47 = () => {
   );
 };
 
-export default Bang47;
+export default Bang49;

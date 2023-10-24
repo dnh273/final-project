@@ -17,6 +17,12 @@ import Bang42 from "../components/nguoi_hoc/Bang42";
 import Bang45 from "../components/thanh_tich/Bang45";
 import Bang46 from "../components/thanh_tich/Bang46";
 import Bang47 from "../components/thanh_tich/Bang47";
+import Bang48 from "../components/thanh_tich/Bang48";
+import Bang49 from "../components/thanh_tich/Bang49";
+import Bang50 from "../components/thanh_tich/Bang50";
+import Bang51 from "../components/thanh_tich/Bang51";
+import Bang52 from "../components/thanh_tich/Bang52";
+import Bang53 from "../components/thanh_tich/Bang53";
 
 const appRoutes: RouteType[] = [
   {
@@ -176,6 +182,60 @@ const appRoutes: RouteType[] = [
           displayText: "Bảng 47",
           showText:
             "Số lượng đội ngũ cơ hữu của đơn vị thực hiện CTĐT tham gia thực hiện đề tài khoa học trong 05 năm gần đây",
+        },
+      },
+      {
+        path: "bang48",
+        element: <Bang48 />,
+        sidebarProps: {
+          displayText: "Bảng 48",
+          showText:
+            "Số lượng đầu sách của đơn vị thực hiện CTĐT được xuất bản trong 5 năm gần đây",
+        },
+      },
+      {
+        path: "bang49",
+        element: <Bang49 />,
+        sidebarProps: {
+          displayText: "Bảng 49",
+          showText:
+            "Số lượng đội ngũ cơ hữu của đơn vị thực hiện CTĐT tham gia viết sách 5 năm gần đây",
+        },
+      },
+      {
+        path: "bang50",
+        element: <Bang50 />,
+        sidebarProps: {
+          displayText: "Bảng 50",
+          showText:
+            "Số lượng bài của đội ngũ cơ hữu đơn vị thực hiện CTĐT được đăng tạp chí trong 5 năm gần đây",
+        },
+      },
+      {
+        path: "bang51",
+        element: <Bang51 />,
+        sidebarProps: {
+          displayText: "Bảng 51",
+          showText:
+            "Số lượng đội ngũ cơ hữu của đơn vị thực hiện CTĐT tham gia viết bài đăng tạp chí trong 5 năm gần đây",
+        },
+      },
+      {
+        path: "bang52",
+        element: <Bang52 />,
+        sidebarProps: {
+          displayText: "Bảng 52",
+          showText:
+            " Số lượng báo cáo khoa học do đội ngũ cơ hữu của đơn vị thực hiện CTĐT báo cáo tại các hội nghị, hội thảo, được đăng toàn văn trong tuyển tập công trình hay kỷ yếu trong 5 năm gần đây",
+        },
+      },
+      {
+        path: "bang53",
+        element: <Bang53 />,
+        sidebarProps: {
+          displayText: "Bảng 53",
+          showText:
+            "Số lượng đội ngũ cơ hữu của đơn vị thực hiện CTĐT có báo cáo khoa học tại các hội nghị, hội thảo được đăng toàn văn trong tuyển tập công trình hay kỷ yếu trong 05 năm gần đây",
         },
       },
     ],
