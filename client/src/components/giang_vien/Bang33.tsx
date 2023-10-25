@@ -5,7 +5,7 @@ import { total } from "../../utils";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
 
-const ThongKeNhanSu = () => {
+const Bang33 = () => {
   const { giangviens, isLoading } = useAppSelector((state) => state.giangvien);
 
   const HopDong = {
@@ -68,7 +68,7 @@ const ThongKeNhanSu = () => {
 
   const renderTable = () => {
     if (isLoading) {
-      return <SkeletonTable />;
+      return <SkeletonTable colSpan={5} />;
     }
 
     if (giangviens.length === 0) {
@@ -142,4 +142,4 @@ const ThongKeNhanSu = () => {
   );
 };
 
-export default ThongKeNhanSu;
+export default Bang33;

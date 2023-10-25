@@ -1,67 +1,68 @@
 import React from "react";
-import { useAppSelector } from "../../redux/hook";
+
 import { ListLoaiNguoiHoc, ListNamHoc } from "../../constants/config";
+import { useAppSelector } from "../../redux/hook";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
 
-const ThongKeTotNghiep = () => {
+const Bang39 = () => {
   const { nguoihocs, isLoading } = useAppSelector((state) => state.nguoihoc);
 
-  const filterByNganhHocVaNamHoc = (
+  function filterByNamHocAndLoaiNguoiHoc(
     nam_hoc: string,
     loai_nguoi_hoc: string
-  ) => {
+  ) {
     return nguoihocs.filter(
       (item) =>
-        item.loai_nguoi_hoc == loai_nguoi_hoc && item.nam_tot_nghiep == nam_hoc
+        item.nam_nhap_hoc == nam_hoc && item.loai_nguoi_hoc == loai_nguoi_hoc
     );
-  };
+  }
 
   const renderTable = () => {
     if (isLoading) {
-      return <SkeletonTable />;
+      return <SkeletonTable colSpan={99} />;
     }
 
-    if (nguoihocs.length === 0) {
+    if (nguoihocs.length == 0) {
       return <NotFoundTable />;
     }
 
     return ListLoaiNguoiHoc.map((loai_nguoi_hoc, index) => {
       return (
-        <tr>
+        <tr key={index}>
           <td className="px-6 py-3 font-semibold">
             {`${loai_nguoi_hoc.stt ? loai_nguoi_hoc.stt + "." : ""} ${
               loai_nguoi_hoc.text.slice(0, 1).toLocaleUpperCase() +
               loai_nguoi_hoc.text.slice(1)
             }`}
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[4], loai_nguoi_hoc.text)
+              filterByNamHocAndLoaiNguoiHoc(ListNamHoc[4], loai_nguoi_hoc.text)
                 .length
             }
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[3], loai_nguoi_hoc.text)
+              filterByNamHocAndLoaiNguoiHoc(ListNamHoc[3], loai_nguoi_hoc.text)
                 .length
             }
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[2], loai_nguoi_hoc.text)
+              filterByNamHocAndLoaiNguoiHoc(ListNamHoc[2], loai_nguoi_hoc.text)
                 .length
             }
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[1], loai_nguoi_hoc.text)
+              filterByNamHocAndLoaiNguoiHoc(ListNamHoc[1], loai_nguoi_hoc.text)
                 .length
             }
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[0], loai_nguoi_hoc.text)
+              filterByNamHocAndLoaiNguoiHoc(ListNamHoc[0], loai_nguoi_hoc.text)
                 .length
             }
           </td>
@@ -89,4 +90,4 @@ const ThongKeTotNghiep = () => {
   );
 };
 
-export default ThongKeTotNghiep;
+export default Bang39;

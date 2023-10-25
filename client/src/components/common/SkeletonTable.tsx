@@ -4,7 +4,7 @@ interface SkeletonTableProps {
   colSpan?: number;
 }
 
-const SkeletonTable = ({ colSpan }: SkeletonTableProps) => {
+const SkeletonTable = ({ colSpan = 99 }: SkeletonTableProps) => {
   return (
     <>
       <tr className=" animate-pulse">

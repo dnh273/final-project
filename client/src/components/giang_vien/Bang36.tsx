@@ -5,7 +5,7 @@ import { useAppSelector } from "../../redux/hook";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
 
-const ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi = () => {
+const Bang36 = () => {
   const { giangviens, isLoading } = useAppSelector((state) => state.giangvien);
 
   const giangviensCoHuu = giangviens.filter(
@@ -68,7 +68,7 @@ const ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi = () => {
 
   const renderTable = () => {
     if (isLoading) {
-      return <SkeletonTable />;
+      return <SkeletonTable colSpan={11} />;
     }
 
     if (giangviens.length === 0) {
@@ -204,4 +204,4 @@ const ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi = () => {
   );
 };
 
-export default ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi;
+export default Bang36;

@@ -7,11 +7,14 @@ interface NotFoundTable {
   className?: string;
 }
 
-const NotFoundTable = ({ colSpan, rowSpan, className }: NotFoundTable) => {
+const NotFoundTable = ({ colSpan = 99, rowSpan, className }: NotFoundTable) => {
   return (
     <tr>
       <td
-        className={clsx("px-6 py-3 text-center", className)}
+        className={clsx(
+          "text-black h-72 bg-slate-100 text-xl font-semibold text-center",
+          className
+        )}
         rowSpan={rowSpan}
         colSpan={colSpan}
       >

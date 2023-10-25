@@ -3,8 +3,7 @@ import SearchTable from "../common/SearchTable";
 import DropdownFilter from "../common/DropdownFilter";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import {
-  filterByHocViAction,
-  filterByKhoaAction,
+  filterGiangVienAction,
   searchQueryAction,
 } from "../../features/slice/giangVienSlice";
 import SkeletonTable from "../common/SkeletonTable";
@@ -25,10 +24,10 @@ const DanhSachBanLanhDao = () => {
 
   const renderTable = () => {
     if (isLoading) {
-      return <SkeletonTable />;
+      return <SkeletonTable colSpan={8} />;
     }
 
-    if (giangviens.length === 0) {
+    if (filterGiangViens.length === 0) {
       return <NotFoundTable />;
     }
 
@@ -63,16 +62,14 @@ const DanhSachBanLanhDao = () => {
   };
 
   useEffect(() => {
-    dispatch(filterByHocViAction(listHocViFilter));
-  }, [listHocViFilter]);
-
-  useEffect(() => {
-    dispatch(filterByKhoaAction(listKhoaFilter));
-  }, [listKhoaFilter]);
-
-  useEffect(() => {
-    dispatch(searchQueryAction(q));
-  }, [q]);
+    dispatch(
+      filterGiangVienAction({
+        filterHocVi: listHocViFilter,
+        filterKhoa: listKhoaFilter,
+        query: q,
+      })
+    );
+  }, [listHocViFilter, listKhoaFilter, q]);
 
   return (
     <>

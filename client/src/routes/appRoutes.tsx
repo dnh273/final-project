@@ -4,16 +4,16 @@ import GiangVien from "../pages/GiangVien";
 import NguoiHoc from "../pages/NguoiHoc";
 import ThanhTich from "../pages/ThanhTich";
 import DanhSachBanLanhDao from "../components/giang_vien/DanhSachBanLanhDao";
-import ThongKeNhanSu from "../components/giang_vien/ThongKeNhanSu";
-import ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi from "../components/giang_vien/ThongKePhanLoaiGiangVienTheoTrinhDoGioiTinhDoTuoi";
-import ThongKeSoLuongGiangVienTheoHamHocVi from "../components/giang_vien/ThongKeSoLuongGiangVienTheoHamHocVi";
-import ThongKeSoNguoiNhapHoc from "../components/nguoi_hoc/ThongKeSoNguoiNhapHoc";
-import ThongKeTheoChuongTrinhHoc from "../components/nguoi_hoc/ThongKeTheoChuongTrinhHoc";
-import ThongKeTiLeSinhVienQuocTe from "../components/nguoi_hoc/ThongKeTiLeSinhVienQuocTe";
-import ThongKeTotNghiep from "../components/nguoi_hoc/ThongKeTotNghiep";
-import QuyDoiSoLuongGiangVien from "../components/giang_vien/QuyDoiSoLuongGiangVien";
+import Bang33 from "../components/giang_vien/Bang33";
+import Bang34 from "../components/giang_vien/Bang34";
+import Bang35 from "../components/giang_vien/Bang35";
+import Bang36 from "../components/giang_vien/Bang36";
+import Bang38 from "../components/nguoi_hoc/Bang38";
+import Bang39 from "../components/nguoi_hoc/Bang39";
+import Bang40 from "../components/nguoi_hoc/Bang40";
 import Bang41 from "../components/nguoi_hoc/Bang41";
 import Bang42 from "../components/nguoi_hoc/Bang42";
+import Bang43 from "../components/nguoi_hoc/Bang43";
 import Bang45 from "../components/thanh_tich/Bang45";
 import Bang46 from "../components/thanh_tich/Bang46";
 import Bang47 from "../components/thanh_tich/Bang47";
@@ -51,7 +51,7 @@ const appRoutes: RouteType[] = [
       },
       {
         path: "bang33",
-        element: <ThongKeNhanSu />,
+        element: <Bang33 />,
         sidebarProps: {
           displayText: "Bảng 33",
           showText:
@@ -60,7 +60,7 @@ const appRoutes: RouteType[] = [
       },
       {
         path: "bang34",
-        element: <ThongKeSoLuongGiangVienTheoHamHocVi />,
+        element: <Bang34 />,
         sidebarProps: {
           displayText: "Bảng 34",
           showText: "Thống kê phân loại giảng viên",
@@ -68,7 +68,7 @@ const appRoutes: RouteType[] = [
       },
       {
         path: "bang35",
-        element: <QuyDoiSoLuongGiangVien />,
+        element: <Bang35 />,
         sidebarProps: {
           displayText: "Bảng 35",
           showText:
@@ -77,7 +77,7 @@ const appRoutes: RouteType[] = [
       },
       {
         path: "bang36",
-        element: <ThongKePhanLoaiGiangVienTheoTrinhDoGioiTInhDoTuoi />,
+        element: <Bang36 />,
         sidebarProps: {
           displayText: "Bảng 36",
           showText:
@@ -96,7 +96,7 @@ const appRoutes: RouteType[] = [
     child: [
       {
         path: "",
-        element: <ThongKeSoNguoiNhapHoc />,
+        element: <Bang38 />,
         sidebarProps: {
           displayText: "Bảng 38",
           showText:
@@ -105,7 +105,7 @@ const appRoutes: RouteType[] = [
       },
       {
         path: "bang39",
-        element: <ThongKeTheoChuongTrinhHoc />,
+        element: <Bang39 />,
         sidebarProps: {
           displayText: "Bảng 39",
           showText:
@@ -114,7 +114,7 @@ const appRoutes: RouteType[] = [
       },
       {
         path: "bang40",
-        element: <ThongKeTiLeSinhVienQuocTe />,
+        element: <Bang40 />,
         sidebarProps: {
           displayText: "Bảng 40",
           showText: "Thống kê số lượng sinh viên quốc tế 5 năm gần nhất ",
@@ -140,7 +140,7 @@ const appRoutes: RouteType[] = [
       },
       {
         path: "bang43",
-        element: <ThongKeTotNghiep />,
+        element: <Bang43 />,
         sidebarProps: {
           displayText: "Bảng 43",
           showText:

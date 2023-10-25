@@ -7,7 +7,7 @@ import NotFoundTable from "../common/NotFoundTable";
 import DropdownFilter from "../common/DropdownFilter";
 import { filterNguoiHocAction } from "../../features/slice/nguoiHocSlice";
 
-const ThongKeSoNguoiNhapHoc = () => {
+const Bang38 = () => {
   const { filterNguoiHocs, isLoading } = useAppSelector(
     (state) => state.nguoihoc
   );
@@ -56,7 +56,7 @@ const ThongKeSoNguoiNhapHoc = () => {
 
   const renderTable = () => {
     if (isLoading) {
-      return <SkeletonTable />;
+      return <SkeletonTable colSpan={99} />;
     }
 
     if (filterNguoiHocs.length == 0) {
@@ -147,4 +147,4 @@ const ThongKeSoNguoiNhapHoc = () => {
   );
 };
 
-export default ThongKeSoNguoiNhapHoc;
+export default Bang38;

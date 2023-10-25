@@ -4,7 +4,7 @@ import { ListNamHoc } from "../../constants/config";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
 
-const ThongKeTiLeSinhVienQuocTe = () => {
+const Bang40 = () => {
   const { nguoihocs, isLoading } = useAppSelector((state) => state.nguoihoc);
 
   const filterByQuocTichAndNamHoc = (quoc_tich: string, nam_hoc: string) => {
@@ -15,7 +15,7 @@ const ThongKeTiLeSinhVienQuocTe = () => {
 
   const renderTable = () => {
     if (isLoading) {
-      return <SkeletonTable />;
+      return <SkeletonTable colSpan={99}/>;
     }
 
     if (nguoihocs.length === 0) {
@@ -71,4 +71,4 @@ const ThongKeTiLeSinhVienQuocTe = () => {
   );
 };
 
-export default ThongKeTiLeSinhVienQuocTe;
+export default Bang40;
