@@ -6,7 +6,18 @@ const NghienCuuKhoaHocSchema = new mongoose.Schema({
     type: String,
     required: [true, "Hãy nhập năm họcc"],
   },
-  
+  loai_de_tai: {
+    type: String,
+    required: [true, "Hãy nhập loại đề tài"],
+  },
+  kinh_phi: {
+    type: BigInt,
+    required: [true, "Hãy nhập kinh phí"],
+  },
+  doanh_thu: {
+    type: BigInt,
+    required: [true, "Hãy nhập doanh thu"],
+  },
 });
 
 export default mongoose.model("NghienCuuKhoaHoc", NghienCuuKhoaHocSchema);

@@ -46,6 +46,12 @@ const GiangVienSchema = new mongoose.Schema({
       ref: "NghienCuuKhoaHoc",
     },
   ],
+  sach: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Sach",
+    },
+  ],
   phong_ban: {
     type: String,
     default: null,

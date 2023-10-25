@@ -20,7 +20,7 @@ const getAllGiangVien = async (req: Request, res: Response) => {
     };
   }
 
-  const ListOfGiangVien = await GiangVien.find(options);
+  const ListOfGiangVien = await GiangVien.find(options).populate("sach");
   // .limit(size)
   // .skip(size * page);
 

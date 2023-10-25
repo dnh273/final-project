@@ -6,7 +6,14 @@ import { StatusCodes } from "http-status-codes";
 import NghienCuuKhoaHoc from "../models/NghienCuuKhoaHoc";
 
 const createNghienCuuKhoaHoc = async (req: Request, res: Response) => {
-  const { id_nguoi_hoc, id_giang_vien, ten_de_tai, nam_hoc } = req.body;
+  const {
+    id_nguoi_hoc,
+    id_giang_vien,
+    ten_de_tai,
+    nam_hoc,
+    kinh_phi,
+    doanh_thu,
+  } = req.body;
 
   const isValidNguoiHoc = NguoiHoc.findById(id_nguoi_hoc);
   const isValidGiangVien = GiangVien.findById(id_giang_vien);
@@ -21,6 +28,8 @@ const createNghienCuuKhoaHoc = async (req: Request, res: Response) => {
   const nckh = await NghienCuuKhoaHoc.create({
     nam_hoc: nam_hoc,
     ten_de_tai: ten_de_tai,
+    kinh_phi: kinh_phi,
+    doanh_thu: doanh_thu,
   });
 
   await GiangVien.findByIdAndUpdate(
