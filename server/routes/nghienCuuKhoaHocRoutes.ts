@@ -1,8 +1,11 @@
 import express from "express";
-import createNghienCuuKhoaHoc from "../controller/nghienCuuKhoaHoc";
+import {
+  createNghienCuuKhoaHoc,
+  getAllNghienCuuKhoaHoc,
+} from "../controller/nghienCuuKhoaHocController";
 
 const router = express.Router();
 
-router.route("/").post(createNghienCuuKhoaHoc);
+router.route("/").get(getAllNghienCuuKhoaHoc).post(createNghienCuuKhoaHoc);
 
-export default router
+export default router;

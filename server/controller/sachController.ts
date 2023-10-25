@@ -13,7 +13,11 @@ const createSach = async (req: Request, res: Response) => {
     throw createCustomError("Giảng viên không tồn tại", StatusCodes.NOT_FOUND);
   }
 
-  const sach = await Sach.create({ loai_sach, nam_hoc, ten_sach });
+  const sach = await Sach.create({
+    loai_sach,
+    nam_hoc,
+    ten_sach,
+  });
 
   await GiangVien.findByIdAndUpdate(
     id_giang_vien,
@@ -29,10 +33,9 @@ const createSach = async (req: Request, res: Response) => {
 };
 
 const getAllSach = async (req: Request, res: Response) => {
-  const sachs = await Sach.find({});
+  const saches = await Sach.find({});
 
-  res.status(StatusCodes.OK).json({ sachs });
-  
+  res.status(StatusCodes.OK).json({ saches });
 };
 
 export { createSach, getAllSach };

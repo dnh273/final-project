@@ -49,4 +49,10 @@ const createNghienCuuKhoaHoc = async (req: Request, res: Response) => {
   res.status(StatusCodes.CREATED).json({ nckh });
 };
 
-export default createNghienCuuKhoaHoc;
+const getAllNghienCuuKhoaHoc = async (req: Request, res: Response) => {
+  const nghienCuuKhoaHocs = await NghienCuuKhoaHoc.find();
+
+  res.status(StatusCodes.OK).json({ nghienCuuKhoaHocs });
+};
+
+export { createNghienCuuKhoaHoc, getAllNghienCuuKhoaHoc };
