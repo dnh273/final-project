@@ -12,6 +12,8 @@ import KhoaRoute from "./routes/khoaRoutes";
 import PhongKyTucRoute from "./routes/phongKyTucRoutes";
 import NghienCuuKhoaHocRoute from "./routes/nghienCuuKhoaHocRoutes";
 import SachRoute from "./routes/sachRoutes";
+import HoiThaoRoute from "./routes/hoiThaoRoutes";
+import TapChiRoute from "./routes/tapChiRoutes";
 
 dotenv.config();
 
@@ -27,6 +29,8 @@ app.use("/api/v1/nguoihoc", NguoiHocRoute);
 app.use("/api/v1/phongkytuc", PhongKyTucRoute);
 app.use("/api/v1/nghiencuukhoahoc", NghienCuuKhoaHocRoute);
 app.use("/api/v1/sach", SachRoute);
+app.use("/api/v1/tapchi", TapChiRoute);
+app.use("api/v1/hoithao", HoiThaoRoute);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);
@@ -38,12 +42,6 @@ const start = async () => {
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );
-
-    // for (let i = 0; i < 150; i++) {
-    //   await NguoiHoc.create(generatePerson()).then(() =>
-    //     console.log("nguoi", i)
-    //   );
-    // }
   } catch (error) {
     console.log(error);
   }

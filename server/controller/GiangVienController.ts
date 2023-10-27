@@ -20,11 +20,11 @@ const getAllGiangVien = async (req: Request, res: Response) => {
     };
   }
 
-  const ListOfGiangVien = await GiangVien.find(options).populate("sach");
+  const ListGiangVien = await GiangVien.find(options).populate("sach");
   // .limit(size)
   // .skip(size * page);
 
-  res.status(StatusCodes.OK).json({ ListOfGiangVien });
+  res.status(StatusCodes.OK).json({ ListGiangVien });
 };
 
 const createGiangVien = async (req: Request, res: Response) => {
