@@ -1,13 +1,8 @@
-import axios from "axios";
-
-const DOMAIN = "http://localhost:3000";
+import axiosConfig from "./axiosConfig";
 
 const giangVienApi = {
-  getAllGiangVien: (q = "", size = "", page = "") => {
-    return axios.get(
-      `${DOMAIN}/api/v1/giangvien?q=${q}&size=${size}&page=${page}`
-    );
-  },
+  getAllGiangVien: (q = "", size = "", page = "") =>
+    axiosConfig.get(`giangvien?q=${q}&size=${size}&page=${page}`),
 };
 
 export default giangVienApi;

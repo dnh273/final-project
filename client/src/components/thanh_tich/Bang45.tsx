@@ -1,6 +1,19 @@
-import React from "react";
+import { ListDeTai } from "../../constants/config";
+import { useAppSelector } from "../../redux/hook";
 
 const Bang45 = () => {
+  const { nghiencuukhoahocs } = useAppSelector(
+    (state) => state.nghiencuukhoahoc
+  );
+
+  const filterLoaiDeTai = (loai_de_tai = "", nam_hoc = "") => {
+    return nghiencuukhoahocs.filter(
+      (item) =>
+        (loai_de_tai.length > 0 ? item.loai_de_tai == loai_de_tai : true) &&
+        (nam_hoc.length > 0 ? item.nam_hoc == nam_hoc : true)
+    );
+  };
+
   return (
     <div className="relative overflow-x-auto shadow-md rounded-lg">
       <table className="w-full text-sm text-left ">
@@ -29,60 +42,51 @@ const Bang45 = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">1</td>
-            <td className="px-6 py-3 ">Đề tài cấp NN</td>
-            <td className="px-6 py-3">2.0</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">2</td>
-            <td className="px-6 py-3 ">Đề tài cấp Bộ/ Tỉnh</td>
-            <td className="px-6 py-3">1</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">3</td>
-            <td className="px-6 py-3 ">Đề tài cấp trường</td>
-            <td className="px-6 py-3">0.5</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">4</td>
-            <td className="px-6 py-3 ">Đề tài hợp tác doanh nghiệp</td>
-            <td className="px-6 py-3">0.5</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-          </tr>
+          {ListDeTai.map((item, index) => {
+            return (
+              <tr key={index}>
+                <td className="px-6 py-3 font-semibold">{index + 1}</td>
+                <td className="px-6 py-3 ">{item.loai_de_tai}</td>
+                <td className="px-6 py-3">{item.he_so}</td>
+                <td className="px-6 py-3">
+                  {filterLoaiDeTai(item.loai_de_tai, "2017-2018").length}
+                </td>
+                <td className="px-6 py-3">
+                  {filterLoaiDeTai(item.loai_de_tai, "2018-2019").length}
+                </td>
+                <td className="px-6 py-3">
+                  {filterLoaiDeTai(item.loai_de_tai, "2019-2020").length}
+                </td>
+                <td className="px-6 py-3">
+                  {filterLoaiDeTai(item.loai_de_tai, "2020-2021").length}
+                </td>
+                <td className="px-6 py-3">
+                  {filterLoaiDeTai(item.loai_de_tai, "2021-2022").length}
+                </td>
+                <td className="px-6 py-3 bg-gray-200">
+                  {filterLoaiDeTai(item.loai_de_tai).length}
+                </td>
+              </tr>
+            );
+          })}
           <tr className=" ">
             <td className="px-6 py-3 bg-gray-200 font-semibold"></td>
             <td className="px-6 py-3 bg-gray-200 ">Tổng</td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
+            <td className="px-6 py-3 bg-gray-200 "></td>
+            <td className="px-6 py-3 bg-gray-200">{filterLoaiDeTai("2017-2018").length}</td>
+            <td className="px-6 py-3 bg-gray-200">{filterLoaiDeTai("2018-2019").length}</td>
+            <td className="px-6 py-3 bg-gray-200">
+              {filterLoaiDeTai("2019-2020").length}
+            </td>
+            <td className="px-6 py-3 bg-gray-200">
+              {filterLoaiDeTai("2020-2021").length}
+            </td>
+            <td className="px-6 py-3 bg-gray-200">
+              {filterLoaiDeTai("2021-2022").length}
+            </td>
+            <td className="px-6 py-3 bg-gray-200">
+              {filterLoaiDeTai().length}
+            </td>
           </tr>
         </tbody>
       </table>

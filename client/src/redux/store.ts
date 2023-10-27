@@ -1,16 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "@redux-saga/core";
-import giangVienReducer from "../features/slice/giangVienSlice";
+import GiangVienReducer from "../features/slice/giangVienSlice";
 import rootSaga from "./rootSage";
 import NguoiHocReducer from "../features/slice/nguoiHocSlice";
+import NghienCuuKhoaHocReducer from "../features/slice/nghienCuuKhoaHocSlice";
 // ...
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: {
-    giangvien: giangVienReducer,
+    giangvien: GiangVienReducer,
     nguoihoc: NguoiHocReducer,
+    nghiencuukhoahoc: NghienCuuKhoaHocReducer,
   },
   middleware: [sagaMiddleware],
 });

@@ -1,5 +1,4 @@
 import { RouteType } from "./config";
-import Dashboard from "../pages/Dashboard";
 import GiangVien from "../pages/GiangVien";
 import NguoiHoc from "../pages/NguoiHoc";
 import ThanhTich from "../pages/ThanhTich";
@@ -25,14 +24,6 @@ import Bang52 from "../components/thanh_tich/Bang52";
 import Bang53 from "../components/thanh_tich/Bang53";
 
 const appRoutes: RouteType[] = [
-  {
-    path: "/",
-    element: <Dashboard />,
-    sidebarProps: {
-      displayText: "Dashboard",
-      icon: <i className="ri-bar-chart-2-fill"></i>,
-    },
-  },
   {
     path: "/giangvien",
     element: <GiangVien />,

@@ -1,6 +1,10 @@
-import React from "react";
+
+import { useAppSelector } from "../../redux/hook";
+
 
 const Bang49 = () => {
+  const { giangviens } = useAppSelector((state) => state.giangvien);
+
   return (
     <div className="relative overflow-x-auto shadow-md rounded-lg">
       <table className="w-full text-sm text-left ">
@@ -21,16 +25,49 @@ const Bang49 = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">Từ 1-3 cuốn sách</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-          </tr>
+          {[
+            "Từ 1-3 cuốn sách",
+            "Từ 4-6 cuốn sách",
+            "Trên 6 cuốn sách",
+            "Tổng",
+          ].map((item, index) => {
+            return (
+              <tr className=" ">
+                <td className="px-6 py-3 font-semibold">{item}</td>
+                <td className="px-6 py-3">
+                  {/* {
+                    giangviens.filter((giangvien) =>
+                      giangvien.sach.includes(ListLoaiSach[index])
+                    ).length
+                  } */}
+                </td>
+                <td className="px-6 py-3">
+                  {/* {
+                    giangviens.filter((giangvien) =>
+                      giangvien.sach.includes(ListLoaiSach[index])
+                    ).length
+                  } */}
+                </td>
+                <td className="px-6 py-3">
+                  {/* {
+                    giangviens.filter((giangvien) =>
+                      giangvien.sach.includes(ListLoaiSach[index])
+                    ).length
+                  } */}
+                </td>
+                <td className="px-6 py-3">
+                  {/* {
+                    giangviens.filter((giangvien) =>
+                      giangvien.sach.includes(ListLoaiSach[index])
+                    ).length
+                  } */}
+                </td>
+              </tr>
+            );
+          })}
 
           <tr className=" ">
-            <td className="px-6 py-3 font-semibold">Từ 4-6 cuốn sách</td>
+            <td className="px-6 py-3 font-semibold"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>

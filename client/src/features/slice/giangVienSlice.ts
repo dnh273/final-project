@@ -73,5 +73,5 @@ export const {
   filterGiangVienAction,
 } = GiangVienSlice.actions;
 
-const giangVienReducer = GiangVienSlice.reducer;
-export default giangVienReducer;
+const GiangVienReducer = GiangVienSlice.reducer;
+export default GiangVienReducer;
