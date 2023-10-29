@@ -33,9 +33,9 @@ const createSach = async (req: Request, res: Response) => {
 };
 
 const getAllSach = async (req: Request, res: Response) => {
-  const saches = await Sach.find({});
+  const ListSach = await Sach.find({});
 
-  res.status(StatusCodes.OK).json({ saches });
+  res.status(StatusCodes.OK).json({ ListSach });
 };
 
 export { createSach, getAllSach };

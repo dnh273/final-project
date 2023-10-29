@@ -25,7 +25,7 @@ import Bang53 from "../components/thanh_tich/Bang53";
 
 const appRoutes: RouteType[] = [
   {
-    path: "/giangvien",
+    path: "/",
     element: <GiangVien />,
     sidebarProps: {
       displayText: "Giảng Viên",

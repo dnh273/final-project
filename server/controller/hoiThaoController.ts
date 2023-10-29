@@ -37,7 +37,7 @@ const createHoiThao = async (req: Request, res: Response) => {
 const getAllHoiThao = async (req: Request, res: Response) => {
   const ListHoiThao = await HoiThao.find();
 
-  res.status(StatusCodes.OK).json({ ListHoiThao });
+res.status(StatusCodes.OK).json({ ListHoiThao });
 };
 
 export { getAllHoiThao, createHoiThao };

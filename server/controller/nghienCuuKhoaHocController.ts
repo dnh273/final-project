@@ -50,9 +50,9 @@ const createNghienCuuKhoaHoc = async (req: Request, res: Response) => {
 };
 
 const getAllNghienCuuKhoaHoc = async (req: Request, res: Response) => {
-  const nghienCuuKhoaHocs = await NghienCuuKhoaHoc.find();
+  const ListNghienCuuKhoaHoc = await NghienCuuKhoaHoc.find();
 
-  res.status(StatusCodes.OK).json({ nghienCuuKhoaHocs });
+  res.status(StatusCodes.OK).json({ ListNghienCuuKhoaHoc });
 };
 
 export { createNghienCuuKhoaHoc, getAllNghienCuuKhoaHoc };

@@ -1,4 +1,4 @@
-const DOMAIN = "http://localhost:3000";
+const DOMAIN = "http://localhost:4000";
 
 const ListNganh = [
   "Công nghệ thông tin",

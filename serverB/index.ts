@@ -7,6 +7,14 @@ import connectDB from "./db/connect";
 import notFound from "./middleware/not-found";
 import errorHandlerMiddleware from "./middleware/error-handler";
 import GiangVienRoute from "./routes/giangVienRoutes";
+import NganhHocRoute from "./routes/nganhHocRoutes";
+import NguoiHocRoute from "./routes/nguoiHocRoutes";
+import KhoaRoute from "./routes/khoaRoutes";
+import PhongKyTucRoute from "./routes/phongKyTucRoutes";
+import NghienCuuKhoaHocRoute from "./routes/nghienCuuKhoaHocRoutes";
+import SachRoute from "./routes/sachRoutes";
+import HoiThaoRoute from "./routes/hoiThaoRoutes";
+import TapChiRoute from "./routes/tapChiRoutes";
 import { fetchListGiangVienAndUpdate } from "./services/giangVienService";
 import { fetchListHoiThaoAndUpdate } from "./services/hoiThaoService";
 import { fetchListKhoaAndUpdate } from "./services/khoaService";
@@ -25,23 +33,27 @@ app.use(express.json());
 
 const port = process.env.PORT || 4000;
 
-cron.schedule("0 0 * * *", () => {
-  fetchListGiangVienAndUpdate();
-  fetchListKhoaAndUpdate();
-  fetchListNguoiHocAndUpdate();
-  fetchListNganhHocAndUpdate();
-  fetchListNghienCuuKhoaHocAndUpdate();
-  fetchListHoiThaoAndUpdate();
-  fetchListSachAndUpdate();
-  fetchListTapChiAndUpdate();
-  fetchListPhongKyTucAndUpdate();
-});
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, TypeScript Express!");
+cron.schedule("0 0 * * *", async () => {
+  await fetchListGiangVienAndUpdate();
+  await fetchListKhoaAndUpdate();
+  await fetchListNguoiHocAndUpdate();
+  await fetchListNganhHocAndUpdate();
+  await fetchListNghienCuuKhoaHocAndUpdate();
+  await fetchListHoiThaoAndUpdate();
+  await fetchListSachAndUpdate();
+  await fetchListTapChiAndUpdate();
+  await fetchListPhongKyTucAndUpdate();
 });
 
 app.use("/api/v1/giangvien", GiangVienRoute);
+app.use("/api/v1/nganhhoc", NganhHocRoute);
+app.use("/api/v1/khoa", KhoaRoute);
+app.use("/api/v1/nguoihoc", NguoiHocRoute);
+app.use("/api/v1/phongkytuc", PhongKyTucRoute);
+app.use("/api/v1/nghiencuukhoahoc", NghienCuuKhoaHocRoute);
+app.use("/api/v1/sach", SachRoute);
+app.use("/api/v1/tapchi", TapChiRoute);
+app.use("/api/v1/hoithao", HoiThaoRoute);
 
 app.use(errorHandlerMiddleware);
 app.use(notFound);
@@ -52,7 +64,16 @@ const start = async () => {
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
     });
-    fetchListGiangVienAndUpdate();
+
+    await fetchListGiangVienAndUpdate();
+    await fetchListKhoaAndUpdate();
+    await fetchListNguoiHocAndUpdate();
+    await fetchListNganhHocAndUpdate();
+    await fetchListNghienCuuKhoaHocAndUpdate();
+    await fetchListHoiThaoAndUpdate();
+    await fetchListSachAndUpdate();
+    await fetchListTapChiAndUpdate();
+    await fetchListPhongKyTucAndUpdate();
   } catch (error) {
     console.log(error);
   }

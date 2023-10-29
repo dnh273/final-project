@@ -10,7 +10,6 @@ const createNganhHoc = async (req: Request, res: Response) => {
   const isValidNganh = await NganhHoc.findOne({ ten_nganh: ten_nganh });
   const khoa = await Khoa.findOne({ ten_khoa: ten_khoa });
 
-
   if (isValidNganh) {
     throw createCustomError("Ngành học đã tồn tại", StatusCodes.BAD_REQUEST);
   }
@@ -28,12 +27,12 @@ const createNganhHoc = async (req: Request, res: Response) => {
     },
     { new: true, useFindAndModify: false }
   );
-  res.status(StatusCodes.CREATED).json({ khoa });
+  res.status(StatusCodes.CREATED).json({ ten_nganh, ten_khoa });
 };
 
 const getAllNganhHoc = async (req: Request, res: Response) => {
-  const nganhHocs = await NganhHoc.find({})
-  res.status(StatusCodes.OK).json({ nganh_hocs: nganhHocs });
+  const ListNganhHoc = await NganhHoc.find({});
+  res.status(StatusCodes.OK).json({ ListNganhHoc });
 };
 
 const deleteNganhHoc = async (req: Request, res: Response) => {

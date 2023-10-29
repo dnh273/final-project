@@ -30,7 +30,7 @@ app.use("/api/v1/phongkytuc", PhongKyTucRoute);
 app.use("/api/v1/nghiencuukhoahoc", NghienCuuKhoaHocRoute);
 app.use("/api/v1/sach", SachRoute);
 app.use("/api/v1/tapchi", TapChiRoute);
-app.use("api/v1/hoithao", HoiThaoRoute);
+app.use("/api/v1/hoithao", HoiThaoRoute);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);

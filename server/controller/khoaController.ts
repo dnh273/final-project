@@ -17,8 +17,8 @@ const createKhoa = async (req: Request, res: Response) => {
 };
 
 const getAllKhoa = async (req: Request, res: Response) => {
-  const khoas = await Khoa.find().populate("nganhs");
-  res.status(StatusCodes.OK).json({ khoas });
+  const ListKhoa = await Khoa.find();
+  res.status(StatusCodes.OK).json({ ListKhoa });
 };
 
 export { createKhoa, getAllKhoa };

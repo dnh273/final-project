@@ -30,8 +30,9 @@ const GiangVienSlice = createSlice({
     },
     getAllGiangVienSuccessAction: (state, action) => {
       state.isLoading = false;
-      state.giangviens = action.payload.ListOfGiangVien;
-      state.filterGiangViens = action.payload.ListOfGiangVien;
+      console.log(action.payload);
+      state.giangviens = action.payload.ListGiangVien;
+      state.filterGiangViens = action.payload.ListGiangVien;
     },
     getAllGiangVienErrorAction: (state, action) => {
       state.isLoading = false;

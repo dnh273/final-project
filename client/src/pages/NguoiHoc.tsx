@@ -16,7 +16,7 @@ const NguoiHoc = () => {
 
   const pathname = location.pathname.split("/")[2];
 
-  const title = appRoutes[2].child?.find((item) => {
+  const title = appRoutes[1].child?.find((item) => {
     if (pathname) {
       return item.path == pathname;
     } else {
@@ -28,7 +28,7 @@ const NguoiHoc = () => {
     <>
       <HeaderTitle title={title?.sidebarProps?.showText} />
       <div className="mb-4 flex flex-wrap gap-2">
-        {appRoutes[2].child?.map((item, index) => (
+        {appRoutes[1].child?.map((item, index) => (
           <NavLink
             key={index}
             className="bg-orange-400 font-bold text-white mr-2 px-4 py-2 rounded-lg"

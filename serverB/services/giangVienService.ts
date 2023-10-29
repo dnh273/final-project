@@ -3,23 +3,60 @@ import GiangVien from "../models/GiangVien";
 import { IGiangVien } from "../types/giangVien.type";
 import { DOMAIN } from "../config";
 const fetchListGiangVienAndUpdate = async () => {
-  const giangVien = await GiangVien.find().sort({ timestamp: -1 }).limit(1);
+  const oldestData = await GiangVien.find().sort({ timestamp: -1 }).limit(1);
+  const ListGiangVien = await GiangVien.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/giangvien`);
-
+  const response = await axios.get(`${DOMAIN}/api/v1/GiangVien`);
   if (response.status === 200) {
-    const ListGiangVienUpdate = response.data.ListGiangVien.filter(
-      (item: IGiangVien) =>
-        item.createdAt > giangVien[0].createdAt ||
-        item.updatedAt > giangVien[0].updatedAt
-    );
+    const ListIdGiangVienDelete = ListGiangVien.filter(
+      (item) =>
+        !response.data.ListGiangVien.map(
+          (data: IGiangVien) => data._id
+        ).includes(item._id.toString())
+    ).map((item) => {
+      _id: item.id;
+    });
 
-    if (ListGiangVienUpdate.length > 0) {
-      await GiangVien.insertMany(ListGiangVienUpdate);
-      console.log("Daily update GiangVien success");
-    } else {
-      console.log("No new GiangVien data");
+    if (ListIdGiangVienDelete.length > 0) {
+      await GiangVien.deleteMany({ _id: { $in: ListIdGiangVienDelete } });
+      console.log("Delete GiangVien data success");
     }
+
+    if (response.data.ListGiangVien.length > 0 && oldestData.length == 0) {
+      await GiangVien.insertMany(response.data.ListGiangVien);
+      console.log("Update GiangVien success");
+    }
+    if (response.data.ListGiangVien.length > 0 && oldestData.length > 0) {
+      const ListGiangVienInsert = response.data.ListGiangVien.filter(
+        (item: IGiangVien) => item.createdAt > oldestData[0].createdAt
+      );
+
+      const ListGiangVienUpdate = response.data.ListGiangVien.filter(
+        (item: IGiangVien) =>
+          response.data.ListGiangVien.map(
+            (data: IGiangVien) => data._id
+          ).includes(item._id.toString()) &&
+          response.data.ListGiangVien.find(
+            (data: IGiangVien) => data._id == item._id.toString()
+          ).updatedAt > item.updatedAt
+      );
+      if (ListGiangVienUpdate.length > 0) {
+        await GiangVien.updateMany({ _id: { $in: ListIdGiangVienDelete } });
+      }
+
+      if (ListGiangVienInsert.length > 0) {
+        await GiangVien.insertMany(ListGiangVienInsert);
+        console.log("Daily update GiangVien success");
+      }
+
+      if (ListGiangVienInsert.length == 0) {
+        console.log("No new GiangVien data");
+      }
+
+      return;
+    }
+    console.log("No new GiangVien data");
+    return;
   }
 };
 

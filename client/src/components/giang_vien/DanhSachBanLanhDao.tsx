@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import SearchTable from "../common/SearchTable";
 import DropdownFilter from "../common/DropdownFilter";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import {
-  filterGiangVienAction,
-  searchQueryAction,
-} from "../../features/slice/giangVienSlice";
+import { filterGiangVienAction } from "../../features/slice/giangVienSlice";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
 
@@ -27,11 +24,11 @@ const DanhSachBanLanhDao = () => {
       return <SkeletonTable colSpan={8} />;
     }
 
-    if (filterGiangViens.length === 0) {
+    if (filterGiangViens?.length === 0) {
       return <NotFoundTable />;
     }
 
-    return filterGiangViens.map((item, index) => (
+    return filterGiangViens?.map((item, index) => (
       <tr className="bg-white border-b" key={index}>
         <td className="px-6 py-4 font-medium whitespace-nowrap text-gray-800 text-center">
           {index + 1}
