@@ -35,7 +35,7 @@ app.use("/api/v1/hoithao", HoiThaoRoute);
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URL);

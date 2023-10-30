@@ -3,20 +3,22 @@ import NganhHoc from "../models/NganhHoc";
 import { INganhHoc } from "../types/nganhHoc.type";
 import { DOMAIN } from "../config";
 const fetchListNganhHocAndUpdate = async () => {
-  const oldestData = await NganhHoc.find().sort({ timestamp: -1 }).limit(1);
+  const oldestData = await NganhHoc.find().sort({ createdAt: -1 }).limit(1);
   const ListNganhHoc = await NganhHoc.find();
 
   const response = await axios.get(`${DOMAIN}/api/v1/NganhHoc`);
   if (response.status === 200) {
-    const ListNganhHocDelete = ListNganhHoc.filter(
+    const ListIdNganhHocDelete = ListNganhHoc.filter(
       (item) =>
-        !response.data.ListNganhHoc.map(
-          (data: INganhHoc) => data._id
-        ).includes(item._id.toString())
-    );
+        !response.data.ListNganhHoc.map((data: INganhHoc) => data._id).includes(
+          item._id.toString() 
+        )
+    ).map((item) => {
+      _id: item.id;
+    });
 
-    if (ListNganhHocDelete.length > 0) {
-      await NganhHoc.deleteMany(ListNganhHocDelete);
+    if (ListIdNganhHocDelete.length > 0) {
+      await NganhHoc.deleteMany({ _id: { $in: ListIdNganhHocDelete } });
       console.log("Delete NganhHoc data success");
     }
 
@@ -24,17 +26,51 @@ const fetchListNganhHocAndUpdate = async () => {
       await NganhHoc.insertMany(response.data.ListNganhHoc);
       console.log("Update NganhHoc success");
     }
+
     if (response.data.ListNganhHoc.length > 0 && oldestData.length > 0) {
+      const ListNganhHocInsert = response.data.ListNganhHoc.filter(
+        (item: INganhHoc) => {
+          return (
+            Date.parse(item.createdAt.toString()) >
+            oldestData[0].createdAt.getTime()
+          );
+        }
+      );
+
       const ListNganhHocUpdate = response.data.ListNganhHoc.filter(
         (item: INganhHoc) =>
-          item.createdAt > oldestData[0].createdAt ||
-          item.updatedAt > oldestData[0].updatedAt
+          response.data.ListNganhHoc.map(
+            (data: INganhHoc) => data._id
+          ).includes(item._id.toString()) &&
+          Date.parse(
+            response.data.ListNganhHoc.find(
+              (data: INganhHoc) => data._id == item._id.toString()
+            ).updatedAt
+          ) > Date.parse(item.updatedAt.toString())
       );
+
+      const bulkOperations = ListNganhHocUpdate.map((update: INganhHoc) => {
+        return {
+          updateOne: {
+            filter: { _id: update._id },
+            update: { $set: update },
+          },
+        };
+      });
+
       if (ListNganhHocUpdate.length > 0) {
-        await NganhHoc.insertMany(ListNganhHocUpdate);
-        console.log("Daily update NganhHoc success");
+        await NganhHoc.bulkWrite(bulkOperations);
+        console.log("Update NganhHoc success");
       }
-      if (ListNganhHocUpdate.length == 0) {
+
+      // console.log(ListNganhHocUpdate);
+      // console.log(ListNganhHocInsert);
+      if (ListNganhHocInsert.length > 0) {
+        await NganhHoc.insertMany(ListNganhHocInsert);
+        console.log("Insert NganhHoc success");
+      }
+
+      if (ListNganhHocInsert.length == 0) {
         console.log("No new NganhHoc data");
       }
 

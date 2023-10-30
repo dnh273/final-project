@@ -64,16 +64,6 @@ const start = async () => {
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
     });
-
-    await fetchListGiangVienAndUpdate();
-    await fetchListKhoaAndUpdate();
-    await fetchListNguoiHocAndUpdate();
-    await fetchListNganhHocAndUpdate();
-    await fetchListNghienCuuKhoaHocAndUpdate();
-    await fetchListHoiThaoAndUpdate();
-    await fetchListSachAndUpdate();
-    await fetchListTapChiAndUpdate();
-    await fetchListPhongKyTucAndUpdate();
   } catch (error) {
     console.log(error);
   }
