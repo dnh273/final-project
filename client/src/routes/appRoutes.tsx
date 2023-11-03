@@ -1,7 +1,7 @@
-import { RouteType } from "./config";
-import GiangVien from "../pages/GiangVien";
-import NguoiHoc from "../pages/NguoiHoc";
-import ThanhTich from "../pages/ThanhTich";
+import React from "react";
+import GiangVien from "../pages/GiangVien/GiangVien";
+import NguoiHoc from "../pages/NguoiHoc/NguoiHoc";
+import ThanhTich from "../pages/ThanhTich/ThanhTich";
 import DanhSachBanLanhDao from "../components/giang_vien/DanhSachBanLanhDao";
 import Bang33 from "../components/giang_vien/Bang33";
 import Bang34 from "../components/giang_vien/Bang34";
@@ -23,7 +23,7 @@ import Bang51 from "../components/thanh_tich/Bang51";
 import Bang52 from "../components/thanh_tich/Bang52";
 import Bang53 from "../components/thanh_tich/Bang53";
 
-const appRoutes: RouteType[] = [
+const appRoutes = [
   {
     path: "/",
     element: <GiangVien />,
@@ -31,7 +31,7 @@ const appRoutes: RouteType[] = [
       displayText: "Giảng Viên",
       icon: <i className="ri-user-2-fill"></i>,
     },
-    child: [
+    children: [
       {
         path: "",
         element: <DanhSachBanLanhDao />,
@@ -84,7 +84,7 @@ const appRoutes: RouteType[] = [
       displayText: "Người học",
       icon: <i className="ri-parent-line"></i>,
     },
-    child: [
+    children: [
       {
         path: "",
         element: <Bang38 />,
@@ -147,7 +147,7 @@ const appRoutes: RouteType[] = [
       displayText: "Thành tích",
       icon: <i className="ri-award-fill"></i>,
     },
-    child: [
+    children: [
       {
         path: "",
         element: <Bang45 />,

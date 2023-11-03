@@ -1,11 +1,18 @@
-// import { NavLink } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import useComponentVisible from "../../hooks/useComponentVisible";
 import appRoutes from "../../routes/appRoutes";
+import { removeToken } from "../../utils/storage";
 
 const Sidebar = () => {
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible(false);
+
+  const navigate = useNavigate();
+
+  function logout() {
+    removeToken();
+    navigate("/auth/login");
+  }
 
   return (
     <>
@@ -73,7 +80,7 @@ const Sidebar = () => {
             </svg>
           </button> */}
 
-          <ul className="space-y-2 font-medium">
+          <ul className="space-y-2 font-medium border-b py-3">
             {appRoutes.map((route, index) => {
               return (
                 <li
@@ -107,6 +114,24 @@ const Sidebar = () => {
                 </li>
               );
             })}
+          </ul>
+
+          <ul className="space-y-2 font-medium py-3">
+            <li>
+              <div
+                className={
+                  "flex items-center cursor-pointer py-2 px-3 group text-gray-900 rounded-lg hover:bg-gray-200  transition-all"
+                }
+                onClick={logout}
+              >
+                <div
+                  className={`transition duration-75 text-gray-400 group-hover:text-gray-700`}
+                >
+                  <i className="ri-logout-box-r-line"></i>
+                </div>
+                <span className="ml-3">Logout</span>
+              </div>
+            </li>
           </ul>
         </div>
       </aside>

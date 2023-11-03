@@ -44,7 +44,7 @@ const GiangVienSlice = createSlice({
         payload: { filterHocVi, filterKhoa, query },
       }: PayloadAction<FilterGiangVienAction>
     ) => {
-      console.log(filterHocVi);
+  
       state.filterGiangViens = [...state.giangviens]
         .filter((item) =>
           filterHocVi.length > 0 ? filterHocVi.includes(item.hoc_vi) : true

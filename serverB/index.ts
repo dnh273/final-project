@@ -1,4 +1,4 @@
-import express, { Request, Response, Express } from "express";
+import express, { Express } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import "express-async-errors";
@@ -15,6 +15,7 @@ import NghienCuuKhoaHocRoute from "./routes/nghienCuuKhoaHocRoutes";
 import SachRoute from "./routes/sachRoutes";
 import HoiThaoRoute from "./routes/hoiThaoRoutes";
 import TapChiRoute from "./routes/tapChiRoutes";
+import AuthRoute from "./routes/authRoutes";
 import { fetchListGiangVienAndUpdate } from "./services/giangVienService";
 import { fetchListHoiThaoAndUpdate } from "./services/hoiThaoService";
 import { fetchListKhoaAndUpdate } from "./services/khoaService";
@@ -31,7 +32,7 @@ const app: Express = express();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT || 4000;
+const port = 4000;
 
 cron.schedule("0 0 * * *", async () => {
   await fetchListGiangVienAndUpdate();
@@ -54,6 +55,7 @@ app.use("/api/v1/nghiencuukhoahoc", NghienCuuKhoaHocRoute);
 app.use("/api/v1/sach", SachRoute);
 app.use("/api/v1/tapchi", TapChiRoute);
 app.use("/api/v1/hoithao", HoiThaoRoute);
+app.use("/api/v1/auth", AuthRoute);
 
 app.use(errorHandlerMiddleware);
 app.use(notFound);

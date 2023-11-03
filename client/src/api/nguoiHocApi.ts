@@ -1,7 +1,7 @@
-import axiosConfig from "./axiosConfig";
+import axiosPrivate from "./config/axios.private";
 
 const nguoiHocApi = {
-  getAllNguoiHoc: () => axiosConfig.get(`nguoihoc`),
+  getAllNguoiHoc: () => axiosPrivate.get(`nguoihoc`),
 };
 
 export default nguoiHocApi;

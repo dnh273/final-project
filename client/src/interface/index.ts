@@ -1,3 +1,8 @@
+interface ILogin {
+  email: string;
+  password: string;
+}
+
 interface IGiangVien {
   _id: string;
   ho_ten: string;
@@ -46,4 +51,4 @@ interface ISach {
   nam_hoc: string;
 }
 
-export type { INguoiHoc, IGiangVien, INghienCuuKhoaHoc, ISach };
+export type { INguoiHoc, ILogin, IGiangVien, INghienCuuKhoaHoc, ISach };

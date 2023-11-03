@@ -1,7 +1,7 @@
-import axiosConfig from "./axiosConfig";
+import axiosPrivate from "./config/axios.private";
 
 const sachApi = {
-  getAllSach: () => axiosConfig.get("sach"),
+  getAllSach: () => axiosPrivate.get("sach"),
 };
 
 export default sachApi;

@@ -1,8 +1,8 @@
-import axiosConfig from "./axiosConfig";
+import axiosPrivate from "./config/axios.private";
 
 const giangVienApi = {
   getAllGiangVien: (q = "", size = "", page = "") =>
-    axiosConfig.get(`giangvien?q=${q}&size=${size}&page=${page}`),
+    axiosPrivate.get(`giangvien?q=${q}&size=${size}&page=${page}`),
 };
 
 export default giangVienApi;

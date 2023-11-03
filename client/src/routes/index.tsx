@@ -1,14 +1,16 @@
-import { Route } from "react-router-dom";
-import { RouteType } from "./config";
-import { ReactNode } from "react";
-import appRoutes from "./appRoutes";
+import { useRoutes } from "react-router-dom";
+import { publicRoutes } from "./public.routes";
+import { protectedRoutes } from "./protected.routes";
+import { getToken } from "../utils/storage";
 
-const generateRoute = (routes: RouteType[]): ReactNode => {
-  return routes.map((route, index) => (
-    <Route path={route.path} element={route.element} key={index}>
-      {route.child && generateRoute(route.child)}
-    </Route>
-  ));
+const AppRoutes = () => {
+  const isAuth = getToken();
+
+  const routes = isAuth ? protectedRoutes : publicRoutes;
+
+  const element = useRoutes([...routes]);
+
+  return element;
 };
 
-export const routes: ReactNode = generateRoute(appRoutes);
+export default AppRoutes;

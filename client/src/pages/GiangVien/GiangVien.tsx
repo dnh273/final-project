@@ -1,22 +1,22 @@
 import { useEffect } from "react";
-import HeaderTitle from "../components/common/HeaderTitle";
-import { useAppDispatch } from "../redux/hook";
-import appRoutes from "../routes/appRoutes";
+import { useAppDispatch } from "../../redux/hook";
+import appRoutes from "../../routes/appRoutes";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { getAllNguoiHocAction } from "../features/slice/nguoiHocSlice";
+import { getAllGiangVienAction } from "../../features/slice/giangVienSlice";
+import HeaderTitle from "../../components/common/HeaderTitle";
 
-const NguoiHoc = () => {
+const GiangVien = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getAllNguoiHocAction());
+    dispatch(getAllGiangVienAction());
   }, []);
 
   const location = useLocation();
 
   const pathname = location.pathname.split("/")[2];
 
-  const title = appRoutes[1].child?.find((item) => {
+  const title = appRoutes[0].children?.find((item) => {
     if (pathname) {
       return item.path == pathname;
     } else {
@@ -28,10 +28,10 @@ const NguoiHoc = () => {
     <>
       <HeaderTitle title={title?.sidebarProps?.showText} />
       <div className="mb-4 flex flex-wrap gap-2">
-        {appRoutes[1].child?.map((item, index) => (
+        {appRoutes[0].children?.map((item, index) => (
           <NavLink
             key={index}
-            className="bg-orange-400 font-bold text-white mr-2 px-4 py-2 rounded-lg"
+            className="bg-orange-400 font-bold text-white px-4 py-2 rounded-lg whitespace-nowrap"
             to={`${item.path}`}
           >
             {item.sidebarProps?.displayText}
@@ -43,4 +43,4 @@ const NguoiHoc = () => {
   );
 };
 
-export default NguoiHoc;
+export default GiangVien;

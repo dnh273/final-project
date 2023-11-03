@@ -1,8 +1,7 @@
-
-import axiosConfig from "./axiosConfig";
+import axiosPrivate from "./config/axios.private";
 
 const nghiCuuKhoaHocApi = {
-  getAllNghienCuuKhoaHoc: () => axiosConfig.get("sach"),
+  getAllNghienCuuKhoaHoc: () => axiosPrivate.get("sach"),
 };
 
 export default nghiCuuKhoaHocApi;
