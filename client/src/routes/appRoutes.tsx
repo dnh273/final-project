@@ -25,7 +25,7 @@ import Bang53 from "../components/thanh_tich/Bang53";
 
 const appRoutes = [
   {
-    path: "/giangvien",
+    path: "/",
     element: <GiangVien />,
     sidebarProps: {
       displayText: "Giảng Viên",
@@ -231,7 +231,6 @@ const appRoutes = [
       },
     ],
   },
-
 ];
 
 export default appRoutes;
