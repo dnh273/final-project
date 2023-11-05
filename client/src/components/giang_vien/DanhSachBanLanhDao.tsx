@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { filterGiangVienAction } from "../../features/slice/giangVienSlice";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
+import { useSearchParams } from "react-router-dom";
 
 const DanhSachBanLanhDao = () => {
   const dispatch = useAppDispatch();
@@ -12,7 +13,8 @@ const DanhSachBanLanhDao = () => {
   const { filterGiangViens, giangviens, isLoading } = useAppSelector(
     (state) => state.giangvien
   );
-  const [q, setQ] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams({ q: "" });
+  const q = searchParams.get("q");
   const [listKhoaFilter, setListKhoaFilter] = useState<string[]>([]);
   const [listHocViFilter, setListHocViFilter] = useState<string[]>([]);
 
@@ -66,12 +68,12 @@ const DanhSachBanLanhDao = () => {
         query: q,
       })
     );
-  }, [listHocViFilter, listKhoaFilter, q]);
+  }, [listHocViFilter, listKhoaFilter, q, dispatch]);
 
   return (
     <>
       <div className="flex flex-wrap items-center pb-4">
-        <SearchTable setQ={setQ} />
+        <SearchTable setQ={setSearchParams} />
         <DropdownFilter
           tagName="Khoa"
           setListValue={setListKhoaFilter}

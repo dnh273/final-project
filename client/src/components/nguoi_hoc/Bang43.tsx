@@ -48,38 +48,38 @@ const Bang43 = () => {
 
     return ListLoaiNguoiHoc.map((loai_nguoi_hoc, index) => {
       return (
-        <tr>
+        <tr key={index}>
           <td className="px-6 py-3 font-semibold">
             {`${loai_nguoi_hoc.stt ? loai_nguoi_hoc.stt + "." : ""} ${
               loai_nguoi_hoc.text.slice(0, 1).toLocaleUpperCase() +
               loai_nguoi_hoc.text.slice(1)
             }`}
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
               filterByNganhHocVaNamHoc(ListNamHoc[4], loai_nguoi_hoc.text)
                 .length
             }
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
               filterByNganhHocVaNamHoc(ListNamHoc[3], loai_nguoi_hoc.text)
                 .length
             }
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
               filterByNganhHocVaNamHoc(ListNamHoc[2], loai_nguoi_hoc.text)
                 .length
             }
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
               filterByNganhHocVaNamHoc(ListNamHoc[1], loai_nguoi_hoc.text)
                 .length
             }
           </td>
-          <td className="px-6 py-3" key={index}>
+          <td className="px-6 py-3">
             {
               filterByNganhHocVaNamHoc(ListNamHoc[0], loai_nguoi_hoc.text)
                 .length

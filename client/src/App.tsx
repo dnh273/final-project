@@ -1,6 +1,12 @@
+import { ErrorBoundary } from "react-error-boundary";
 import "./App.css";
 import AppRoutes from "./routes";
+import ErrorPage from "./components/common/ErrorPage";
 
 export default function App() {
-  return <AppRoutes />;
+  return (
+    <ErrorBoundary fallback={<ErrorPage/>}>
+      <AppRoutes />;
+    </ErrorBoundary>
+  );
 }

@@ -32,7 +32,7 @@ const Bang49 = () => {
             "Tổng",
           ].map((item, index) => {
             return (
-              <tr className=" ">
+              <tr key={index}>
                 <td className="px-6 py-3 font-semibold">{item}</td>
                 <td className="px-6 py-3">
                   {/* {

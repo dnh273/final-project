@@ -23,7 +23,6 @@ const LoginForm = () => {
     authApi
       .login(data)
       .then((res) => {
-        console.log(res.data.accessToken);
         if (res.status === 200) {
           const { accessToken } = res.data;
           setToken(accessToken);
@@ -60,7 +59,7 @@ const LoginForm = () => {
                 },
               })}
             />
-            <small className="text-red-500 pt-2 font-semibold">
+            <small className="text-red-500 pt-2 font-semibold block">
               {errors?.email ? errors.email.message : ""}
             </small>
           </div>
@@ -87,7 +86,7 @@ const LoginForm = () => {
                 onClick={() => setShowPassword(!showPassword)}
               ></i>
             )}
-            <small className="text-red-500 pt-2 font-semibold">
+            <small className="text-red-500 pt-2 font-semibold block">
               {errors?.password ? errors.password.message : ""}
             </small>
           </div>

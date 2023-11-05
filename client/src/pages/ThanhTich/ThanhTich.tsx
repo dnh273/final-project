@@ -19,11 +19,11 @@ const ThanhTich = () => {
   return (
     <>
       <HeaderTitle title={title?.sidebarProps?.showText} />
-      <div className="mb-4 flex flex-wrap">
+      <div className="mb-4 flex flex-wrap gap-2">
         {appRoutes[2].children?.map((item, index) => (
           <NavLink
             key={index}
-            className="bg-orange-400 font-bold text-white mr-2 px-4 py-2 rounded-lg whitespace-nowrap"
+            className="bg-orange-400 gap font-bold text-white mr-2 px-4 py-2 rounded-lg whitespace-nowrap"
             to={`${item.path}`}
           >
             {item.sidebarProps?.displayText}

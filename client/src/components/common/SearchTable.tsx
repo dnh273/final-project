@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { SetURLSearchParams } from "react-router-dom";
 
 interface SearchTableProps {
-  setQ: React.Dispatch<React.SetStateAction<string>>;
+  setQ: SetURLSearchParams;
 }
 
 const SearchTable = ({ setQ }: SearchTableProps) => {
@@ -36,12 +37,20 @@ const SearchTable = ({ setQ }: SearchTableProps) => {
         <input
           type="text"
           id="table-search-users"
-          className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+          className="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg sm:w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
           onChange={(e) => handleQ(e)}
           placeholder="Tìm kiếm giảng viên"
         />
         <button
-          onClick={() => setQ(value)}
+          onClick={() =>
+            setQ(
+              (prev) => {
+                prev.set("q", value);
+                return prev;
+              },
+              { replace: true }
+            )
+          }
           className="bg-blue-400 text-white font-semibold rounded-lg ml-2 inline-block px-2"
         >
           Tìm kiếm

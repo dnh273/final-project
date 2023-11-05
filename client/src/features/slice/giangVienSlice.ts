@@ -11,7 +11,7 @@ interface GiangVienState {
 interface FilterGiangVienAction {
   filterKhoa: string[];
   filterHocVi: string[];
-  query: string;
+  query: string | null;
 }
 
 const initialState: GiangVienState = {
@@ -30,7 +30,6 @@ const GiangVienSlice = createSlice({
     },
     getAllGiangVienSuccessAction: (state, action) => {
       state.isLoading = false;
-      console.log(action.payload);
       state.giangviens = action.payload.ListGiangVien;
       state.filterGiangViens = action.payload.ListGiangVien;
     },
@@ -44,7 +43,6 @@ const GiangVienSlice = createSlice({
         payload: { filterHocVi, filterKhoa, query },
       }: PayloadAction<FilterGiangVienAction>
     ) => {
-  
       state.filterGiangViens = [...state.giangviens]
         .filter((item) =>
           filterHocVi.length > 0 ? filterHocVi.includes(item.hoc_vi) : true
@@ -52,16 +50,17 @@ const GiangVienSlice = createSlice({
         .filter((item) =>
           filterKhoa.length > 0 ? filterKhoa.includes(item.khoa) : true
         )
-        .filter(
-          (item) =>
-            item.ho_ten
-              .normalize()
-              .toUpperCase()
-              .includes(query.normalize().toUpperCase()) ||
-            item.email
-              .normalize()
-              .toUpperCase()
-              .includes(query.normalize().toUpperCase())
+        .filter((item) =>
+          query
+            ? item.ho_ten
+                .normalize()
+                .toUpperCase()
+                .includes(query.normalize().toUpperCase()) ||
+              item.email
+                .normalize()
+                .toUpperCase()
+                .includes(query.normalize().toUpperCase())
+            : true
         );
     },
   },
