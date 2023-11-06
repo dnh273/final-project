@@ -60,7 +60,11 @@ const LoginForm = () => {
               })}
             />
             <small className="text-red-500 pt-2 font-semibold block">
-              {errors?.email ? errors.email.message : ""}
+              {errors?.email ? (
+                <small className="text-red-500 pt-2 font-semibold block">
+                  {errors.email.message}
+                </small>
+              ) : null}
             </small>
           </div>
           <div className="relative">
@@ -86,9 +90,11 @@ const LoginForm = () => {
                 onClick={() => setShowPassword(!showPassword)}
               ></i>
             )}
-            <small className="text-red-500 pt-2 font-semibold block">
-              {errors?.password ? errors.password.message : ""}
-            </small>
+            {errors?.password ? (
+              <small className="text-red-500 pt-2 font-semibold block">
+                {errors.password.message}
+              </small>
+            ) : null}
           </div>
         </div>
         <button
