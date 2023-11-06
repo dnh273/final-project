@@ -1,4 +1,4 @@
-import nghiCuuKhoaHocApi from "../../api/nghienCuuKhoaHocApi";
+import nghienCuuKhoaHocApi from "../../api/nghienCuuKhoaHocApi";
 import { AxiosResponse } from "axios";
 import { INghienCuuKhoaHoc } from "../../interface";
 import { put, takeLatest } from "redux-saga/effects";
@@ -11,7 +11,7 @@ import {
 function* getAllNghienCuuKhoaHocSaga() {
   try {
     const response: AxiosResponse<INghienCuuKhoaHoc[]> =
-      yield nghiCuuKhoaHocApi.getAllNghienCuuKhoaHoc();
+      yield nghienCuuKhoaHocApi.getAllNghienCuuKhoaHoc();
 
     yield put(getAllNghienCuuKhoaHocSuccessAction(response.data));
   } catch (error) {

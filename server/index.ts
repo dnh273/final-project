@@ -14,6 +14,8 @@ import NghienCuuKhoaHocRoute from "./routes/nghienCuuKhoaHocRoutes";
 import SachRoute from "./routes/sachRoutes";
 import HoiThaoRoute from "./routes/hoiThaoRoutes";
 import TapChiRoute from "./routes/tapChiRoutes";
+import MayTinhRoute from "./routes/mayTinhRoutes";
+import DatRoute from "./routes/datRoutes";
 
 dotenv.config();
 
@@ -31,6 +33,8 @@ app.use("/api/v1/nghiencuukhoahoc", NghienCuuKhoaHocRoute);
 app.use("/api/v1/sach", SachRoute);
 app.use("/api/v1/tapchi", TapChiRoute);
 app.use("/api/v1/hoithao", HoiThaoRoute);
+app.use("/api/v1/dat", DatRoute);
+app.use("/api/v1/maytinh", MayTinhRoute);
 
 app.use(notFound);
 app.use(errorHandlerMiddleware);

@@ -44,6 +44,19 @@ interface INghienCuuKhoaHoc {
   doanh_thu: bigint;
 }
 
+interface IDat {
+  _id: string;
+  muc_dich: string;
+  ma_khu_dat: string;
+  vi_tri: string;
+  dien_tich: number;
+}
+
+interface IMayTinh {
+  _id: string;
+  muc_dich: string;
+}
+
 interface ISach {
   _id: string;
   ten_sach: string;
@@ -51,4 +64,12 @@ interface ISach {
   nam_hoc: string;
 }
 
-export type { INguoiHoc, ILogin, IGiangVien, INghienCuuKhoaHoc, ISach };
+export type {
+  INguoiHoc,
+  ILogin,
+  IGiangVien,
+  INghienCuuKhoaHoc,
+  ISach,
+  IDat,
+  IMayTinh,
+};

@@ -16,6 +16,8 @@ import SachRoute from "./routes/sachRoutes";
 import HoiThaoRoute from "./routes/hoiThaoRoutes";
 import TapChiRoute from "./routes/tapChiRoutes";
 import AuthRoute from "./routes/authRoutes";
+import DatRoute from "./routes/datRoutes";
+import MayTinhRoute from "./routes/mayTinhRoutes";
 import { fetchListGiangVienAndUpdate } from "./services/giangVienService";
 import { fetchListHoiThaoAndUpdate } from "./services/hoiThaoService";
 import { fetchListKhoaAndUpdate } from "./services/khoaService";
@@ -25,6 +27,8 @@ import { fetchListNghienCuuKhoaHocAndUpdate } from "./services/nghienCuuKhoaHocS
 import { fetchListSachAndUpdate } from "./services/sachService";
 import { fetchListTapChiAndUpdate } from "./services/tapChiService";
 import { fetchListPhongKyTucAndUpdate } from "./services/phongKyTucService";
+import { fetchListMayTinhAndUpdate } from "./services/mayTinhService";
+import { fetchListDatAndUpdate } from "./services/datService";
 
 dotenv.config();
 
@@ -44,6 +48,8 @@ cron.schedule("0 0 * * *", async () => {
   await fetchListSachAndUpdate();
   await fetchListTapChiAndUpdate();
   await fetchListPhongKyTucAndUpdate();
+  await fetchListMayTinhAndUpdate();
+  await fetchListDatAndUpdate();
 });
 
 app.use("/api/v1/giangvien", GiangVienRoute);
@@ -55,6 +61,8 @@ app.use("/api/v1/nghiencuukhoahoc", NghienCuuKhoaHocRoute);
 app.use("/api/v1/sach", SachRoute);
 app.use("/api/v1/tapchi", TapChiRoute);
 app.use("/api/v1/hoithao", HoiThaoRoute);
+app.use("/api/v1/dat", DatRoute);
+app.use("/api/v1/maytinh", MayTinhRoute);
 app.use("/api/v1/auth", AuthRoute);
 
 app.use(errorHandlerMiddleware);

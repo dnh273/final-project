@@ -24,6 +24,14 @@ const Bang35 = () => {
   const THACSI = filterByHocVi("Thạc sĩ");
   const DAIHOC = filterByHocVi("Đại học");
 
+  const HESOQUYDOI = {
+    "Giáo sư": 5,
+    "Phó giáo sư": 3,
+    "Tiến sĩ": 2,
+    "Thạc sĩ": 1,
+    "Đại học": 0.3,
+  };
+
   const arrGiangVien = [GIAOSU, PHOGIAOSU, TIENSU, THACSI, DAIHOC];
 
   const renderTable = () => {
@@ -44,19 +52,19 @@ const Bang35 = () => {
           </td>
           <td className="px-6 py-4  whitespace-nowrap text-black font-bold"></td>
           <td className="px-6 py-4  whitespace-nowrap text-black font-bold"></td>
-          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold text-center">
             1.0
           </td>
-          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold text-center">
             1.0
           </td>
-          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold text-center">
             0.3
           </td>
-          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold text-center">
             0.3
           </td>
-          <td className="px-6 py-4  whitespace-nowrap text-black font-bold">
+          <td className="px-6 py-4  whitespace-nowrap text-black font-bold text-center">
             0.2
           </td>
         </tr>
@@ -65,30 +73,30 @@ const Bang35 = () => {
             <tr className=" border-b" key={index}>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black "></td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {index + 1}
+                {item[index]?.hoc_vi}
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
-                {item[index]?.hoc_vi}
+                {HESOQUYDOI[item[index]?.hoc_vi]}
               </td>
               <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
                 {item?.length}
               </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center">
                 {filterByLoaiHopDong(item, "Trong biên chế")?.length}
               </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center">
                 {filterByLoaiHopDong(item, "Hợp đồng dài hạn")?.length}
               </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center">
                 {filterByLoaiHopDong(item, "Hợp đồng ngắn hạn")?.length}
               </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center">
                 {filterByLoaiHopDong(item, "Giảng viên thỉnh giảng")?.length}
               </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center">
                 {filterByLoaiHopDong(item, "Giảng viên quốc tế")?.length}
               </td>
-              <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+              <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center">
                 {total(
                   filterByLoaiHopDong(item, "Trong biên chế").length,
                   filterByLoaiHopDong(item, "Hợp đồng dài hạn").length,
@@ -111,35 +119,35 @@ const Bang35 = () => {
           <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
             {giangviens.length}
           </td>
-          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center ">
             {
               giangviens.filter(
                 (item) => item.loai_hop_dong == "Trong biên chế"
               ).length
             }
           </td>
-          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center ">
             {
               giangviens.filter(
                 (item) => item.loai_hop_dong == "Hợp đồng dài hạn"
               ).length
             }
           </td>
-          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center ">
             {
               giangviens.filter(
                 (item) => item.loai_hop_dong == "Hợp đồng ngắn hạn"
               ).length
             }
           </td>
-          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black  text-center">
             {
               giangviens.filter(
                 (item) => item.loai_hop_dong == "Giảng viên thỉnh giảng"
               ).length
             }
           </td>
-          <td className="px-6 py-4 font-medium whitespace-nowrap text-black ">
+          <td className="px-6 py-4 font-medium whitespace-nowrap text-black text-center">
             {
               giangviens.filter(
                 (item) => item.loai_hop_dong == "Giảng viên quốc tế"

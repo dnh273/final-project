@@ -9,6 +9,9 @@ const Bang46 = () => {
             <th className="px-6 py-3">TT</th>
             <th className="px-6 py-3">Năm</th>
             <th className="px-6 py-3">
+              Doanh thu từ NCKH và chuyển giao công nghệ (triệu VNĐ)
+            </th>
+            <th className="px-6 py-3">
               Tỷ lệ doanh thu từ NCKH và chuyển giao công nghệ so với tổng kinh
               phí đầu vào của đơn vị thực hiện CTĐT (%)
             </th>

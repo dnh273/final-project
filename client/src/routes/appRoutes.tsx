@@ -1,4 +1,3 @@
-import React from "react";
 import GiangVien from "../pages/GiangVien/GiangVien";
 import NguoiHoc from "../pages/NguoiHoc/NguoiHoc";
 import ThanhTich from "../pages/ThanhTich/ThanhTich";
@@ -22,6 +21,10 @@ import Bang50 from "../components/thanh_tich/Bang50";
 import Bang51 from "../components/thanh_tich/Bang51";
 import Bang52 from "../components/thanh_tich/Bang52";
 import Bang53 from "../components/thanh_tich/Bang53";
+import Bang54 from "../components/thanh_tich/Bang54";
+import Bang55Part1 from "../components/thanh_tich/Bang55Part1";
+import Bang55Part2 from "../components/thanh_tich/Bang55Part2";
+import CoSoVatChat from "../pages/CoSoVatChat/CoSoVatChat";
 
 const appRoutes = [
   {
@@ -229,7 +232,41 @@ const appRoutes = [
             "Số lượng đội ngũ cơ hữu của đơn vị thực hiện CTĐT có báo cáo khoa học tại các hội nghị, hội thảo được đăng toàn văn trong tuyển tập công trình hay kỷ yếu trong 05 năm gần đây",
         },
       },
+      {
+        path: "bang54",
+        element: <Bang54 />,
+        sidebarProps: {
+          displayText: "Bảng 54",
+          showText: "Thống kê số bằng phát minh, sáng chế được cấp",
+        },
+      },
+      {
+        path: "bang55.1",
+        element: <Bang55Part1 />,
+        sidebarProps: {
+          displayText: "Bảng 55.1",
+          showText:
+            "Số lượng người học của đơn vị thực hiện CTĐT tham gia thực hiện đề tài khoa học trong 5 năm gần đây",
+        },
+      },
+      {
+        path: "bang55.2",
+        element: <Bang55Part2 />,
+        sidebarProps: {
+          displayText: "Bảng 55.2",
+          showText:
+            "Số lượng người học của đơn vị thực hiện CTĐT tham gia thực hiện đề tài khoa học trong 5 năm gần đây",
+        },
+      },
     ],
+  },
+  {
+    path: "/cosovatchat",
+    element: <CoSoVatChat />,
+    sidebarProps: {
+      displayText: "Cơ sở vật chất",
+      icon: <i className="ri-community-line"></i>,
+    },
   },
 ];
 

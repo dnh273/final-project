@@ -22,7 +22,7 @@ const NghienCuuKhoaHocSlice = createSlice({
     },
     getAllNghienCuuKhoaHocSuccessAction: (state, action) => {
       state.isLoading = false;
-      state.nghiencuukhoahocs = action.payload;
+      state.nghiencuukhoahocs = action.payload.ListNghienCuuKhoaHoc;
     },
     getAllNghienCuuKhoaHocErrorAction: (state) => {
       state.isLoading = false;

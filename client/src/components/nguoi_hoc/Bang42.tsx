@@ -14,6 +14,8 @@ const Bang42 = () => {
   );
   const [listNganhFilter, setListNganhFilter] = useState<string[]>([]);
 
+  const reversedListNameHoc = [...ListNamHoc].reverse();
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -41,7 +43,7 @@ const Bang42 = () => {
       <>
         <tr className=" ">
           <td className="px-6 py-3 font-semibold">Số lượng</td>
-          {ListNamHoc.reverse().map((nam_hoc, index) => {
+          {reversedListNameHoc.map((nam_hoc, index) => {
             return (
               <td className="px-6 py-3" key={index}>
                 {filterByNamHoc(nam_hoc, nghiencuukhoahocs).length}
@@ -51,7 +53,7 @@ const Bang42 = () => {
         </tr>
         <tr className=" ">
           <td className="px-6 py-3 font-semibold">Tỉ lệ (%)</td>
-          {ListNamHoc.reverse().map((nam_hoc, index) => {
+          {reversedListNameHoc.map((nam_hoc, index) => {
             return (
               <td className="px-6 py-3" key={index}>
                 {(
@@ -81,11 +83,13 @@ const Bang42 = () => {
           <thead className="text-xs text-black uppercase bg-gray-50">
             <tr>
               <th className="px-6 py-3 ">Các tiêu chí</th>
-              <th className="px-6 py-3">2021-2022</th>
-              <th className="px-6 py-3">2020-2021</th>
-              <th className="px-6 py-3">2019-2020</th>
-              <th className="px-6 py-3">2018-2019</th>
-              <th className="px-6 py-3">2017-2018</th>
+              {reversedListNameHoc.map((nam_hoc, index) => {
+                return (
+                  <th key={index} className="px-6 py-3">
+                    {nam_hoc}
+                  </th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>{renderTable()}</tbody>

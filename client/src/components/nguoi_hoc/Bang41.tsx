@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
-import { ListNganh } from "../../constants/config";
+import { ListNamHoc, ListNganh } from "../../constants/config";
 import DropdownFilter from "../common/DropdownFilter";
 import { filterNguoiHocAction } from "../../features/slice/nguoiHocSlice";
 
@@ -90,11 +90,13 @@ const Bang41 = () => {
           <thead className="text-xs text-black uppercase bg-gray-50">
             <tr>
               <th className="px-6 py-3 ">Các tiêu chí</th>
-              <th className="px-6 py-3">2021-2022</th>
-              <th className="px-6 py-3">2020-2021</th>
-              <th className="px-6 py-3">2019-2020</th>
-              <th className="px-6 py-3">2018-2019</th>
-              <th className="px-6 py-3">2017-2018</th>
+              {ListNamHoc.map((nam_hoc, index) => {
+                return (
+                  <th key={index} className="px-6 py-3">
+                    {nam_hoc}
+                  </th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>{renderTable()}</tbody>

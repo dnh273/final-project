@@ -84,11 +84,11 @@ const Bang40 = () => {
           <thead className="text-xs text-black uppercase bg-gray-50">
             <tr>
               <th className="px-6 py-3 ">Các tiêu chí</th>
+              <th className="px-6 py-3">2017-2018</th>
+              <th className="px-6 py-3">2018-2019</th>
+              <th className="px-6 py-3">2019-2020</th>
               <th className="px-6 py-3">2021-2022</th>
               <th className="px-6 py-3">2020-2021</th>
-              <th className="px-6 py-3">2019-2020</th>
-              <th className="px-6 py-3">2018-2019</th>
-              <th className="px-6 py-3">2017-2018</th>
             </tr>
           </thead>
           <tbody>{renderTable()}</tbody>

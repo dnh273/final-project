@@ -29,11 +29,12 @@ const Bang43 = () => {
 
   const filterByNganhHocVaNamHoc = (
     nam_hoc: string,
-    loai_nguoi_hoc: string
+    loai_nguoi_hoc: string[]
   ) => {
     return filterNguoiHocs.filter(
       (item) =>
-        item.loai_nguoi_hoc == loai_nguoi_hoc && item.nam_tot_nghiep == nam_hoc
+        loai_nguoi_hoc.includes(item.loai_nguoi_hoc) &&
+        item.nam_tot_nghiep == nam_hoc
     );
   };
 
@@ -51,38 +52,50 @@ const Bang43 = () => {
         <tr key={index}>
           <td className="px-6 py-3 font-semibold">
             {`${loai_nguoi_hoc.stt ? loai_nguoi_hoc.stt + "." : ""} ${
-              loai_nguoi_hoc.text.slice(0, 1).toLocaleUpperCase() +
-              loai_nguoi_hoc.text.slice(1)
+              loai_nguoi_hoc.displayTextTotNghiep
+                .slice(0, 1)
+                .toLocaleUpperCase() +
+              loai_nguoi_hoc.displayTextTotNghiep.slice(1)
             }`}
           </td>
           <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[4], loai_nguoi_hoc.text)
-                .length
+              filterByNganhHocVaNamHoc(
+                ListNamHoc[0],
+                loai_nguoi_hoc.conditional
+              ).length
             }
           </td>
           <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[3], loai_nguoi_hoc.text)
-                .length
+              filterByNganhHocVaNamHoc(
+                ListNamHoc[1],
+                loai_nguoi_hoc.conditional
+              ).length
             }
           </td>
           <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[2], loai_nguoi_hoc.text)
-                .length
+              filterByNganhHocVaNamHoc(
+                ListNamHoc[2],
+                loai_nguoi_hoc.conditional
+              ).length
             }
           </td>
           <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[1], loai_nguoi_hoc.text)
-                .length
+              filterByNganhHocVaNamHoc(
+                ListNamHoc[3],
+                loai_nguoi_hoc.conditional
+              ).length
             }
           </td>
           <td className="px-6 py-3">
             {
-              filterByNganhHocVaNamHoc(ListNamHoc[0], loai_nguoi_hoc.text)
-                .length
+              filterByNganhHocVaNamHoc(
+                ListNamHoc[4],
+                loai_nguoi_hoc.conditional
+              ).length
             }
           </td>
         </tr>
@@ -105,11 +118,11 @@ const Bang43 = () => {
           <thead className="text-xs text-black uppercase bg-gray-50">
             <tr>
               <th className="px-6 py-3 ">Các tiêu chí</th>
-              <th className="px-6 py-3">2021-2022</th>
-              <th className="px-6 py-3">2020-2021</th>
-              <th className="px-6 py-3">2019-2020</th>
-              <th className="px-6 py-3">2018-2019</th>
               <th className="px-6 py-3">2017-2018</th>
+              <th className="px-6 py-3">2018-2019</th>
+              <th className="px-6 py-3">2019-2020</th>
+              <th className="px-6 py-3">2020-2021</th>
+              <th className="px-6 py-3">2021-2022</th>
             </tr>
           </thead>
           <tbody>{renderTable()}</tbody>

@@ -1,6 +1,4 @@
-
 import { useAppSelector } from "../../redux/hook";
-
 
 const Bang49 = () => {
   const { giangviens } = useAppSelector((state) => state.giangvien);
@@ -66,20 +64,6 @@ const Bang49 = () => {
             );
           })}
 
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">Trên 6 cuốn sách</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-          </tr>
           <tr className=" ">
             <td className="px-6 py-3 font-semibold">Tổng số cán bộ tham gia</td>
             <td className="px-6 py-3"></td>
