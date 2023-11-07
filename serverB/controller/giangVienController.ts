@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 
 const getAllGiangVien = async (req: Request, res: Response) => {
-  const ListGiangVien = await GiangVien.find();
+  const ListGiangVien = await GiangVien.find().populate("sach");
 
   res.status(StatusCodes.OK).json({ ListGiangVien });
 };

@@ -1,16 +1,10 @@
-import { useEffect } from "react";
 import HeaderTitle from "../../components/common/HeaderTitle";
-import { useAppDispatch } from "../../redux/hook";
 import appRoutes from "../../routes/appRoutes";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { getAllNguoiHocAction } from "../../features/slice/nguoiHocSlice";
 
 const NguoiHoc = () => {
-  const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getAllNguoiHocAction());
-  }, []);
+
 
   const location = useLocation();
 

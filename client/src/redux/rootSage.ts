@@ -4,6 +4,7 @@ import watchGetAllNguoiHoc from "../features/saga/nguoiHocSage";
 import watchGetAllNghienCuuKhoaHoc from "../features/saga/nghienCuuKhoaHocSaga";
 import watchGetAllDat from "../features/saga/datSaga";
 import watchGetAllMayTinh from "../features/saga/mayTinhSaga";
+import watchGetAllSach from "../features/saga/sachSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -12,5 +13,6 @@ export default function* rootSaga() {
     watchGetAllNghienCuuKhoaHoc(),
     watchGetAllDat(),
     watchGetAllMayTinh(),
+    watchGetAllSach(),
   ]);
 }

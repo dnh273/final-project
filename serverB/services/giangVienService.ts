@@ -6,13 +6,13 @@ const fetchListGiangVienAndUpdate = async () => {
   const oldestData = await GiangVien.find().sort({ createdAt: -1 }).limit(1);
   const ListGiangVien = await GiangVien.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/GiangVien`);
+  const response = await axios.get(`${DOMAIN}/api/v1/giangVien`);
   if (response.status === 200) {
     const ListIdGiangVienDelete = ListGiangVien.filter(
       (item) =>
-        !response.data.ListGiangVien.map((data: IGiangVien) => data._id).includes(
-          item._id.toString() 
-        )
+        !response.data.ListGiangVien.map(
+          (data: IGiangVien) => data._id
+        ).includes(item._id.toString())
     ).map((item) => {
       _id: item.id;
     });
@@ -39,15 +39,12 @@ const fetchListGiangVienAndUpdate = async () => {
 
       const ListGiangVienUpdate = response.data.ListGiangVien.filter(
         (item: IGiangVien) =>
-          response.data.ListGiangVien.map(
-            (data: IGiangVien) => data._id
-          ).includes(item._id.toString()) &&
           Date.parse(
             response.data.ListGiangVien.find(
               (data: IGiangVien) => data._id == item._id.toString()
             ).updatedAt
           ) > Date.parse(item.updatedAt.toString())
-      );
+      )
 
       const bulkOperations = ListGiangVienUpdate.map((update: IGiangVien) => {
         return {

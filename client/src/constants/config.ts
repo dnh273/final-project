@@ -98,10 +98,10 @@ const ListDeTai = [
 ];
 
 const ListLoaiSach = [
-  "Sách chuyên khảo",
-  "Sách tham khảo",
-  "Sách giáo trình",
-  "Sách hương dẫn",
+  { loai_sach: "Sách chuyên khảo", he_so: 2 },
+  { loai_sach: "Sách tham khảo", he_so: 1.5 },
+  { loai_sach: "Sách giáo trình", he_so: 1 },
+  { loai_sach: "Sách hướng dẫn", he_so: 0.5 },
 ];
 
 export {

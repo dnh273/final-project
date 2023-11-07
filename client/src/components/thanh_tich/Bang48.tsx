@@ -1,6 +1,18 @@
 import React from "react";
+import { ListLoaiSach } from "../../constants/config";
+import { useAppSelector } from "../../redux/hook";
 
 const Bang48 = () => {
+  const { sachs } = useAppSelector((state) => state.sach);
+
+  const filterByLoaiSach = (loai_sach?: string, nam_hoc?: string) => {
+    return sachs.filter(
+      (item) =>
+        (loai_sach ? item.loai_sach == loai_sach : true) &&
+        (nam_hoc ? item.nam_hoc == nam_hoc : true)
+    );
+  };
+
   return (
     <div className="relative overflow-x-auto shadow-md rounded-lg">
       <table className="w-full text-sm text-left ">
@@ -20,69 +32,53 @@ const Bang48 = () => {
             </th>
           </tr>
           <tr>
-            <th className="px-6 py-3">2017</th>
             <th className="px-6 py-3">2018</th>
             <th className="px-6 py-3">2019</th>
             <th className="px-6 py-3">2020</th>
             <th className="px-6 py-3">2021</th>
+            <th className="px-6 py-3">2022</th>
             <th className="px-6 py-3">Tổng đã quy đổi</th>
           </tr>
         </thead>
         <tbody>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">1</td>
-            <td className="px-6 py-3 ">Sách chuyên khảo</td>
-            <td className="px-6 py-3">2.0</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">2</td>
-            <td className="px-6 py-3 ">Sách giao trình</td>
-            <td className="px-6 py-3">1</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">3</td>
-            <td className="px-6 py-3 ">Sách tham khảo</td>
-            <td className="px-6 py-3">0.5</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-          </tr>
-          <tr className=" ">
-            <td className="px-6 py-3 font-semibold">4</td>
-            <td className="px-6 py-3 ">Sách hướng dẫn</td>
-            <td className="px-6 py-3">0.5</td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-          </tr>
+          {ListLoaiSach.map((item, index) => {
+            return (
+              <tr className=" " key={index}>
+                <td className="px-6 py-3 font-semibold">{index + 1}</td>
+                <td className="px-6 py-3 ">{item.loai_sach}</td>
+                <td className="px-6 py-3">{item.he_so}</td>
+                {["2018", "2019", "2020", "2021", "2022"].map((year, i) => {
+                  return (
+                    <td className="px-6 py-3" key={index * i + 30}>
+                      {filterByLoaiSach(item.loai_sach, year).length}
+                    </td>
+                  );
+                })}
+                <td className="px-6 py-3">
+                  {filterByLoaiSach(item.loai_sach).length * item.he_so}
+                </td>
+              </tr>
+            );
+          })}
+
           <tr className=" ">
             <td className="px-6 py-3 bg-gray-200 font-semibold"></td>
             <td className="px-6 py-3 bg-gray-200 ">Tổng</td>
             <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
-            <td className="px-6 py-3 bg-gray-200"></td>
+            {["2018", "2019", "2020", "2021", "2022"].map((year, i) => {
+              return (
+                <td className="px-6 py-3 bg-gray-200" key={i}>
+                  {filterByLoaiSach("", year).length}
+                </td>
+              );
+            })}
+            <td className="px-6 py-3 bg-gray-200">
+              {ListLoaiSach.reduce(
+                (total, item) =>
+                  total + filterByLoaiSach(item.loai_sach).length * item.he_so,
+                0
+              )}
+            </td>
           </tr>
         </tbody>
       </table>

@@ -5,7 +5,14 @@ import ErrorPage from "./components/common/ErrorPage";
 
 export default function App() {
   return (
-    <ErrorBoundary fallback={<ErrorPage/>}>
+    <ErrorBoundary
+      fallback={
+        <ErrorPage
+          title="Internal Server"
+          description="Something went wrong! Please try again"
+        />
+      }
+    >
       <AppRoutes />;
     </ErrorBoundary>
   );

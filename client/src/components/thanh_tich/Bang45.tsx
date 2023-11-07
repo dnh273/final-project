@@ -7,7 +7,7 @@ const Bang45 = () => {
   );
 
   const filterLoaiDeTai = (loai_de_tai = "", nam_hoc = "") => {
-    return nghiencuukhoahocs.filter(
+    return nghiencuukhoahocs?.filter(
       (item) =>
         (loai_de_tai.length > 0 ? item.loai_de_tai == loai_de_tai : true) &&
         (nam_hoc.length > 0 ? item.nam_hoc == nam_hoc : true)
@@ -73,8 +73,12 @@ const Bang45 = () => {
             <td className="px-6 py-3 bg-gray-200 font-semibold"></td>
             <td className="px-6 py-3 bg-gray-200 ">Tổng</td>
             <td className="px-6 py-3 bg-gray-200 "></td>
-            <td className="px-6 py-3 bg-gray-200">{filterLoaiDeTai("2017-2018").length}</td>
-            <td className="px-6 py-3 bg-gray-200">{filterLoaiDeTai("2018-2019").length}</td>
+            <td className="px-6 py-3 bg-gray-200">
+              {filterLoaiDeTai("2017-2018").length}
+            </td>
+            <td className="px-6 py-3 bg-gray-200">
+              {filterLoaiDeTai("2018-2019").length}
+            </td>
             <td className="px-6 py-3 bg-gray-200">
               {filterLoaiDeTai("2019-2020").length}
             </td>

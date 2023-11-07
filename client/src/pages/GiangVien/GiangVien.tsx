@@ -1,16 +1,9 @@
-import { useEffect } from "react";
-import { useAppDispatch } from "../../redux/hook";
 import appRoutes from "../../routes/appRoutes";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { getAllGiangVienAction } from "../../features/slice/giangVienSlice";
 import HeaderTitle from "../../components/common/HeaderTitle";
 
 const GiangVien = () => {
-  const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getAllGiangVienAction());
-  }, []);
 
   const location = useLocation();
 

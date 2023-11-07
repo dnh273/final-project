@@ -1,4 +1,3 @@
-import React from "react";
 import HeaderTitle from "../../components/common/HeaderTitle";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import appRoutes from "../../routes/appRoutes";

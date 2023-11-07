@@ -1,26 +1,10 @@
-import { useEffect } from "react";
 import HeaderTitle from "../../components/common/HeaderTitle";
-import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import { getAllDatAction } from "../../features/slice/datSlice";
-import { getAllNguoiHocAction } from "../../features/slice/nguoiHocSlice";
-import { getAllMayTinhAction } from "../../features/slice/mayTinhSlice";
+import { useAppSelector } from "../../redux/hook";
 
 const CoSoVatChat = () => {
   const { dats } = useAppSelector((state) => state.dat);
   const { mayTinhs } = useAppSelector((state) => state.maytinh);
   const { nguoihocs } = useAppSelector((state) => state.nguoihoc);
-
-  console.log(dats);
-  console.log(mayTinhs);
-  console.log(nguoihocs);
-
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getAllDatAction());
-    dispatch(getAllNguoiHocAction());
-    dispatch(getAllMayTinhAction());
-  }, [dispatch]);
 
   return (
     <>
@@ -36,7 +20,7 @@ const CoSoVatChat = () => {
       <p>
         57. Tổng diện tích đất sử dụng của đơn vị thực hiện CTĐT (tính bằng m2):{" "}
         {dats
-          .filter(
+          ?.filter(
             (dat) => dat.muc_dich == "Học tập" || dat.muc_dich == "Làm việc"
           )
           .reduce((total, item) => total + item.dien_tich * 1, 0)
@@ -47,21 +31,21 @@ const CoSoVatChat = () => {
       <p>
         Nơi làm việc:{" "}
         {dats
-          .filter((dat) => dat.muc_dich == "Làm việc")
+          ?.filter((dat) => dat.muc_dich == "Làm việc")
           .reduce((total, item) => total + item.dien_tich * 1, 0)
           .toLocaleString()}{" "}
       </p>
       <p>
         Nơi học:{" "}
         {dats
-          .filter((dat) => dat.muc_dich == "Học tập")
+          ?.filter((dat) => dat.muc_dich == "Học tập")
           .reduce((total, item) => total + item.dien_tich * 1, 0)
           .toLocaleString()}{" "}
       </p>
       <p>
         Nơi vui chơi giải trí:{" "}
         {dats
-          .filter((dat) => dat.muc_dich == "Khác")
+          ?.filter((dat) => dat.muc_dich == "Khác")
           .reduce((total, item) => total + item.dien_tich * 1, 0)
           .toLocaleString()}{" "}
       </p>
@@ -70,7 +54,7 @@ const CoSoVatChat = () => {
       <p>
         Tổng diện tích phòng học:{" "}
         {dats
-          .filter((dat) => dat.muc_dich == "Học tập")
+          ?.filter((dat) => dat.muc_dich == "Học tập")
           .reduce((total, item) => total + item.dien_tich * 1, 0)
           .toLocaleString()}
       </p>
@@ -78,7 +62,7 @@ const CoSoVatChat = () => {
         Tỷ số diện tích phòng học trên người học chính quy:{" "}
         {(
           dats
-            .filter((dat) => dat.muc_dich == "Học tập")
+            ?.filter((dat) => dat.muc_dich == "Học tập")
             .reduce((total, item) => total + item.dien_tich * 1, 0) /
           nguoihocs.filter((item) => !item.nam_tot_nghiep).length
         ).toLocaleString()}
@@ -92,8 +76,8 @@ const CoSoVatChat = () => {
       <p>
         Tỷ số số máy tính dùng cho người học/ người học chính quy :{" "}
         {(
-          mayTinhs.filter((item) => item.muc_dich == "văn phòng").length /
-          nguoihocs.filter((item) => !item.nam_tot_nghiep).length
+          mayTinhs?.filter((item) => item.muc_dich == "văn phòng").length /
+          nguoihocs?.filter((item) => !item.nam_tot_nghiep).length
         ).toLocaleString()}
       </p>
     </>

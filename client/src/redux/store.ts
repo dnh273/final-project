@@ -6,6 +6,7 @@ import NguoiHocReducer from "../features/slice/nguoiHocSlice";
 import NghienCuuKhoaHocReducer from "../features/slice/nghienCuuKhoaHocSlice";
 import DatReducer from "../features/slice/datSlice";
 import MayTinhReducer from "../features/slice/mayTinhSlice";
+import SachReducer from "../features/slice/sachSlice";
 // ...
 
 const sagaMiddleware = createSagaMiddleware();
@@ -17,6 +18,7 @@ export const store = configureStore({
     nghiencuukhoahoc: NghienCuuKhoaHocReducer,
     dat: DatReducer,
     maytinh: MayTinhReducer,
+    sach: SachReducer,
   },
   middleware: [sagaMiddleware],
 });
