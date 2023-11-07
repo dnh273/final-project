@@ -6,12 +6,12 @@ const fetchListKhoaAndUpdate = async () => {
   const oldestData = await Khoa.find().sort({ createdAt: -1 }).limit(1);
   const ListKhoa = await Khoa.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/Khoa`);
+  const response = await axios.get(`${DOMAIN}/api/v1/khoa`);
   if (response.status === 200) {
     const ListIdKhoaDelete = ListKhoa.filter(
       (item) =>
         !response.data.ListKhoa.map((data: IKhoa) => data._id).includes(
-          item._id.toString() 
+          item._id.toString()
         )
     ).map((item) => {
       _id: item.id;
@@ -28,20 +28,15 @@ const fetchListKhoaAndUpdate = async () => {
     }
 
     if (response.data.ListKhoa.length > 0 && oldestData.length > 0) {
-      const ListKhoaInsert = response.data.ListKhoa.filter(
-        (item: IKhoa) => {
-          return (
-            Date.parse(item.createdAt.toString()) >
-            oldestData[0].createdAt.getTime()
-          );
-        }
-      );
+      const ListKhoaInsert = response.data.ListKhoa.filter((item: IKhoa) => {
+        return (
+          Date.parse(item.createdAt.toString()) >
+          oldestData[0].createdAt.getTime()
+        );
+      });
 
       const ListKhoaUpdate = response.data.ListKhoa.filter(
         (item: IKhoa) =>
-          response.data.ListKhoa.map(
-            (data: IKhoa) => data._id
-          ).includes(item._id.toString()) &&
           Date.parse(
             response.data.ListKhoa.find(
               (data: IKhoa) => data._id == item._id.toString()
@@ -63,8 +58,6 @@ const fetchListKhoaAndUpdate = async () => {
         console.log("Update Khoa success");
       }
 
-      // console.log(ListKhoaUpdate);
-      // console.log(ListKhoaInsert);
       if (ListKhoaInsert.length > 0) {
         await Khoa.insertMany(ListKhoaInsert);
         console.log("Insert Khoa success");

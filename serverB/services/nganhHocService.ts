@@ -6,12 +6,12 @@ const fetchListNganhHocAndUpdate = async () => {
   const oldestData = await NganhHoc.find().sort({ createdAt: -1 }).limit(1);
   const ListNganhHoc = await NganhHoc.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/NganhHoc`);
+  const response = await axios.get(`${DOMAIN}/api/v1/nganhHoc`);
   if (response.status === 200) {
     const ListIdNganhHocDelete = ListNganhHoc.filter(
       (item) =>
         !response.data.ListNganhHoc.map((data: INganhHoc) => data._id).includes(
-          item._id.toString() 
+          item._id.toString()
         )
     ).map((item) => {
       _id: item.id;
@@ -39,9 +39,6 @@ const fetchListNganhHocAndUpdate = async () => {
 
       const ListNganhHocUpdate = response.data.ListNganhHoc.filter(
         (item: INganhHoc) =>
-          response.data.ListNganhHoc.map(
-            (data: INganhHoc) => data._id
-          ).includes(item._id.toString()) &&
           Date.parse(
             response.data.ListNganhHoc.find(
               (data: INganhHoc) => data._id == item._id.toString()
@@ -63,8 +60,6 @@ const fetchListNganhHocAndUpdate = async () => {
         console.log("Update NganhHoc success");
       }
 
-      // console.log(ListNganhHocUpdate);
-      // console.log(ListNganhHocInsert);
       if (ListNganhHocInsert.length > 0) {
         await NganhHoc.insertMany(ListNganhHocInsert);
         console.log("Insert NganhHoc success");

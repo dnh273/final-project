@@ -6,13 +6,13 @@ const fetchListPhongKyTucAndUpdate = async () => {
   const oldestData = await PhongKyTuc.find().sort({ createdAt: -1 }).limit(1);
   const ListPhongKyTuc = await PhongKyTuc.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/PhongKyTuc`);
+  const response = await axios.get(`${DOMAIN}/api/v1/phongKyTuc`);
   if (response.status === 200) {
     const ListIdPhongKyTucDelete = ListPhongKyTuc.filter(
       (item) =>
-        !response.data.ListPhongKyTuc.map((data: IPhongKyTuc) => data._id).includes(
-          item._id.toString() 
-        )
+        !response.data.ListPhongKyTuc.map(
+          (data: IPhongKyTuc) => data._id
+        ).includes(item._id.toString())
     ).map((item) => {
       _id: item.id;
     });
@@ -39,9 +39,6 @@ const fetchListPhongKyTucAndUpdate = async () => {
 
       const ListPhongKyTucUpdate = response.data.ListPhongKyTuc.filter(
         (item: IPhongKyTuc) =>
-          response.data.ListPhongKyTuc.map(
-            (data: IPhongKyTuc) => data._id
-          ).includes(item._id.toString()) &&
           Date.parse(
             response.data.ListPhongKyTuc.find(
               (data: IPhongKyTuc) => data._id == item._id.toString()

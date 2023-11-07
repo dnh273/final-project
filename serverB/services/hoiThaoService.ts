@@ -6,13 +6,13 @@ const fetchListHoiThaoAndUpdate = async () => {
   const oldestData = await HoiThao.find().sort({ createdAt: -1 }).limit(1);
   const ListHoiThao = await HoiThao.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/HoiThao`);
+  const response = await axios.get(`${DOMAIN}/api/v1/hoiThao`);
   if (response.status === 200) {
     const ListIdHoiThaoDelete = ListHoiThao.filter(
       (item) =>
-        !response.data.ListHoiThao.map((data: IHoiThao) => data._id).includes(
-          item._id.toString() 
-        )
+        !response.data.ListHoiThao.map(
+          (data: IHoiThao) => data._id
+        ).includes(item._id.toString())
     ).map((item) => {
       _id: item.id;
     });
@@ -39,15 +39,12 @@ const fetchListHoiThaoAndUpdate = async () => {
 
       const ListHoiThaoUpdate = response.data.ListHoiThao.filter(
         (item: IHoiThao) =>
-          response.data.ListHoiThao.map(
-            (data: IHoiThao) => data._id
-          ).includes(item._id.toString()) &&
           Date.parse(
             response.data.ListHoiThao.find(
               (data: IHoiThao) => data._id == item._id.toString()
             ).updatedAt
           ) > Date.parse(item.updatedAt.toString())
-      );
+      )
 
       const bulkOperations = ListHoiThaoUpdate.map((update: IHoiThao) => {
         return {

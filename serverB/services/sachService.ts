@@ -6,13 +6,13 @@ const fetchListSachAndUpdate = async () => {
   const oldestData = await Sach.find().sort({ createdAt: -1 }).limit(1);
   const ListSach = await Sach.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/Sach`);
+  const response = await axios.get(`${DOMAIN}/api/v1/sach`);
   if (response.status === 200) {
     const ListIdSachDelete = ListSach.filter(
       (item) =>
-        !response.data.ListSach.map((data: ISach) => data._id).includes(
-          item._id.toString() 
-        )
+        !response.data.ListSach.map(
+          (data: ISach) => data._id
+        ).includes(item._id.toString())
     ).map((item) => {
       _id: item.id;
     });
@@ -39,15 +39,12 @@ const fetchListSachAndUpdate = async () => {
 
       const ListSachUpdate = response.data.ListSach.filter(
         (item: ISach) =>
-          response.data.ListSach.map(
-            (data: ISach) => data._id
-          ).includes(item._id.toString()) &&
           Date.parse(
             response.data.ListSach.find(
               (data: ISach) => data._id == item._id.toString()
             ).updatedAt
           ) > Date.parse(item.updatedAt.toString())
-      );
+      )
 
       const bulkOperations = ListSachUpdate.map((update: ISach) => {
         return {

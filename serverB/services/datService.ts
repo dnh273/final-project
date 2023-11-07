@@ -6,13 +6,13 @@ const fetchListDatAndUpdate = async () => {
   const oldestData = await Dat.find().sort({ createdAt: -1 }).limit(1);
   const ListDat = await Dat.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/Dat`);
+  const response = await axios.get(`${DOMAIN}/api/v1/dat`);
   if (response.status === 200) {
     const ListIdDatDelete = ListDat.filter(
       (item) =>
-        !response.data.ListDat.map((data: IDat) => data._id).includes(
-          item._id.toString()
-        )
+        !response.data.ListDat.map(
+          (data: IDat) => data._id
+        ).includes(item._id.toString())
     ).map((item) => {
       _id: item.id;
     });
@@ -28,24 +28,23 @@ const fetchListDatAndUpdate = async () => {
     }
 
     if (response.data.ListDat.length > 0 && oldestData.length > 0) {
-      const ListDatInsert = response.data.ListDat.filter((item: IDat) => {
-        return (
-          Date.parse(item.createdAt.toString()) >
-          oldestData[0].createdAt.getTime()
-        );
-      });
+      const ListDatInsert = response.data.ListDat.filter(
+        (item: IDat) => {
+          return (
+            Date.parse(item.createdAt.toString()) >
+            oldestData[0].createdAt.getTime()
+          );
+        }
+      );
 
       const ListDatUpdate = response.data.ListDat.filter(
         (item: IDat) =>
-          response.data.ListDat.map((data: IDat) => data._id).includes(
-            item._id.toString()
-          ) &&
           Date.parse(
             response.data.ListDat.find(
               (data: IDat) => data._id == item._id.toString()
             ).updatedAt
           ) > Date.parse(item.updatedAt.toString())
-      );
+      )
 
       const bulkOperations = ListDatUpdate.map((update: IDat) => {
         return {

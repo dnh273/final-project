@@ -6,12 +6,12 @@ const fetchListNguoiHocAndUpdate = async () => {
   const oldestData = await NguoiHoc.find().sort({ createdAt: -1 }).limit(1);
   const ListNguoiHoc = await NguoiHoc.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/NguoiHoc`);
+  const response = await axios.get(`${DOMAIN}/api/v1/nguoiHoc`);
   if (response.status === 200) {
     const ListIdNguoiHocDelete = ListNguoiHoc.filter(
       (item) =>
         !response.data.ListNguoiHoc.map((data: INguoiHoc) => data._id).includes(
-          item._id.toString() 
+          item._id.toString()
         )
     ).map((item) => {
       _id: item.id;
@@ -39,9 +39,6 @@ const fetchListNguoiHocAndUpdate = async () => {
 
       const ListNguoiHocUpdate = response.data.ListNguoiHoc.filter(
         (item: INguoiHoc) =>
-          response.data.ListNguoiHoc.map(
-            (data: INguoiHoc) => data._id
-          ).includes(item._id.toString()) &&
           Date.parse(
             response.data.ListNguoiHoc.find(
               (data: INguoiHoc) => data._id == item._id.toString()

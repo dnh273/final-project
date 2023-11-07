@@ -6,13 +6,13 @@ const fetchListMayTinhAndUpdate = async () => {
   const oldestData = await MayTinh.find().sort({ createdAt: -1 }).limit(1);
   const ListMayTinh = await MayTinh.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/MayTinh`);
+  const response = await axios.get(`${DOMAIN}/api/v1/mayTinh`);
   if (response.status === 200) {
     const ListIdMayTinhDelete = ListMayTinh.filter(
       (item) =>
-        !response.data.ListMayTinh.map((data: IMayTinh) => data._id).includes(
-          item._id.toString() 
-        )
+        !response.data.ListMayTinh.map(
+          (data: IMayTinh) => data._id
+        ).includes(item._id.toString())
     ).map((item) => {
       _id: item.id;
     });
@@ -39,15 +39,12 @@ const fetchListMayTinhAndUpdate = async () => {
 
       const ListMayTinhUpdate = response.data.ListMayTinh.filter(
         (item: IMayTinh) =>
-          response.data.ListMayTinh.map(
-            (data: IMayTinh) => data._id
-          ).includes(item._id.toString()) &&
           Date.parse(
             response.data.ListMayTinh.find(
               (data: IMayTinh) => data._id == item._id.toString()
             ).updatedAt
           ) > Date.parse(item.updatedAt.toString())
-      );
+      )
 
       const bulkOperations = ListMayTinhUpdate.map((update: IMayTinh) => {
         return {

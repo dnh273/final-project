@@ -6,7 +6,7 @@ const fetchListTapChiAndUpdate = async () => {
   const oldestData = await TapChi.find().sort({ createdAt: -1 }).limit(1);
   const ListTapChi = await TapChi.find();
 
-  const response = await axios.get(`${DOMAIN}/api/v1/TapChi`);
+  const response = await axios.get(`${DOMAIN}/api/v1/tapChi`);
   if (response.status === 200) {
     const ListIdTapChiDelete = ListTapChi.filter(
       (item) =>
@@ -39,9 +39,6 @@ const fetchListTapChiAndUpdate = async () => {
 
       const ListTapChiUpdate = response.data.ListTapChi.filter(
         (item: ITapChi) =>
-          response.data.ListTapChi.map((data: ITapChi) => data._id).includes(
-            item._id.toString()
-          ) &&
           Date.parse(
             response.data.ListTapChi.find(
               (data: ITapChi) => data._id == item._id.toString()
