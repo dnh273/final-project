@@ -30,6 +30,7 @@ interface INguoiHoc {
   quoc_tich: string;
   loai_nguoi_hoc: string;
   nganh_hoc: INganhHoc;
+  ky_tuc_nam: string[];
   diem_thi: number;
   nam_nhap_hoc: string;
   nam_tot_nghiep: string;
@@ -64,6 +65,14 @@ interface ISach {
   nam_hoc: string;
 }
 
+interface IPhongKyTuc {
+  _id: string;
+  ky_tuc: string;
+  ma_phong: number;
+  dien_tich: number;
+  so_nguoi_toi_da: number;
+}
+
 export type {
   INguoiHoc,
   ILogin,
@@ -72,4 +81,5 @@ export type {
   ISach,
   IDat,
   IMayTinh,
+  IPhongKyTuc,
 };

@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import NganhHoc from "./NganhHoc";
 
 const NguoiHocSchema = new mongoose.Schema(
   {
@@ -35,6 +34,18 @@ const NguoiHocSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       ref: "PhongKyTuc",
     },
+    ky_tuc_nam: [
+      {
+        type: String,
+        trim: true,
+        default: function () {
+          if (this.phong_ky_tuc) {
+            return this.ky_tuc_nam;
+          }
+          return null;
+        },
+      },
+    ],
     diem_thi: {
       type: Number,
       trim: true,
@@ -47,7 +58,6 @@ const NguoiHocSchema = new mongoose.Schema(
         }
         return this.diem_thi;
       },
-      maxlength: [100, "Quốc tịch không quá 100 chữ cái"],
     },
     nam_nhap_hoc: {
       type: String,
@@ -64,7 +74,7 @@ const NguoiHocSchema = new mongoose.Schema(
       ref: "NghienCuuKhoaHoc",
     },
   },
-   { timestamps: true, versionKey: false } 
+  { timestamps: true, versionKey: false }
 );
 
 export default mongoose.model("NguoiHoc", NguoiHocSchema);

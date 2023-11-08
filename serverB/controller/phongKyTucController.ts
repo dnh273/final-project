@@ -5,7 +5,7 @@ import { StatusCodes } from "http-status-codes";
 const getAllPhongKyTuc = async (req: Request, res: Response) => {
   const ListPhongKyTuc = await PhongKyTuc.find({});
 
-  res.status(StatusCodes.OK).json(ListPhongKyTuc.map((item) => item._id));
+  res.status(StatusCodes.OK).json({ListPhongKyTuc});
 };
 
 export { getAllPhongKyTuc };

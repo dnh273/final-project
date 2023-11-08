@@ -57,6 +57,9 @@ const Bang43 = () => {
                 .toLocaleUpperCase() +
               loai_nguoi_hoc.displayTextTotNghiep.slice(1)
             }`}
+            {loai_nguoi_hoc.child && (
+              <span className="block pt-1">Trong đó</span>
+            )}
           </td>
           <td className="px-6 py-3">
             {

@@ -37,8 +37,9 @@ const ListLoaiNguoiHoc = [
   {
     stt: "3",
     conditional: ["sinh viên chính quy", "sinh viên không chính quy"],
-    displayTextNhapHoc: "Sinh viên đại học \n Trong đó",
-    displayTextTotNghiep: "Sinh viên tốt nghiệp đại học \n Trong đó",
+    displayTextNhapHoc: "Sinh viên đại học",
+    displayTextTotNghiep: "Sinh viên tốt nghiệp đại học",
+    child: true,
   },
   {
     conditional: ["sinh viên chính quy"],
@@ -53,8 +54,9 @@ const ListLoaiNguoiHoc = [
   {
     stt: "4",
     conditional: ["sinh viên cao đẳng"],
-    displayTextNhapHoc: "Sinh viên cao đẳng \n Trong đó",
-    displayTextTotNghiep: "Sinh viên tốt nghiệp cao đẳng \n Trong đó",
+    displayTextNhapHoc: "Sinh viên cao đẳng",
+    displayTextTotNghiep: "Sinh viên tốt nghiệp cao đẳng",
+    child: true,
   },
   {
     conditional: ["sinh viên cao đẳng chính quy"],
@@ -69,8 +71,9 @@ const ListLoaiNguoiHoc = [
   {
     stt: "5",
     conditional: ["học sinh TCCN"],
-    displayTextNhapHoc: "Học sinh TCCN \n Trong đó",
-    displayTextTotNghiep: "Học sinh tốt nghiệp TCCN \n Trong đó",
+    displayTextNhapHoc: "Học sinh TCCN",
+    displayTextTotNghiep: "Học sinh tốt nghiệp TCCN",
+    child: true,
   },
   {
     conditional: ["học sinh TCCN đẳng chính quy"],

@@ -29,8 +29,8 @@ const NguoiHocSlice = createSlice({
     },
     getAllNguoiHocSuccessAction: (state, action) => {
       state.isLoading = false;
-      state.nguoihocs = action.payload;
-      state.filterNguoiHocs = action.payload;
+      state.nguoihocs = action.payload.ListNguoiHoc;
+      state.filterNguoiHocs = action.payload.ListNguoiHoc;
     },
     getAllNguoiHocErrorAction: (state, action) => {
       state.isLoading = false;

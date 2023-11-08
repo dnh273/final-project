@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
-import { randomNumber } from "../../utils";
 import { ListNamHoc, ListNganh } from "../../constants/config";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
@@ -62,10 +61,10 @@ const Bang38 = () => {
           <td className="px-6 py-3 text-black border-b">{index + 1}</td>
           <td className="px-6 py-3 text-black border-b">{nam_hoc}</td>
           <td className="px-6 py-3 text-black border-b">
-            {filterByNganhHocVaNamHoc(nam_hoc).length * randomNumber(2, 4)}
+            {filterByNganhHocVaNamHoc(nam_hoc).length * 3}
           </td>
           <td className="px-6 py-3 text-black border-b">
-            {filterByNganhHocVaNamHoc(nam_hoc).length + randomNumber(5, 10)}
+            {filterByNganhHocVaNamHoc(nam_hoc).length + 4}
           </td>
           <td className="px-6 py-3 text-black border-b">
             {filterByNganhHocVaNamHoc(nam_hoc).length}

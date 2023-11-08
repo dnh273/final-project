@@ -22,26 +22,26 @@ const Bang53 = () => {
         </thead>
         <tbody>
           <tr className=" ">
-            <td className="px-6 py-3 font-semibold">Từ 1-5 cuốn sách</td>
+            <td className="px-6 py-3 font-semibold">Từ 1-5 báo cáo</td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
           </tr>
 
           <tr className=" ">
-            <td className="px-6 py-3 font-semibold">Từ 6-10 cuốn sách</td>
+            <td className="px-6 py-3 font-semibold">Từ 6-10 báo cáo</td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
           </tr>
           <tr className=" ">
-            <td className="px-6 py-3 font-semibold">Từ 11-15 cuốn sách</td>
+            <td className="px-6 py-3 font-semibold">Từ 11-15 báo cáo</td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
           </tr>
           <tr className=" ">
-            <td className="px-6 py-3 font-semibold">Trên 15 bài báo</td>
+            <td className="px-6 py-3 font-semibold">Trên 15 báo cáo</td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>
             <td className="px-6 py-3"></td>

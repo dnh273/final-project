@@ -8,9 +8,20 @@ import { filterNguoiHocAction } from "../../features/slice/nguoiHocSlice";
 
 const Bang41 = () => {
   const { nguoihocs, isLoading } = useAppSelector((state) => state.nguoihoc);
+  const { phongkytucs } = useAppSelector((state) => state.phongkytuc);
   const [listNganhFilter, setListNganhFilter] = useState<string[]>([]);
 
   const dispatch = useAppDispatch();
+
+  const filterKyTucTheoNam = (nam_hoc: string) => {
+    return nguoihocs.filter((item) => item.ky_tuc_nam.includes(nam_hoc));
+  };
+  console.log(phongkytucs);
+
+  const totalDienTich = phongkytucs.reduce(
+    (total, item) => total + item.dien_tich,
+    0
+  );
 
   useEffect(() => {
     dispatch(
@@ -35,41 +46,49 @@ const Bang41 = () => {
           <td className="px-6 py-3 font-semibold">
             1. Tổng diện tích phòng ở (m2)
           </td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
+          <td className="px-6 py-3">{totalDienTich}</td>
+          <td className="px-6 py-3">{totalDienTich}</td>
+          <td className="px-6 py-3">{totalDienTich}</td>
+          <td className="px-6 py-3">{totalDienTich}</td>
+          <td className="px-6 py-3">{totalDienTich}</td>
         </tr>
         <tr className=" ">
           <td className="px-6 py-3 font-semibold">
             2. Người học có nhu cầu về phòng ở (Trong và ngoài ký túc xá)
           </td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
+          {ListNamHoc.map((nam_hoc, index) => {
+            return (
+              <td key={index} className="px-6 py-3">
+                {filterKyTucTheoNam(nam_hoc).length * 2.5}
+              </td>
+            );
+          })}
         </tr>
         <tr className=" ">
           <td className="px-6 py-3 font-semibold">
             3. Người học được ở trong ký túc xá
           </td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
+          {ListNamHoc.map((nam_hoc, index) => {
+            return (
+              <td key={index} className="px-6 py-3">
+                {filterKyTucTheoNam(nam_hoc).length}
+              </td>
+            );
+          })}
         </tr>
         <tr className=" ">
           <td className="px-6 py-3 font-semibold">
             4. Tỷ số diện tích trên đầu người học ở trong ký túc xá (m2/người)
           </td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
-          <td className="px-6 py-3">a</td>
+          {ListNamHoc.map((nam_hoc, index) => {
+            return (
+              <td key={index} className="px-6 py-3">
+                {(
+                  filterKyTucTheoNam(nam_hoc).length / totalDienTich
+                ).toLocaleString()}
+              </td>
+            );
+          })}
         </tr>
       </>
     );

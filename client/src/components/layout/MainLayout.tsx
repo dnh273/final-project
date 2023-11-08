@@ -7,6 +7,7 @@ import { getAllDatAction } from "../../features/slice/datSlice";
 import { getAllNguoiHocAction } from "../../features/slice/nguoiHocSlice";
 import { getAllMayTinhAction } from "../../features/slice/mayTinhSlice";
 import { getAllSachAction } from "../../features/slice/sachSlice";
+import { getAllPhongKyTucAction } from "../../features/slice/phongKyTucSlice";
 
 const MainLayout = () => {
   const dispatch = useAppDispatch();
@@ -16,6 +17,7 @@ const MainLayout = () => {
     dispatch(getAllNguoiHocAction());
     dispatch(getAllMayTinhAction());
     dispatch(getAllSachAction());
+    dispatch(getAllPhongKyTucAction());
   }, [dispatch]);
 
   return (
