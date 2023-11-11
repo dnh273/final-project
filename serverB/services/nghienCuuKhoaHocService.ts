@@ -46,15 +46,20 @@ const fetchListNghienCuuKhoaHocAndUpdate = async () => {
           );
         });
 
+      const oldestDataUpdated = await NghienCuuKhoaHoc.find()
+        .sort({ updatedAt: -1 })
+        .limit(1);
+
       const ListNghienCuuKhoaHocUpdate =
-        response.data.ListNghienCuuKhoaHoc.filter(
-          (item: INghienCuuKhoaHoc) =>
+        response.data.ListNghienCuuKhoaHoc.filter((item: INghienCuuKhoaHoc) => {
+          return (
             Date.parse(
               response.data.ListNghienCuuKhoaHoc.find(
                 (data: INghienCuuKhoaHoc) => data._id == item._id.toString()
               ).updatedAt
-            ) > Date.parse(item.updatedAt.toString())
-        );
+            ) > oldestData[0].updatedAt.getTime()
+          );
+        });
 
       const bulkOperations = ListNghienCuuKhoaHocUpdate.map(
         (update: INghienCuuKhoaHoc) => {

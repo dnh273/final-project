@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import SkeletonTable from "../common/SkeletonTable";
 import NotFoundTable from "../common/NotFoundTable";
 import DropdownFilter from "../common/DropdownFilter";
-import { ListNamHoc, ListNganh } from "../../constants/config";
+import { ListNganh } from "../../constants/config";
 import { filterNguoiHocAction } from "../../features/slice/nguoiHocSlice";
 import { INghienCuuKhoaHoc } from "../../interface";
 
@@ -12,8 +12,16 @@ const Bang42 = () => {
   const { nghiencuukhoahocs } = useAppSelector(
     (state) => state.nghiencuukhoahoc
   );
+
   const [listNganhFilter, setListNganhFilter] = useState<string[]>([]);
 
+  const ListNamHoc = [
+    "2018-2019",
+    "2019-2020",
+    "2020-2021",
+    "2021-2022",
+    "2022-2023",
+  ];
   const reversedListNameHoc = [...ListNamHoc].reverse();
 
   const dispatch = useAppDispatch();
@@ -27,9 +35,17 @@ const Bang42 = () => {
     );
   }, [listNganhFilter]);
 
-  const filterByNamHoc = (nam_hoc: string, arr: INghienCuuKhoaHoc[]) => {
+  const filterNCKHByNamHoc = (nam_hoc: string, arr: INghienCuuKhoaHoc[]) => {
     return arr.filter((item) => item.nam_hoc == nam_hoc);
   };
+
+  const filterNguoiHocNCKH = (nam_hoc: string) => {
+    return nguoihocs.filter(
+      (item) =>
+        item.nghien_cuu_khoa_hoc && item.nghien_cuu_khoa_hoc.nam_hoc == nam_hoc
+    );
+  };
+  console.log(filterNguoiHocNCKH("2018-2019").length);
 
   const renderTable = () => {
     if (isLoading) {
@@ -46,7 +62,7 @@ const Bang42 = () => {
           {reversedListNameHoc.map((nam_hoc, index) => {
             return (
               <td className="px-6 py-3" key={index}>
-                {filterByNamHoc(nam_hoc, nghiencuukhoahocs).length}
+                {filterNguoiHocNCKH(nam_hoc).length}
               </td>
             );
           })}
@@ -57,9 +73,10 @@ const Bang42 = () => {
             return (
               <td className="px-6 py-3" key={index}>
                 {(
-                  filterByNamHoc(nam_hoc, nghiencuukhoahocs).length /
-                  nguoihocs.length
-                ).toFixed()}
+                  (filterNCKHByNamHoc(nam_hoc, nghiencuukhoahocs).length /
+                    filterNguoiHocNCKH(nam_hoc).length) *
+                  100
+                ).toLocaleString()}
               </td>
             );
           })}

@@ -94,10 +94,14 @@ const ListLoaiNguoiHoc = [
 ];
 
 const ListDeTai = [
-  { loai_de_tai: "Đề tài cấp NN", he_so: 2 },
-  { loai_de_tai: "Đề tài cấp Tỉnh/Bộ", he_so: 1 },
-  { loai_de_tai: "Đề tài cấp trường", he_so: 0.5 },
-  { loai_de_tai: "Đề tài hợp tác doanh nghiệp", he_so: 0.5 },
+  { show_text: "Đề tài cấp NN", loai_de_tai: "Cấp nhà nước", he_so: 2 },
+  { show_text: "Đề tài cấp Tỉnh/Bộ", loai_de_tai: "Cấp Bộ", he_so: 1 },
+  { show_text: "Đề tài cấp trường", loai_de_tai: "Cấp trường", he_so: 0.5 },
+  {
+    show_text: "Đề tài hợp tác doanh nghiệp",
+    loai_de_tai: "Hợp tác doanh nghiệp",
+    he_so: 0.5,
+  },
 ];
 
 const ListLoaiSach = [
@@ -107,6 +111,29 @@ const ListLoaiSach = [
   { loai_sach: "Sách hướng dẫn", he_so: 0.5 },
 ];
 
+const ListLoaiTapChi = [
+  {
+    loai_tap_chi: "Tạp chí khoa học quốc tế",
+    list_tap_chi: [
+      "International conference",
+      "Scopus conference",
+      "ISI Q1/Q2",
+      "ISI Q3/Q4",
+    ],
+    he_so: 1.5,
+  },
+  {
+    loai_tap_chi: "Tạp chí khoa học cấp ngành trong nước",
+    list_tap_chi: ["Domestic conference"],
+    he_so: 1,
+  },
+  {
+    loai_tap_chi: "Tạp chí / tập san của cấp trường",
+    list_tap_chi: ["Tập san cấp trường"],
+    he_so: 0.5,
+  },
+];
+
 export {
   DOMAIN,
   ListLoaiNguoiHoc,
@@ -114,4 +141,5 @@ export {
   ListNganh,
   ListDeTai,
   ListLoaiSach,
+  ListLoaiTapChi,
 };

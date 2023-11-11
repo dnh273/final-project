@@ -16,6 +16,7 @@ import HoiThaoRoute from "./routes/hoiThaoRoutes";
 import TapChiRoute from "./routes/tapChiRoutes";
 import MayTinhRoute from "./routes/mayTinhRoutes";
 import DatRoute from "./routes/datRoutes";
+import { ListDataNCKH } from "./generate/sach";
 
 dotenv.config();
 
@@ -46,6 +47,19 @@ const start = async () => {
     app.listen(port, () =>
       console.log(`Server is listening on port ${port}...`)
     );
+
+    for (let i = 0; i < ListDataNCKH.length; i++) {
+      const res = await fetch("http://localhost:3000/api/v1/nghiencuukhoahoc", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(ListDataNCKH[i]),
+      });
+
+      const result = await res.json();
+      console.log(result);
+    }
   } catch (error) {
     console.log(error);
   }

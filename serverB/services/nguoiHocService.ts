@@ -37,13 +37,20 @@ const fetchListNguoiHocAndUpdate = async () => {
         }
       );
 
+      const oldestDataUpdated = await NguoiHoc.find()
+        .sort({ updatedAt: -1 })
+        .limit(1);
+
       const ListNguoiHocUpdate = response.data.ListNguoiHoc.filter(
-        (item: INguoiHoc) =>
-          Date.parse(
-            response.data.ListNguoiHoc.find(
-              (data: INguoiHoc) => data._id == item._id.toString()
-            ).updatedAt
-          ) > Date.parse(item.updatedAt.toString())
+        (item: INguoiHoc) => {
+          return (
+            Date.parse(
+              response.data.ListNguoiHoc.find(
+                (data: INguoiHoc) => data._id == item._id.toString()
+              ).updatedAt
+            ) > oldestData[0].updatedAt.getTime()
+          );
+        }
       );
 
       const bulkOperations = ListNguoiHocUpdate.map((update: INguoiHoc) => {

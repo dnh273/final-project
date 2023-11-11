@@ -7,20 +7,27 @@ import NghienCuuKhoaHoc from "../models/NghienCuuKhoaHoc";
 
 const createNghienCuuKhoaHoc = async (req: Request, res: Response) => {
   const {
-    id_nguoi_hoc,
+    list_id_nguoi_hoc,
     id_giang_vien,
     ten_de_tai,
     nam_hoc,
     kinh_phi,
     doanh_thu,
+    loai_de_tai,
   } = req.body;
 
-  const isValidNguoiHoc = NguoiHoc.findById(id_nguoi_hoc);
-  const isValidGiangVien = GiangVien.findById(id_giang_vien);
+  const isValidGiangVien = await GiangVien.findById(id_giang_vien);
 
-  if (!isValidNguoiHoc) {
-    throw createCustomError("Người học không tồn tài", StatusCodes.NOT_FOUND);
+  for (let i = 0; i < list_id_nguoi_hoc.length; i++) {
+    const isValidNguoiHoc = await NguoiHoc.findById(list_id_nguoi_hoc[i]);
+    if (!isValidNguoiHoc) {
+      throw createCustomError(
+        `Người học không tồn tài ${list_id_nguoi_hoc[i]}`,
+        StatusCodes.NOT_FOUND
+      );
+    }
   }
+
   if (!isValidGiangVien) {
     throw createCustomError("Giảng viên không tồn tài", StatusCodes.NOT_FOUND);
   }
@@ -30,6 +37,7 @@ const createNghienCuuKhoaHoc = async (req: Request, res: Response) => {
     ten_de_tai: ten_de_tai,
     kinh_phi: kinh_phi,
     doanh_thu: doanh_thu,
+    loai_de_tai,
   });
 
   await GiangVien.findByIdAndUpdate(
@@ -41,11 +49,16 @@ const createNghienCuuKhoaHoc = async (req: Request, res: Response) => {
     },
     { new: true, useFindAndModify: false }
   );
-
-  await NguoiHoc.findByIdAndUpdate(id_nguoi_hoc, {
-    $addToSet: { nghien_cuu_khoa_hoc: nckh._id },
-  });
-
+  for (let i = 0; i < list_id_nguoi_hoc.length; i++) {
+    await NguoiHoc.bulkWrite([
+      {
+        updateOne: {
+          filter: { _id: list_id_nguoi_hoc[i] },
+          update: { nghien_cuu_khoa_hoc: nckh._id },
+        },
+      },
+    ]);
+  }
   res.status(StatusCodes.CREATED).json({ nckh });
 };
 

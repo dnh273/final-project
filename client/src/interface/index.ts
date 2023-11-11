@@ -32,6 +32,8 @@ interface INguoiHoc {
   nganh_hoc: INganhHoc;
   ky_tuc_nam: string[];
   diem_thi: number;
+  tap_chi: ITapChi[];
+  nghien_cuu_khoa_hoc: INghienCuuKhoaHoc;
   nam_nhap_hoc: string;
   nam_tot_nghiep: string;
 }
@@ -41,8 +43,8 @@ interface INghienCuuKhoaHoc {
   ten_de_tai: string;
   loai_de_tai: string;
   nam_hoc: string;
-  kinh_phi: bigint;
-  doanh_thu: bigint;
+  kinh_phi: number;
+  doanh_thu: number;
 }
 
 interface IDat {
@@ -73,6 +75,13 @@ interface IPhongKyTuc {
   so_nguoi_toi_da: number;
 }
 
+interface ITapChi {
+  _id: string;
+  ten_tap_chi: string;
+  nam_hoc: string;
+  loai_tap_chi: string;
+}
+
 export type {
   INguoiHoc,
   ILogin,
@@ -81,5 +90,6 @@ export type {
   ISach,
   IDat,
   IMayTinh,
+  ITapChi,
   IPhongKyTuc,
 };

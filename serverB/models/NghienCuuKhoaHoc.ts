@@ -12,15 +12,15 @@ const NghienCuuKhoaHocSchema = new mongoose.Schema(
       required: [true, "Hãy nhập loại đề tài"],
     },
     kinh_phi: {
-      type: BigInt,
+      type: Number,
       required: [true, "Hãy nhập kinh phí"],
     },
     doanh_thu: {
-      type: BigInt,
+      type: Number,
       required: [true, "Hãy nhập doanh thu"],
     },
   },
-   { timestamps: true, versionKey: false } 
+  { timestamps: true, versionKey: false }
 );
 
 export default mongoose.model("NghienCuuKhoaHoc", NghienCuuKhoaHocSchema);

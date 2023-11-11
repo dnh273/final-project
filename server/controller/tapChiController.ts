@@ -15,6 +15,16 @@ const createTapChi = async (req: Request, res: Response) => {
 
   const tapChi = await TapChi.create({ ten_tap_chi, nam_hoc, loai_tap_chi });
 
+  await GiangVien.findByIdAndUpdate(
+    id_giang_vien,
+    {
+      $push: {
+        tap_chi: tapChi._id,
+      },
+    },
+    { new: true, useFindAndModify: false }
+  );
+
   res.status(StatusCodes.CREATED).json({ tapChi });
 };
 

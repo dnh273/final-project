@@ -37,14 +37,21 @@ const fetchListGiangVienAndUpdate = async () => {
         }
       );
 
+      const oldestDataUpdated = await GiangVien.find()
+        .sort({ updatedAt: -1 })
+        .limit(1);
+
       const ListGiangVienUpdate = response.data.ListGiangVien.filter(
-        (item: IGiangVien) =>
-          Date.parse(
-            response.data.ListGiangVien.find(
-              (data: IGiangVien) => data._id == item._id.toString()
-            ).updatedAt
-          ) > Date.parse(item.updatedAt.toString())
-      )
+        (item: IGiangVien) => {
+          return (
+            Date.parse(
+              response.data.ListGiangVien.find(
+                (data: IGiangVien) => data._id == item._id.toString()
+              ).updatedAt
+            ) > oldestData[0].updatedAt.getTime()
+          );
+        }
+      );
 
       const bulkOperations = ListGiangVienUpdate.map((update: IGiangVien) => {
         return {
