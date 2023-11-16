@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import useComponentVisible from "../../hooks/useComponentVisible";
 import appRoutes from "../../routes/appRoutes";
 import { removeToken } from "../../utils/storage";
+import LogoURL from "../../assets/images/1200px-Logo_HUET.svg.png";
 
 const Sidebar = () => {
   const { ref, isComponentVisible, setIsComponentVisible } =
@@ -48,21 +49,34 @@ const Sidebar = () => {
         ref={ref}
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-100">
-          {/* <button
+          <div className="flex justify-center items-center">
+            <img className="w-20 h-20" src={LogoURL} alt="logo" />
+          </div>
+          <button
             id="dropdownUserNameButton"
             data-dropdown-toggle="dropdownUserName"
-            className="flex items-center justify-between my-4 p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
+            className="flex items-center justify-between my-4 p-2 bg-gray-200 text-gray-900 rounded-lg cursor-default  w-full"
             type="button"
           >
             <span className="sr-only">Open user menu</span>
             <div className="flex items-center">
-              <img
-                src="https://i1.sndcdn.com/avatars-000304411295-zx2krs-t500x500.jpg"
-                className="w-8 h-8 rounded-full mr-3"
-                alt="Bonnie avatar"
-              />
+              <div className="relative w-8 h-8 mr-2 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
+                <svg
+                  className="absolute w-10 h-10 text-gray-400 -left-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+
               <div className="text-left">
-                <div className="font-bold">Batman</div>
+                <div className="font-bold">Admin</div>
                 <div className="text-sm text-gray-400 ">admin@gmail.com</div>
               </div>
             </div>
@@ -78,7 +92,7 @@ const Sidebar = () => {
                 clipRule="evenodd"
               />
             </svg>
-          </button> */}
+          </button>
 
           <ul className="space-y-2 font-medium border-b py-3">
             {appRoutes.map((route, index) => {

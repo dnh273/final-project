@@ -28,6 +28,9 @@ const MainLayout = () => {
     <div>
       <Sidebar />
       <div className="p-4 p md:ml-64  h-full">
+        <h3 className="font-bold text-3xl">
+          QUẢN LÝ CHẤT LƯỢNG GIÁO DỤC ĐẠI HỌC CÔNG NGHỆ
+        </h3>
         <Outlet />
       </div>
     </div>

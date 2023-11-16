@@ -13,7 +13,6 @@ const Bang46 = () => {
     "2021-2022",
     "2022-2023",
   ];
-  const reversedListNameHoc = [...ListNamHoc].reverse();
 
   const totalDoanhThuNCKHByName = (nam_hoc?: string) => {
     return nghiencuukhoahocs.reduce(
@@ -39,7 +38,7 @@ const Bang46 = () => {
     );
   };
 
-  const totalGVBienChe = () => {
+  const totalGVCoHuu = () => {
     return giangviens.filter(
       (item) =>
         item.loai_hop_dong == "Trong biên chế" ||
@@ -84,7 +83,7 @@ const Bang46 = () => {
                 </td>
                 <td className="px-6 py-3">
                   {(
-                    totalDoanhThuNCKHByName(nam_hoc) / totalGVBienChe()
+                    totalDoanhThuNCKHByName(nam_hoc) / totalGVCoHuu()
                   ).toLocaleString()}
                 </td>
               </tr>

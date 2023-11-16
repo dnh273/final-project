@@ -25,7 +25,7 @@ const NguoiHoc = () => {
         {appRoutes[1].children?.map((item, index) => (
           <NavLink
             key={index}
-            className="bg-orange-400 font-bold text-white mr-2 px-4 py-2 rounded-lg"
+            className="bg-blue-500 font-bold text-white mr-2 px-4 py-2 rounded-lg"
             to={`${item.path}`}
           >
             {item.sidebarProps?.displayText}

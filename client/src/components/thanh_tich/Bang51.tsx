@@ -4,7 +4,6 @@ import { useAppSelector } from "../../redux/hook";
 const Bang51 = () => {
   const { giangviens } = useAppSelector((state) => state.giangvien);
 
-  console.log(giangviens);
 
   return (
     <div className="relative overflow-x-auto shadow-md rounded-lg">

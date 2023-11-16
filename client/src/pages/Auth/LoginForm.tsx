@@ -45,51 +45,56 @@ const LoginForm = () => {
 
         <div className="flex flex-col pb-4 pt-4 gap-4">
           <div className="relative">
-            <input
-              className={`py-4 px-6 text-sm rounded-lg border border-gray-600  ${
-                errors?.email && "border-red-500"
-              }`}
-              placeholder="get@ziontutorial.com"
-              type="email"
-              {...register("email", {
-                required: "Please fill the email",
-                pattern: {
-                  value: /^\S+@\S+\.\S+$/,
-                  message: "Please fill correct email",
-                },
-              })}
-            />
-            <small className="text-red-500 pt-2 font-semibold block">
-              {errors?.email ? (
-                <small className="text-red-500 pt-2 font-semibold block">
-                  {errors.email.message}
-                </small>
-              ) : null}
-            </small>
+            <div>
+              <input
+                className={`py-4 px-6 text-sm rounded-lg border border-gray-600  ${
+                  errors?.email && "border-red-500"
+                }`}
+                placeholder="get@ziontutorial.com"
+                type="email"
+                {...register("email", {
+                  required: "Please fill the email",
+                  pattern: {
+                    value: /^\S+@\S+\.\S+$/,
+                    message: "Please fill correct email",
+                  },
+                })}
+              />
+            </div>
+            {errors?.email ? (
+              <small className="text-red-500 pt-2 font-semibold block">
+                {errors.email.message}
+              </small>
+            ) : null}
           </div>
-          <div className="relative">
-            <input
-              className={`py-4 px-6 text-sm rounded-lg border border-gray-600  ${
-                errors.password && "border-red-500"
-              }`}
-              placeholder="password"
-              type={showPassword ? "text" : "password"}
-              {...register("password", {
-                required: "Please fill the password",
-                minLength: { value: 6, message: "Length must greater than 6" },
-              })}
-            />
-            {showPassword ? (
-              <i
-                className={`ri-eye-off-fill absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer`}
-                onClick={() => setShowPassword(!showPassword)}
-              ></i>
-            ) : (
-              <i
-                className={`ri-eye-fill absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer`}
-                onClick={() => setShowPassword(!showPassword)}
-              ></i>
-            )}
+          <div>
+            <div className="relative">
+              <input
+                className={`py-4 px-6 text-sm rounded-lg border border-gray-600  ${
+                  errors.password && "border-red-500"
+                }`}
+                placeholder="password"
+                type={showPassword ? "text" : "password"}
+                {...register("password", {
+                  required: "Please fill the password",
+                  minLength: {
+                    value: 6,
+                    message: "Length must greater than 6",
+                  },
+                })}
+              />
+              {showPassword ? (
+                <i
+                  className={`ri-eye-off-fill absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer`}
+                  onClick={() => setShowPassword(!showPassword)}
+                ></i>
+              ) : (
+                <i
+                  className={`ri-eye-fill absolute top-1/2 -translate-y-1/2 right-2 cursor-pointer`}
+                  onClick={() => setShowPassword(!showPassword)}
+                ></i>
+              )}
+            </div>
             {errors?.password ? (
               <small className="text-red-500 pt-2 font-semibold block">
                 {errors.password.message}

@@ -13,6 +13,7 @@ interface IGiangVien {
   khoa: string;
   dien_thoai: string;
   email: string;
+  nghien_cuu_khoa_hoc: INghienCuuKhoaHoc[];
   loai_hop_dong: string;
   phong_ban: string | null;
   sach: ISach[];

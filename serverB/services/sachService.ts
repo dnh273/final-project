@@ -10,9 +10,9 @@ const fetchListSachAndUpdate = async () => {
   if (response.status === 200) {
     const ListIdSachDelete = ListSach.filter(
       (item) =>
-        !response.data.ListSach.map(
-          (data: ISach) => data._id
-        ).includes(item._id.toString())
+        !response.data.ListSach.map((data: ISach) => data._id).includes(
+          item._id.toString()
+        )
     ).map((item) => {
       _id: item.id;
     });
@@ -37,14 +37,21 @@ const fetchListSachAndUpdate = async () => {
         }
       );
 
+      const oldestDataUpdated = await Sach.find()
+        .sort({ updatedAt: -1 })
+        .limit(1);
+
       const ListSachUpdate = response.data.ListSach.filter(
-        (item: ISach) =>
-          Date.parse(
-            response.data.ListSach.find(
-              (data: ISach) => data._id == item._id.toString()
-            ).updatedAt
-          ) > Date.parse(item.updatedAt.toString())
-      )
+        (item: ISach) => {
+          return (
+            Date.parse(
+              response.data.ListSach.find(
+                (data: ISach) => data._id == item._id.toString()
+              ).updatedAt
+            ) > oldestData[0].updatedAt.getTime()
+          );
+        }
+      );
 
       const bulkOperations = ListSachUpdate.map((update: ISach) => {
         return {

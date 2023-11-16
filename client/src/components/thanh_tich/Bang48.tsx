@@ -49,7 +49,7 @@ const Bang48 = () => {
                 <td className="px-6 py-3">{item.he_so}</td>
                 {["2018", "2019", "2020", "2021", "2022"].map((year, i) => {
                   return (
-                    <td className="px-6 py-3" key={index * i + 30}>
+                    <td className="px-6 py-3" key={(index + 1) * (i + 1) + 30}>
                       {filterByLoaiSach(item.loai_sach, year).length}
                     </td>
                   );

@@ -45,7 +45,6 @@ const Bang42 = () => {
         item.nghien_cuu_khoa_hoc && item.nghien_cuu_khoa_hoc.nam_hoc == nam_hoc
     );
   };
-  console.log(filterNguoiHocNCKH("2018-2019").length);
 
   const renderTable = () => {
     if (isLoading) {

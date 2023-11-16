@@ -16,7 +16,6 @@ const Bang41 = () => {
   const filterKyTucTheoNam = (nam_hoc: string) => {
     return nguoihocs.filter((item) => item.ky_tuc_nam.includes(nam_hoc));
   };
-  console.log(phongkytucs);
 
   const totalDienTich = phongkytucs.reduce(
     (total, item) => total + item.dien_tich,
